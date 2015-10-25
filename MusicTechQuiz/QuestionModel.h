@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface QuestionAnswerModel : NSObject
+@interface QuestionModel : NSObject
+
+@property (nonatomic, readonly) NSNumber *remoteDatabaseId;
 
 @property (nonatomic, copy, readonly) NSArray *answers;
 
@@ -16,6 +18,11 @@
 @property (nonatomic, copy, readonly) NSString *correctAnswer;
 
 
--(instancetype)initWithQuestion:(NSString*)question answers:(NSArray*)answers correctAnswer:(NSString*)correctAnswer;
+-(instancetype)initWithQuestion:(NSString*)question
+                        answers:(NSArray*)answers
+                  correctAnswer:(NSString*)correctAnswer
+               remoteDatabaseId:(NSNumber*)remoteDatabaseId;
+
+
 
 @end

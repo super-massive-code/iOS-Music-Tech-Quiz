@@ -13,7 +13,10 @@
 		C367B8EF1BDCDF9F00CE442C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C367B8ED1BDCDF9F00CE442C /* Main.storyboard */; };
 		C367B8F11BDCDF9F00CE442C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C367B8F01BDCDF9F00CE442C /* Assets.xcassets */; };
 		C367B8F41BDCDF9F00CE442C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C367B8F21BDCDF9F00CE442C /* LaunchScreen.storyboard */; };
-		C367B8FD1BDCE29A00CE442C /* QuestionAnswerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C367B8FC1BDCE29A00CE442C /* QuestionAnswerModel.m */; };
+		C367B8FD1BDCE29A00CE442C /* QuestionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C367B8FC1BDCE29A00CE442C /* QuestionModel.m */; };
+		C367B9001BDCF0D200CE442C /* QuestionController.m in Sources */ = {isa = PBXBuildFile; fileRef = C367B8FF1BDCF0D200CE442C /* QuestionController.m */; };
+		C367B9061BDCF94000CE442C /* wrong.wav in Resources */ = {isa = PBXBuildFile; fileRef = C367B9041BDCF94000CE442C /* wrong.wav */; };
+		C367B9071BDCF94000CE442C /* correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = C367B9051BDCF94000CE442C /* correct.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,8 +30,12 @@
 		C367B8F01BDCDF9F00CE442C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C367B8F31BDCDF9F00CE442C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C367B8F51BDCDF9F00CE442C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C367B8FB1BDCE29A00CE442C /* QuestionAnswerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionAnswerModel.h; sourceTree = "<group>"; };
-		C367B8FC1BDCE29A00CE442C /* QuestionAnswerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionAnswerModel.m; sourceTree = "<group>"; };
+		C367B8FB1BDCE29A00CE442C /* QuestionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionModel.h; sourceTree = "<group>"; };
+		C367B8FC1BDCE29A00CE442C /* QuestionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionModel.m; sourceTree = "<group>"; };
+		C367B8FE1BDCF0D200CE442C /* QuestionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionController.h; sourceTree = "<group>"; };
+		C367B8FF1BDCF0D200CE442C /* QuestionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionController.m; sourceTree = "<group>"; };
+		C367B9041BDCF94000CE442C /* wrong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wrong.wav; sourceTree = "<group>"; };
+		C367B9051BDCF94000CE442C /* correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = correct.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,11 +74,15 @@
 				C367B8EB1BDCDF9F00CE442C /* QuestionAnswerViewController.m */,
 				C367B8ED1BDCDF9F00CE442C /* Main.storyboard */,
 				C367B8F01BDCDF9F00CE442C /* Assets.xcassets */,
+				C367B9041BDCF94000CE442C /* wrong.wav */,
+				C367B9051BDCF94000CE442C /* correct.wav */,
 				C367B8F21BDCDF9F00CE442C /* LaunchScreen.storyboard */,
 				C367B8F51BDCDF9F00CE442C /* Info.plist */,
 				C367B8E41BDCDF9F00CE442C /* Supporting Files */,
-				C367B8FB1BDCE29A00CE442C /* QuestionAnswerModel.h */,
-				C367B8FC1BDCE29A00CE442C /* QuestionAnswerModel.m */,
+				C367B8FB1BDCE29A00CE442C /* QuestionModel.h */,
+				C367B8FC1BDCE29A00CE442C /* QuestionModel.m */,
+				C367B8FE1BDCF0D200CE442C /* QuestionController.h */,
+				C367B8FF1BDCF0D200CE442C /* QuestionController.m */,
 			);
 			path = MusicTechQuiz;
 			sourceTree = "<group>";
@@ -143,6 +154,8 @@
 			files = (
 				C367B8F41BDCDF9F00CE442C /* LaunchScreen.storyboard in Resources */,
 				C367B8F11BDCDF9F00CE442C /* Assets.xcassets in Resources */,
+				C367B9061BDCF94000CE442C /* wrong.wav in Resources */,
+				C367B9071BDCF94000CE442C /* correct.wav in Resources */,
 				C367B8EF1BDCDF9F00CE442C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -155,7 +168,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C367B8EC1BDCDF9F00CE442C /* QuestionAnswerViewController.m in Sources */,
-				C367B8FD1BDCE29A00CE442C /* QuestionAnswerModel.m in Sources */,
+				C367B9001BDCF0D200CE442C /* QuestionController.m in Sources */,
+				C367B8FD1BDCE29A00CE442C /* QuestionModel.m in Sources */,
 				C367B8E91BDCDF9F00CE442C /* AppDelegate.m in Sources */,
 				C367B8E61BDCDF9F00CE442C /* main.m in Sources */,
 			);
