@@ -20,9 +20,13 @@
 		C367B90A1BDD036E00CE442C /* QuestionUpdateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C367B9091BDD036E00CE442C /* QuestionUpdateManager.m */; };
 		C367B90D1BDD040600CE442C /* ServerComms.m in Sources */ = {isa = PBXBuildFile; fileRef = C367B90C1BDD040600CE442C /* ServerComms.m */; };
 		C3D48FE31C2AEABB004C39CF /* ServerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D48FE21C2AEABB004C39CF /* ServerResponse.m */; };
+		FA42C9180930297D3983CA6F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EAF2FFAA79C992C0D1B8718 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1EAF2FFAA79C992C0D1B8718 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2196534CEF3DA3E7A1A1A762 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		A2C629A2BE74BC352C053291 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C367B8E11BDCDF9F00CE442C /* MusicTechQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicTechQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C367B8E51BDCDF9F00CE442C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C367B8E71BDCDF9F00CE442C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -52,17 +56,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA42C9180930297D3983CA6F /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BAA7A17D8ED84FDA00D837FA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1EAF2FFAA79C992C0D1B8718 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C367B8D81BDCDF9F00CE442C = {
 			isa = PBXGroup;
 			children = (
 				C367B8E31BDCDF9F00CE442C /* MusicTechQuiz */,
 				C367B8E21BDCDF9F00CE442C /* Products */,
+				E79408F62F46A045FB742CEA /* Pods */,
+				BAA7A17D8ED84FDA00D837FA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,6 +92,7 @@
 		C367B8E31BDCDF9F00CE442C /* MusicTechQuiz */ = {
 			isa = PBXGroup;
 			children = (
+				C3D48FE41C2AF0E0004C39CF /* QuestionData */,
 				C3D48FE01C2AEA6C004C39CF /* ServerComms */,
 				C367B8E71BDCDF9F00CE442C /* AppDelegate.h */,
 				C367B8E81BDCDF9F00CE442C /* AppDelegate.m */,
@@ -89,12 +105,6 @@
 				C367B8F21BDCDF9F00CE442C /* LaunchScreen.storyboard */,
 				C367B8F51BDCDF9F00CE442C /* Info.plist */,
 				C367B8E41BDCDF9F00CE442C /* Supporting Files */,
-				C367B8FB1BDCE29A00CE442C /* QuestionModel.h */,
-				C367B8FC1BDCE29A00CE442C /* QuestionModel.m */,
-				C367B8FE1BDCF0D200CE442C /* QuestionController.h */,
-				C367B8FF1BDCF0D200CE442C /* QuestionController.m */,
-				C367B9081BDD036E00CE442C /* QuestionUpdateManager.h */,
-				C367B9091BDD036E00CE442C /* QuestionUpdateManager.m */,
 			);
 			path = MusicTechQuiz;
 			sourceTree = "<group>";
@@ -118,6 +128,28 @@
 			name = ServerComms;
 			sourceTree = "<group>";
 		};
+		C3D48FE41C2AF0E0004C39CF /* QuestionData */ = {
+			isa = PBXGroup;
+			children = (
+				C367B8FB1BDCE29A00CE442C /* QuestionModel.h */,
+				C367B8FC1BDCE29A00CE442C /* QuestionModel.m */,
+				C367B8FE1BDCF0D200CE442C /* QuestionController.h */,
+				C367B8FF1BDCF0D200CE442C /* QuestionController.m */,
+				C367B9081BDD036E00CE442C /* QuestionUpdateManager.h */,
+				C367B9091BDD036E00CE442C /* QuestionUpdateManager.m */,
+			);
+			name = QuestionData;
+			sourceTree = "<group>";
+		};
+		E79408F62F46A045FB742CEA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2196534CEF3DA3E7A1A1A762 /* Pods.debug.xcconfig */,
+				A2C629A2BE74BC352C053291 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -125,9 +157,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C367B8F81BDCDF9F00CE442C /* Build configuration list for PBXNativeTarget "MusicTechQuiz" */;
 			buildPhases = (
+				35877C5597D94EC04EA14081 /* Check Pods Manifest.lock */,
 				C367B8DD1BDCDF9F00CE442C /* Sources */,
 				C367B8DE1BDCDF9F00CE442C /* Frameworks */,
 				C367B8DF1BDCDF9F00CE442C /* Resources */,
+				9AB1E140F548B99F03665225 /* Embed Pods Frameworks */,
+				D4AC445DEE021964A65946D0 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -184,6 +219,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		35877C5597D94EC04EA14081 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9AB1E140F548B99F03665225 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D4AC445DEE021964A65946D0 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C367B8DD1BDCDF9F00CE442C /* Sources */ = {
@@ -305,6 +388,7 @@
 		};
 		C367B8F91BDCDF9F00CE442C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2196534CEF3DA3E7A1A1A762 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MusicTechQuiz/Info.plist;
@@ -316,6 +400,7 @@
 		};
 		C367B8FA1BDCDF9F00CE442C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A2C629A2BE74BC352C053291 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MusicTechQuiz/Info.plist;
