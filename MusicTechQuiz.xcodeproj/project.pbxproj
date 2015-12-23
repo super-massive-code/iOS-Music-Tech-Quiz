@@ -22,6 +22,8 @@
 		C3D48FE31C2AEABB004C39CF /* ServerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D48FE21C2AEABB004C39CF /* ServerResponse.m */; };
 		C3D48FF51C2AFD7F004C39CF /* BaseRealmObj.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D48FF41C2AFD7F004C39CF /* BaseRealmObj.m */; };
 		C3D48FF81C2B031A004C39CF /* UpdateQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D48FF71C2B031A004C39CF /* UpdateQueue.m */; };
+		C3D48FFB1C2B0837004C39CF /* UpdateUrlBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D48FFA1C2B0837004C39CF /* UpdateUrlBuilder.m */; };
+		C3D48FFE1C2B0853004C39CF /* urlConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D48FFD1C2B0853004C39CF /* urlConstants.m */; };
 		FA42C9180930297D3983CA6F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EAF2FFAA79C992C0D1B8718 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +57,10 @@
 		C3D48FF41C2AFD7F004C39CF /* BaseRealmObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRealmObj.m; sourceTree = "<group>"; };
 		C3D48FF61C2B031A004C39CF /* UpdateQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateQueue.h; sourceTree = "<group>"; };
 		C3D48FF71C2B031A004C39CF /* UpdateQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateQueue.m; sourceTree = "<group>"; };
+		C3D48FF91C2B0837004C39CF /* UpdateUrlBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateUrlBuilder.h; sourceTree = "<group>"; };
+		C3D48FFA1C2B0837004C39CF /* UpdateUrlBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateUrlBuilder.m; sourceTree = "<group>"; };
+		C3D48FFC1C2B0853004C39CF /* urlConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = urlConstants.h; sourceTree = "<group>"; };
+		C3D48FFD1C2B0853004C39CF /* urlConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = urlConstants.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +136,8 @@
 				C367B90C1BDD040600CE442C /* ServerComms.m */,
 				C3D48FE11C2AEABB004C39CF /* ServerResponse.h */,
 				C3D48FE21C2AEABB004C39CF /* ServerResponse.m */,
+				C3D48FFC1C2B0853004C39CF /* urlConstants.h */,
+				C3D48FFD1C2B0853004C39CF /* urlConstants.m */,
 			);
 			name = ServerComms;
 			sourceTree = "<group>";
@@ -154,6 +162,8 @@
 				C367B9091BDD036E00CE442C /* UpdateManager.m */,
 				C3D48FF61C2B031A004C39CF /* UpdateQueue.h */,
 				C3D48FF71C2B031A004C39CF /* UpdateQueue.m */,
+				C3D48FF91C2B0837004C39CF /* UpdateUrlBuilder.h */,
+				C3D48FFA1C2B0837004C39CF /* UpdateUrlBuilder.m */,
 			);
 			name = Updates;
 			sourceTree = "<group>";
@@ -300,6 +310,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C367B8EC1BDCDF9F00CE442C /* QuestionAnswerViewController.m in Sources */,
+				C3D48FFE1C2B0853004C39CF /* urlConstants.m in Sources */,
+				C3D48FFB1C2B0837004C39CF /* UpdateUrlBuilder.m in Sources */,
 				C3D48FE31C2AEABB004C39CF /* ServerResponse.m in Sources */,
 				C367B9001BDCF0D200CE442C /* QuestionController.m in Sources */,
 				C367B8FD1BDCE29A00CE442C /* QuestionModel.m in Sources */,

@@ -1,18 +1,13 @@
 //
-//  UpdateQueue.m
+//  UpdateUrlBuilder.h
 //  MusicTechQuiz
 //
 //  Created by Carl  on 23/12/2015.
 //  Copyright © 2015 Carl Taylor. All rights reserved.
 //
 
-#import "UpdateQueue.h"
+#import <Foundation/Foundation.h>
 
-@implementation UpdateQueue
-
--(void)addUpdatesToQueue:(NSArray*)updateUrls
-{
-    
-}
+@interface UpdateUrlBuilder : NSObject
 
 @end
