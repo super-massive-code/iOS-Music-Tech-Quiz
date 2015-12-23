@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "QuestionUpdateManager.h"
 
 @interface AppDelegate ()
 
@@ -20,6 +21,9 @@
     //todo: maybe configure app colours etc from server?
     
     // Override point for customization after application launch.
+    
+    [QuestionUpdateManager checkForUpdates];
+    
     return YES;
 }
 

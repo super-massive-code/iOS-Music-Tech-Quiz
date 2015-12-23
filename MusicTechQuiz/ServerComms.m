@@ -17,6 +17,8 @@
 
 @implementation ServerComms
 
+#pragma -
+#pragma - Initialization
 
 -(instancetype)init
 {
@@ -41,6 +43,20 @@
     return session;
 }
 
+#pragma -
+#pragma - DispatchMethod
+
+-(void)getJSONfromUrl:(NSString*)urlString callCallBack:(void(^)(ServerResponse *responseObject))callBack
+{
+    NSURL *nsurl = [NSURL URLWithString:urlString];
+    NSMutableURLRequest *urlRequest =[NSMutableURLRequest requestWithURL:nsurl];
+    [urlRequest setHTTPMethod:@"GET"];
+    
+    [self runRequest:urlRequest WithCallBack:^(ServerResponse *responseObject) {
+        return callBack(responseObject);
+    }];
+}
+
 -(void)postJSON:(id)JSON toUrl:(NSString*)urlString withHttpMethod:(HTTP_METHOD)httpMethod CallBack:(void(^)(ServerResponse *responseObject))callBack
 {
     NSError *dataConversionError;
@@ -55,18 +71,25 @@
     [urlRequest setHTTPBody:postData];
     
     switch (httpMethod) {
-        case HTTP_METHOD_GET:
-            [urlRequest setHTTPMethod:@"GET"];
-            break;
         case HTTP_METHOD_POST:
             [urlRequest setHTTPMethod:@"POST"];
             break;
         default:
             [NSException raise:@"** Invalid State **" format:@"Must pass valid HTTP method"];
             break;
-    }       
+    }
     
-    NSURLSessionTask *task = [self.session dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    [self runRequest:urlRequest WithCallBack:^(ServerResponse *responseObject) {
+        return callBack(responseObject);
+    }];
+}
+
+#pragma -
+#pragma - RunRequest
+
+-(void)runRequest:(NSURLRequest*)request WithCallBack:(void(^)(ServerResponse *responseObject))callBack
+{
+    NSURLSessionTask *task = [self.session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         
         if (data == nil || error) {
             return callBack([self createResponseObjectConnectionMade:NO responseDict:nil error:error]);

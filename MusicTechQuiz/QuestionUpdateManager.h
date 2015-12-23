@@ -10,6 +10,6 @@
 
 @interface QuestionUpdateManager : NSObject
 
--(void)checkForUpdates;
++(void)checkForUpdates;
 
 @end

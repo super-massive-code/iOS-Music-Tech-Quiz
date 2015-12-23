@@ -9,15 +9,15 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSUInteger, HTTP_METHOD) {
-    HTTP_METHOD_GET,
     HTTP_METHOD_POST
 };
 
 @class ServerResponse;
 
-
 @interface ServerComms : NSObject
 
 -(void)postJSON:(id)JSON toUrl:(NSString*)urlString withHttpMethod:(HTTP_METHOD)httpMethod CallBack:(void(^)(ServerResponse *responseObject))callBack;
+
+-(void)getJSONfromUrl:(NSString*)urlString callCallBack:(void(^)(ServerResponse *responseObject))callBack;
 
 @end

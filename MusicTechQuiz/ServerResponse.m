@@ -12,7 +12,7 @@
 
 -(NSString*)description
 {
-    return [NSString stringWithFormat:@"UserMessage: %@\nConnectionMade: %hhd\nResponseDict: %@\nNSError: %@\n", self.userMessage, self.connectionMade, self.responseDict, self.error];
+    return [NSString stringWithFormat:@"UserMessage: %@\nConnectionMade: %i\nResponseDict: %@\nNSError: %@\n", self.userMessage, self.connectionMade, self.responseDict, self.error];
 }
 
 @end
