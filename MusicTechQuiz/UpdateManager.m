@@ -6,8 +6,9 @@
 //  Copyright © 2015 Carl Taylor. All rights reserved.
 //
 
-#import "QuestionUpdateManager.h"
+#import "UpdateManager.h"
 #import "ServerComms.h"
+#import "BaseRealmObj.h"
 
 //url(r'^$', views.api_route),
 //url(r'^login_user', views.login_user),
@@ -20,12 +21,14 @@
 //url(r'^user/(?P<username>[+\w]+)$', views.get_user),
 
 
-@implementation QuestionUpdateManager
+@implementation UpdateManager
 
 +(void)checkForUpdates
 {
     // NSDate last update time
-
+    
+  
+   
   NSString *url = @"https://carltaylor43.pythonanywhere.com/updates_since/7878";
     
     ServerComms *comms = [[ServerComms alloc]init];

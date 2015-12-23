@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "QuestionUpdateManager.h"
+#import "UpdateManager.h"
 
 @interface AppDelegate ()
 
@@ -22,7 +22,7 @@
     
     // Override point for customization after application launch.
     
-    [QuestionUpdateManager checkForUpdates];
+    [UpdateManager checkForUpdates];
     
     return YES;
 }

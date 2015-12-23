@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface QuestionUpdateManager : NSObject
+
+@interface UpdateManager : NSObject
 
 +(void)checkForUpdates;
 
