@@ -10,7 +10,7 @@
 
 typedef NS_ENUM(NSUInteger, HTTP_METHOD) {
     HTTP_METHOD_GET,
-    HTTP_METHOD_POST // todo use these
+    HTTP_METHOD_POST
 };
 
 @class ServerResponse;
@@ -18,6 +18,6 @@ typedef NS_ENUM(NSUInteger, HTTP_METHOD) {
 
 @interface ServerComms : NSObject
 
--(void)postJSON:(id)JSON toUrl:(NSString*)urlString withCallBack:(void(^)(ServerResponse *responseObject))callBack;
+-(void)postJSON:(id)JSON toUrl:(NSString*)urlString withHttpMethod:(HTTP_METHOD)httpMethod CallBack:(void(^)(ServerResponse *responseObject))callBack;
 
 @end

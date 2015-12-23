@@ -41,7 +41,7 @@
     return session;
 }
 
--(void)postJSON:(id)JSON toUrl:(NSString*)urlString withCallBack:(void(^)(ServerResponse *responseObject))callBack
+-(void)postJSON:(id)JSON toUrl:(NSString*)urlString withHttpMethod:(HTTP_METHOD)httpMethod CallBack:(void(^)(ServerResponse *responseObject))callBack
 {
     NSError *dataConversionError;
     NSData *postData = [NSJSONSerialization dataWithJSONObject:JSON options:kNilOptions error:&dataConversionError];
@@ -53,7 +53,18 @@
     NSURL *nsurl = [NSURL URLWithString:urlString];
     NSMutableURLRequest *urlRequest =[NSMutableURLRequest requestWithURL:nsurl];
     [urlRequest setHTTPBody:postData];
-    [urlRequest setHTTPMethod:@"POST"];
+    
+    switch (httpMethod) {
+        case HTTP_METHOD_GET:
+            [urlRequest setHTTPMethod:@"GET"];
+            break;
+        case HTTP_METHOD_POST:
+            [urlRequest setHTTPMethod:@"POST"];
+            break;
+        default:
+            [NSException raise:@"** Invalid State **" format:@"Must pass valid HTTP method"];
+            break;
+    }       
     
     NSURLSessionTask *task = [self.session dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         
