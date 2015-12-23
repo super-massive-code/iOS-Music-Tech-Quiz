@@ -23,6 +23,4 @@
                   correctAnswer:(NSString*)correctAnswer
                remoteDatabaseId:(NSNumber*)remoteDatabaseId;
 
-
-
 @end

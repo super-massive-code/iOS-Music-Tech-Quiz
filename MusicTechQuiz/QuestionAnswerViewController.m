@@ -27,7 +27,7 @@
 
 @end
 
-NSInteger CORRECT_SCORE_VALUE = 10;
+NSInteger CORRECT_SCORE_VALUE = 10; // Maybe configure on server?
 NSInteger INCORRECT_SCORE_VALUE = -10;
 
 @implementation QuestionAnswerViewController
@@ -152,7 +152,7 @@ NSInteger INCORRECT_SCORE_VALUE = -10;
 {
     // get total score
     // check if can add to high score table (server and local?)
-    // go back to home screen / hight score table
+    // go back to home screen / high score table
 }
 
 @end

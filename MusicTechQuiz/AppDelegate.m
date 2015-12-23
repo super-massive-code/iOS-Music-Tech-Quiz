@@ -16,6 +16,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    //todo: maybe configure app colours etc from server?
+    
     // Override point for customization after application launch.
     return YES;
 }

@@ -21,6 +21,12 @@
 @end
 
 
+typedef NS_ENUM(NSUInteger, HTTP_METHOD) {
+    HTTP_METHOD_GET,
+    HTTP_METHOD_POST // todo use these
+};
+
+
 @interface ServerComms : NSObject
 
 -(void)postJSON:(id)JSON toUrl:(NSString*)urlString withCallBack:(void(^)(ServerResponseObject *responseObject))callBack;
