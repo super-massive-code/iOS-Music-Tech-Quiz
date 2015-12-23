@@ -8,27 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ServerResponseObject : NSObject
-
-@property (nonatomic, strong) NSString *userMessage;
-@property BOOL connectionMade;
-@property NSDictionary *responseDict;
-@property NSError *error;
-
-@end
-
-@implementation ServerResponseObject
-@end
-
-
 typedef NS_ENUM(NSUInteger, HTTP_METHOD) {
     HTTP_METHOD_GET,
     HTTP_METHOD_POST // todo use these
 };
 
+@class ServerResponse;
+
 
 @interface ServerComms : NSObject
 
--(void)postJSON:(id)JSON toUrl:(NSString*)urlString withCallBack:(void(^)(ServerResponseObject *responseObject))callBack;
+-(void)postJSON:(id)JSON toUrl:(NSString*)urlString withCallBack:(void(^)(ServerResponse *responseObject))callBack;
 
 @end
