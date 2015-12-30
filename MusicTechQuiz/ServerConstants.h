@@ -1,5 +1,5 @@
 //
-//  urlConstants.h
+//  ServerConstants.h
 //  MusicTechQuiz
 //
 //  Created by Carl  on 23/12/2015.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface urlConstants : NSObject
+@interface ServerConstants : NSObject
 
 extern NSString * const kServerBaseUrl;
 extern NSString * const kServerEndPointLogin;
