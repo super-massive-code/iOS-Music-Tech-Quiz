@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C32BFAE81C33E9440033D82C /* UpdateParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C32BFAE71C33E9440033D82C /* UpdateParser.m */; };
 		C32BFAEB1C33F3330033D82C /* Update.m in Sources */ = {isa = PBXBuildFile; fileRef = C32BFAEA1C33F3330033D82C /* Update.m */; };
+		C32BFAEE1C33F9100033D82C /* QuestionAnswerParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C32BFAED1C33F9100033D82C /* QuestionAnswerParser.m */; };
 		C367B8E61BDCDF9F00CE442C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C367B8E51BDCDF9F00CE442C /* main.m */; };
 		C367B8E91BDCDF9F00CE442C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C367B8E81BDCDF9F00CE442C /* AppDelegate.m */; };
 		C367B8EC1BDCDF9F00CE442C /* QuestionAnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C367B8EB1BDCDF9F00CE442C /* QuestionAnswerViewController.m */; };
@@ -37,6 +38,8 @@
 		C32BFAE71C33E9440033D82C /* UpdateParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateParser.m; sourceTree = "<group>"; };
 		C32BFAE91C33F3330033D82C /* Update.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Update.h; sourceTree = "<group>"; };
 		C32BFAEA1C33F3330033D82C /* Update.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Update.m; sourceTree = "<group>"; };
+		C32BFAEC1C33F9100033D82C /* QuestionAnswerParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionAnswerParser.h; sourceTree = "<group>"; };
+		C32BFAED1C33F9100033D82C /* QuestionAnswerParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionAnswerParser.m; sourceTree = "<group>"; };
 		C367B8E11BDCDF9F00CE442C /* MusicTechQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicTechQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C367B8E51BDCDF9F00CE442C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C367B8E71BDCDF9F00CE442C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -172,6 +175,8 @@
 				C3D48FFA1C2B0837004C39CF /* UpdateUrlBuilder.m */,
 				C32BFAE61C33E9440033D82C /* UpdateParser.h */,
 				C32BFAE71C33E9440033D82C /* UpdateParser.m */,
+				C32BFAEC1C33F9100033D82C /* QuestionAnswerParser.h */,
+				C32BFAED1C33F9100033D82C /* QuestionAnswerParser.m */,
 			);
 			name = Updates;
 			sourceTree = "<group>";
@@ -320,6 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C32BFAEB1C33F3330033D82C /* Update.m in Sources */,
+				C32BFAEE1C33F9100033D82C /* QuestionAnswerParser.m in Sources */,
 				C3D490051C2B0D3D004C39CF /* ServerConstants.m in Sources */,
 				C367B8EC1BDCDF9F00CE442C /* QuestionAnswerViewController.m in Sources */,
 				C3D48FFB1C2B0837004C39CF /* UpdateUrlBuilder.m in Sources */,

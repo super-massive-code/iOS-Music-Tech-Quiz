@@ -24,7 +24,7 @@
         [NSException raise:@"*** Illegal State ***" format:@"unknown server model type"];
     }
     
-    NSString *updateUrl = [NSString stringWithFormat:@"%@%@%ld", baseUrl, endPoint, (long)updateModel.remote_id];
+    NSString *updateUrl = [NSString stringWithFormat:@"%@%@%@", baseUrl, endPoint, updateModel.remote_id];
     return updateUrl;
 }
 

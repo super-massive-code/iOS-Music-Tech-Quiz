@@ -10,6 +10,6 @@
 
 @interface UpdateQueue : NSObject
 
--(void)addUpdatesToQueue:(NSArray*)updateUrls;
+-(void)addUrlsToInMemoryQueue:(NSArray*)updateUrls;
 
 @end

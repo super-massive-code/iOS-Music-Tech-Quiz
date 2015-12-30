@@ -10,7 +10,7 @@
 
 @implementation UpdateQueue
 
--(void)addUpdatesToQueue:(NSArray*)updateUrls
+-(void)addUrlsToInMemoryQueue:(NSArray*)updateUrls
 {
     
 }

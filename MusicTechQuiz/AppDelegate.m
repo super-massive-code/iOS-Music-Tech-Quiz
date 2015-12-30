@@ -22,7 +22,8 @@
     
     // Override point for customization after application launch.
     
-    [UpdateManager checkForUpdates];
+    UpdateManager *updateManager = [[UpdateManager alloc]init];
+    [updateManager checkForUpdatesOnClient];
     
     return YES;
 }
