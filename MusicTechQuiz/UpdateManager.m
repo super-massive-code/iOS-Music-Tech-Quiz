@@ -17,7 +17,7 @@
 {
     // NSDate last update time
     NSString *lastUpdateTimeInEpoch;
-    NSString *updateUrl = [NSString stringWithFormat:@"%@%@%@", kServerBaseUrl, kServerEndPointUpdatesSince, lastUpdateTimeInEpoch];
+    NSString *updateUrl = [NSString stringWithFormat:@"%@%@%@", kServerBaseUrlLocal, kServerEndPointUpdatesSince, lastUpdateTimeInEpoch];
     
     ServerComms *comms = [[ServerComms alloc]init];
     [comms getJSONfromUrl:updateUrl callCallBack:^(ServerResponse *responseObject) {

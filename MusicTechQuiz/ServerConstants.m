@@ -10,7 +10,8 @@
 
 @implementation ServerConstants
 
-NSString * const kServerBaseUrl                         = @"https://carltaylor43.pythonanywhere.com/";
+NSString * const kServerBaseUrlProduction               = @"https://carltaylor43.pythonanywhere.com/";
+NSString * const kServerBaseUrlLocal                    = @"http://127.0.0.1:8000/";
 NSString * const kServerEndPointLoginUser               = @"login_user";
 NSString * const kServerEndPointUpdatesSince            = @"updates_since/";
 NSString * const kServerEndPointGetQuestion             = @"question/";

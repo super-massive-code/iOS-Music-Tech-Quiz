@@ -10,7 +10,8 @@
 
 @interface ServerConstants : NSObject
 
-extern NSString * const kServerBaseUrl;
+extern NSString * const kServerBaseUrlProduction;
+extern NSString * const kServerBaseUrlLocal;
 extern NSString * const kServerEndPointLogin;
 extern NSString * const kServerEndPointUpdatesSince;
 extern NSString * const kServerEndPointGetQuestion;
