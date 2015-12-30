@@ -11,7 +11,7 @@
 
 @interface UpdateManager : NSObject
 
-+(void)checkForUpdatesOnServer;
+-(void)checkForUpdatesOnServer;
 -(void)checkForUpdatesOnClient;
 
 @end

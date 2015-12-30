@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@class Update;
+@class PendingUpdate;
 
 @interface UpdateUrlBuilder : NSObject
 
-+(NSString*)buildUrlFromModel:(Update*)updateModel andBaseUrl:(NSString*)baseUrl;
++(NSString*)buildUrlFromModel:(PendingUpdate*)updateModel andBaseUrl:(NSString*)baseUrl;
 
 @end

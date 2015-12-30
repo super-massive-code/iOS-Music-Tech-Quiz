@@ -8,17 +8,17 @@
 
 #import "UpdateManager.h"
 #import "ServerComms.h"
-#import "BaseRealmObj.h"
+#import "RealmModels.h"
 #import "ServerConstants.h"
-#import "UpdateParser.h"
+#import "PendingUpdateParser.h"
 #import "ServerResponse.h"
-#import "Update.h"
+#import "PendingUpdate.h"
 #import "UpdateUrlBuilder.h"
-#import "UpdateQueue.h"
+#import "UpdateFetcher.h"
 
 @implementation UpdateManager
 
-+(void)checkForUpdatesOnServer
+-(void)checkForUpdatesOnServer
 {
     // NSDate last update time
     NSString *lastUpdateTimeInEpoch = @"12345"; //Fixme: this is ignored on server at the moment
@@ -27,7 +27,7 @@
     ServerComms *comms = [[ServerComms alloc]init];
     [comms getJSONfromUrl:updateUrl callCallBack:^(ServerResponse *responseObject) {
         if (responseObject.connectionMade && responseObject.responseDict && !responseObject.error) {
-            [UpdateParser parseUpdateResponse:responseObject.responseDict];
+            [PendingUpdateParser parseUpdateResponse:responseObject.responseDict];
         } else {
             //todo: handle error
         }
@@ -37,24 +37,27 @@
 -(void)checkForUpdatesOnClient
 {
     NSMutableArray *updateUrls = [[NSMutableArray alloc]init];
+    NSString *baseUrl = [ServerComms getCurrentBaseUrl];
     
-    RLMResults<Update*> *questionUpdates = [Update objectsWhere:[NSString stringWithFormat:@"modelType == '%@'", kServerModelTypeQuestion]];
-    RLMResults<Update*> *answerUpdates   = [Update objectsWhere:[NSString stringWithFormat:@"modelType == '%@'", kServerModelTypeAnswer]];
+    RLMResults<PendingUpdate*> *questionUpdates = [PendingUpdate objectsWhere:[NSString stringWithFormat:@"modelType == '%@'", kServerModelTypeQuestion]];
+    RLMResults<PendingUpdate*> *answerUpdates   = [PendingUpdate objectsWhere:[NSString stringWithFormat:@"modelType == '%@'", kServerModelTypeAnswer]];
     
     //Note: we need to make sure questionUpdates are proccessed before answer updates so we can connect the relationships -
     // when we get the response. So add them to the updateUrls array in this order
-    for (Update *update in questionUpdates) {
-        NSString *updateUrl = [UpdateUrlBuilder buildUrlFromModel:update andBaseUrl:kServerBaseUrlLocal];
+    for (PendingUpdate *update in questionUpdates) {
+        NSString *updateUrl = [UpdateUrlBuilder buildUrlFromModel:update andBaseUrl:baseUrl];
         [updateUrls addObject:updateUrl];
     }
     
-    for (Update *update in answerUpdates) {
-        NSString *updateUrl = [UpdateUrlBuilder buildUrlFromModel:update andBaseUrl:kServerBaseUrlLocal];
+    for (PendingUpdate *update in answerUpdates) {
+        NSString *updateUrl = [UpdateUrlBuilder buildUrlFromModel:update andBaseUrl:baseUrl];
         [updateUrls addObject:updateUrl];
     }
     
-    UpdateQueue *updateQueue = [[UpdateQueue alloc]init];
-    [updateQueue addUrlsToInMemoryQueue:updateUrls];
+    if (updateUrls.count > 0) {
+        UpdateFetcher *updateFetcher = [[UpdateFetcher alloc]init];
+        [updateFetcher fetchUrls:updateUrls];
+    }  
 }
 
 @end

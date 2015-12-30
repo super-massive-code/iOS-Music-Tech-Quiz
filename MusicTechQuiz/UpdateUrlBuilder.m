@@ -7,12 +7,12 @@
 //
 
 #import "UpdateUrlBuilder.h"
-#import "Update.h"
+#import "PendingUpdate.h"
 #import "ServerConstants.h"
 
 @implementation UpdateUrlBuilder
 
-+(NSString*)buildUrlFromModel:(Update*)updateModel andBaseUrl:(NSString*)baseUrl
++(NSString*)buildUrlFromModel:(PendingUpdate*)updateModel andBaseUrl:(NSString*)baseUrl
 {
     NSString *endPoint;
     
@@ -24,7 +24,7 @@
         [NSException raise:@"*** Illegal State ***" format:@"unknown server model type"];
     }
     
-    NSString *updateUrl = [NSString stringWithFormat:@"%@%@%@", baseUrl, endPoint, updateModel.remote_id];
+    NSString *updateUrl = [NSString stringWithFormat:@"%@%@%@", baseUrl, endPoint, updateModel.remoteId];
     return updateUrl;
 }
 

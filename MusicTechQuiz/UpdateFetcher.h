@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface UpdateQueue : NSObject
+@interface UpdateFetcher : NSObject
 
--(void)addUrlsToInMemoryQueue:(NSArray*)updateUrls;
+-(void)fetchUrls:(NSMutableArray*)updateUrls;
 
 @end

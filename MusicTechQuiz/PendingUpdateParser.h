@@ -1,5 +1,5 @@
 //
-//  QuestionAnswerParser.h
+//  UpdateParser.h
 //  MusicTechQuiz
 //
 //  Created by Carl  on 30/12/2015.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface QuestionAnswerParser : NSObject
+@interface PendingUpdateParser : NSObject
 
 +(void)parseUpdateResponse:(NSDictionary *)updateDict;
 

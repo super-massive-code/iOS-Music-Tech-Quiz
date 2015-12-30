@@ -8,10 +8,10 @@
 
 #import <Realm/Realm.h>
 
-@interface Update : RLMObject
+@interface PendingUpdate : RLMObject
 
 @property NSDate *created;
-@property NSNumber <RLMInt> *remote_id;
+@property NSNumber <RLMInt> *remoteId;
 @property NSString *modelType;
 
 @end

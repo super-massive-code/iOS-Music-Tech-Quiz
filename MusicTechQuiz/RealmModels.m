@@ -6,15 +6,14 @@
 //  Copyright © 2015 Carl Taylor. All rights reserved.
 //
 
-#import "BaseRealmObj.h"
+#import "RealmModels.h"
 
-@implementation BaseRealmObj
-
+@implementation RealmModels
 @end
 
 @implementation Answer
 
--(void)updateOrCreate
++(void)updateOrCreateFromDict:(NSDictionary*)dict
 {
     
 }
@@ -23,6 +22,9 @@
 
 @implementation Question
 
-
++(void)updateOrCreateFromDict:(NSDictionary*)dict
+{
+ 
+}
 
 @end

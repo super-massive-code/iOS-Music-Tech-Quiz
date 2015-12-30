@@ -6,11 +6,11 @@
 //  Copyright © 2015 Carl Taylor. All rights reserved.
 //
 
-#import "UpdateParser.h"
+#import "PendingUpdateParser.h"
 #import "ServerConstants.h"
-#import "Update.h"
+#import "PendingUpdate.h"
 
-@implementation UpdateParser
+@implementation PendingUpdateParser
 
 +(void)parseUpdateResponse:(NSDictionary *)updateDict
 {
@@ -21,24 +21,24 @@
     [realm beginWriteTransaction];
     
     for (NSNumber *remoteObjId in answerUpdates) {
-        Update *newUpdate = [self createUpdateObjectForRemoteId:remoteObjId andModelType:kServerModelTypeAnswer];
+        PendingUpdate *newUpdate = [self createUpdateObjectForRemoteId:remoteObjId andModelType:kServerModelTypeAnswer];
         [realm addObject:newUpdate];
     }
     
     for (NSNumber *remoteObjId in questionUpdates) {
-        Update *newUpdate = [self createUpdateObjectForRemoteId:remoteObjId andModelType:kServerModelTypeQuestion];
+        PendingUpdate *newUpdate = [self createUpdateObjectForRemoteId:remoteObjId andModelType:kServerModelTypeQuestion];
         [realm addObject:newUpdate];
     }
     
     [realm commitWriteTransaction];
 }
 
-+(Update*)createUpdateObjectForRemoteId:(NSNumber*)remoteId andModelType:(NSString*)modelType
++(PendingUpdate*)createUpdateObjectForRemoteId:(NSNumber*)remoteId andModelType:(NSString*)modelType
 {
-    Update *newUpdate = [[Update alloc]init];
+    PendingUpdate *newUpdate = [[PendingUpdate alloc]init];
     newUpdate.created = [NSDate date];
     newUpdate.modelType = modelType;
-    newUpdate.remote_id = remoteId;
+    newUpdate.remoteId = remoteId;
     
     return newUpdate;
 }
