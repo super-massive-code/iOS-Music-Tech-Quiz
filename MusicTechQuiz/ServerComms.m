@@ -8,6 +8,7 @@
 
 #import "ServerComms.h"
 #import "ServerResponse.h"
+#import "ServerConstants.h"
 
 @interface ServerComms () <NSURLSessionDelegate>
 
@@ -127,6 +128,11 @@
     obj.responseDict = responseDict;
     obj.error = error;
     return obj;
+}
+
++(NSString*)getCurrentBaseUrl
+{
+    return kServerBaseUrlLocal;
 }
 
 @end

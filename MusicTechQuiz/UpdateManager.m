@@ -16,8 +16,8 @@
 +(void)checkForUpdates
 {
     // NSDate last update time
-    NSString *lastUpdateTimeInEpoch;
-    NSString *updateUrl = [NSString stringWithFormat:@"%@%@%@", kServerBaseUrlLocal, kServerEndPointUpdatesSince, lastUpdateTimeInEpoch];
+    NSString *lastUpdateTimeInEpoch = @"12345"; //Fixme: this is ignored on server at the moment
+    NSString *updateUrl = [NSString stringWithFormat:@"%@%@%@", [ServerComms getCurrentBaseUrl], kServerEndPointUpdatesSince, lastUpdateTimeInEpoch];
     
     ServerComms *comms = [[ServerComms alloc]init];
     [comms getJSONfromUrl:updateUrl callCallBack:^(ServerResponse *responseObject) {
