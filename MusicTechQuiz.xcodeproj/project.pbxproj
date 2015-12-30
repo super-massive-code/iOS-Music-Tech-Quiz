@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C32BFAE81C33E9440033D82C /* UpdateParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C32BFAE71C33E9440033D82C /* UpdateParser.m */; };
+		C32BFAEB1C33F3330033D82C /* Update.m in Sources */ = {isa = PBXBuildFile; fileRef = C32BFAEA1C33F3330033D82C /* Update.m */; };
 		C367B8E61BDCDF9F00CE442C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C367B8E51BDCDF9F00CE442C /* main.m */; };
 		C367B8E91BDCDF9F00CE442C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C367B8E81BDCDF9F00CE442C /* AppDelegate.m */; };
 		C367B8EC1BDCDF9F00CE442C /* QuestionAnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C367B8EB1BDCDF9F00CE442C /* QuestionAnswerViewController.m */; };
@@ -31,6 +33,10 @@
 		1EAF2FFAA79C992C0D1B8718 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2196534CEF3DA3E7A1A1A762 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		A2C629A2BE74BC352C053291 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		C32BFAE61C33E9440033D82C /* UpdateParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateParser.h; sourceTree = "<group>"; };
+		C32BFAE71C33E9440033D82C /* UpdateParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateParser.m; sourceTree = "<group>"; };
+		C32BFAE91C33F3330033D82C /* Update.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Update.h; sourceTree = "<group>"; };
+		C32BFAEA1C33F3330033D82C /* Update.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Update.m; sourceTree = "<group>"; };
 		C367B8E11BDCDF9F00CE442C /* MusicTechQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicTechQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C367B8E51BDCDF9F00CE442C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C367B8E71BDCDF9F00CE442C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -164,6 +170,8 @@
 				C3D48FF71C2B031A004C39CF /* UpdateQueue.m */,
 				C3D48FF91C2B0837004C39CF /* UpdateUrlBuilder.h */,
 				C3D48FFA1C2B0837004C39CF /* UpdateUrlBuilder.m */,
+				C32BFAE61C33E9440033D82C /* UpdateParser.h */,
+				C32BFAE71C33E9440033D82C /* UpdateParser.m */,
 			);
 			name = Updates;
 			sourceTree = "<group>";
@@ -173,6 +181,8 @@
 			children = (
 				C3D48FF31C2AFD7F004C39CF /* BaseRealmObj.h */,
 				C3D48FF41C2AFD7F004C39CF /* BaseRealmObj.m */,
+				C32BFAE91C33F3330033D82C /* Update.h */,
+				C32BFAEA1C33F3330033D82C /* Update.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -309,11 +319,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C32BFAEB1C33F3330033D82C /* Update.m in Sources */,
 				C3D490051C2B0D3D004C39CF /* ServerConstants.m in Sources */,
 				C367B8EC1BDCDF9F00CE442C /* QuestionAnswerViewController.m in Sources */,
 				C3D48FFB1C2B0837004C39CF /* UpdateUrlBuilder.m in Sources */,
 				C3D48FE31C2AEABB004C39CF /* ServerResponse.m in Sources */,
 				C367B9001BDCF0D200CE442C /* QuestionController.m in Sources */,
+				C32BFAE81C33E9440033D82C /* UpdateParser.m in Sources */,
 				C367B8FD1BDCE29A00CE442C /* QuestionModel.m in Sources */,
 				C3D48FF81C2B031A004C39CF /* UpdateQueue.m in Sources */,
 				C367B8E91BDCDF9F00CE442C /* AppDelegate.m in Sources */,

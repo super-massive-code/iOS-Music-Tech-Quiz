@@ -10,6 +10,8 @@
 #import "ServerComms.h"
 #import "BaseRealmObj.h"
 #import "ServerConstants.h"
+#import "UpdateParser.h"
+#import "ServerResponse.h"
 
 @implementation UpdateManager
 
@@ -21,7 +23,11 @@
     
     ServerComms *comms = [[ServerComms alloc]init];
     [comms getJSONfromUrl:updateUrl callCallBack:^(ServerResponse *responseObject) {
-        
+        if (responseObject.connectionMade && responseObject.responseDict && !responseObject.error) {
+            [UpdateParser parseUpdateResponse:responseObject.responseDict];
+        } else {
+            //todo: handle error
+        }
     }];
 }
 

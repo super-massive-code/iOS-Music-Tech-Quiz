@@ -18,4 +18,7 @@ NSString * const kServerEndPointGetQuestion             = @"question/";
 NSString * const kServerEndPointGetAnswer               = @"answer/";
 NSString * const kServerEndPointAddQuestionWithAnswers  = @"add_question_with_answers";
 
+NSString * const kServerModelTypeAnswer   = @"answer";
+NSString * const kServerModelTypeQuestion = @"question";
+
 @end

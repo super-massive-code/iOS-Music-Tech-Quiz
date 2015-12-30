@@ -18,4 +18,7 @@ extern NSString * const kServerEndPointGetQuestion;
 extern NSString * const kServerEndPointGetAnswer;
 extern NSString * const kServerEndPointAddQuestionWithAnswers;
 
+extern NSString * const kServerModelTypeAnswer;
+extern NSString * const kServerModelTypeQuestion;
+
 @end

@@ -11,7 +11,7 @@
 @interface BaseRealmObj : RLMObject
 @property NSDate *created;
 @property NSDate *updated;
-@property NSNumber *remote_id;
+@property NSNumber <RLMInt>*remote_id;
 
 @end
 

@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+@class Update;
+
 @interface UpdateUrlBuilder : NSObject
+
++(NSString*)buildUrlFromModel:(Update*)updateModel andBaseUrl:(NSString*)baseUrl;
 
 @end
