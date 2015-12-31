@@ -10,6 +10,10 @@
 
 @implementation PendingUpdateModel
 
-// Insert code here to add functionality to your managed object subclass
+-(NSString *)description
+{
+    return [NSString stringWithFormat:@"Created:%@\nRemoteID:%@\nModelType:%@", self.created, self.remoteId, self.modelType];
+}
+
 
 @end

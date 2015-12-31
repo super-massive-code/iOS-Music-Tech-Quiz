@@ -11,6 +11,9 @@
 
 @implementation AnswerModel
 
-// Insert code here to add functionality to your managed object subclass
+-(void)updateOrCreateFromDict:(NSDictionary*)dict
+{
+    
+}
 
 @end
