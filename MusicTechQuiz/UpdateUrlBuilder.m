@@ -7,12 +7,12 @@
 //
 
 #import "UpdateUrlBuilder.h"
-#import "PendingUpdate.h"
+#import "PendingUpdateModel.h"
 #import "ServerConstants.h"
 
 @implementation UpdateUrlBuilder
 
-+(NSString*)buildUrlFromModel:(PendingUpdate*)updateModel andBaseUrl:(NSString*)baseUrl
++(NSString*)buildUrlFromModel:(PendingUpdateModel*)updateModel andBaseUrl:(NSString*)baseUrl
 {
     NSString *endPoint;
     

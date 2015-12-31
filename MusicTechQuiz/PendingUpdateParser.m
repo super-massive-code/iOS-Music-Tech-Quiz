@@ -8,7 +8,8 @@
 
 #import "PendingUpdateParser.h"
 #import "ServerConstants.h"
-#import "PendingUpdate.h"
+#import "PendingUpdateModel.h"
+#import <MagicalRecord/MagicalRecord.h>
 
 @implementation PendingUpdateParser
 
@@ -17,30 +18,26 @@
     NSArray *answerUpdates   = [updateDict objectForKey:kServerModelTypeAnswer];
     NSArray *questionUpdates = [updateDict objectForKey:kServerModelTypeQuestion];
     
-    RLMRealm *realm = [RLMRealm defaultRealm];
-    [realm beginWriteTransaction];
-    
-    for (NSNumber *remoteObjId in answerUpdates) {
-        PendingUpdate *newUpdate = [self createUpdateObjectForRemoteId:remoteObjId andModelType:kServerModelTypeAnswer];
-        [realm addObject:newUpdate];
-    }
-    
-    for (NSNumber *remoteObjId in questionUpdates) {
-        PendingUpdate *newUpdate = [self createUpdateObjectForRemoteId:remoteObjId andModelType:kServerModelTypeQuestion];
-        [realm addObject:newUpdate];
-    }
-    
-    [realm commitWriteTransaction];
+    [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
+        
+        for (NSNumber *remoteObjId in answerUpdates) {
+            [self createUpdateObjectForRemoteId:remoteObjId andModelType:kServerModelTypeAnswer];
+        }
+        
+        for (NSNumber *remoteObjId in questionUpdates) {
+            [self createUpdateObjectForRemoteId:remoteObjId andModelType:kServerModelTypeQuestion];
+        }
+        [localContext save:nil];
+    }];
 }
 
-+(PendingUpdate*)createUpdateObjectForRemoteId:(NSNumber*)remoteId andModelType:(NSString*)modelType
++(void)createUpdateObjectForRemoteId:(NSNumber*)remoteId andModelType:(NSString*)modelType
 {
-    PendingUpdate *newUpdate = [[PendingUpdate alloc]init];
-    newUpdate.created = [NSDate date];
-    newUpdate.modelType = modelType;
-    newUpdate.remoteId = remoteId;
+    PendingUpdateModel *newUpdate = [PendingUpdateModel MR_createEntity];
     
-    return newUpdate;
+    newUpdate.created   = [NSDate date];
+    newUpdate.modelType = modelType;
+    newUpdate.remoteId  = remoteId;
 }
 
 @end

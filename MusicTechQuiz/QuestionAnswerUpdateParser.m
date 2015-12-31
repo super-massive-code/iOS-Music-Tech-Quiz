@@ -7,50 +7,38 @@
 //
 
 #import "QuestionAnswerUpdateParser.h"
-#import "RealmModels.h"
 #import "ServerConstants.h"
+#import "QuestionModel.h"
+#import "AnswerModel.h"
+#import <MagicalRecord/MagicalRecord.h>
 
 @implementation QuestionAnswerUpdateParser
 
 +(void)parseUpdateResponse:(NSDictionary *)updateDict
 {
-    RLMRealm *realm = [RLMRealm defaultRealm];
-//    [realm beginWriteTransaction];
-    
     NSString *modelType = [updateDict objectForKey:@"model_type"];
     
     if ([modelType isEqualToString:kServerModelTypeQuestion]) {
-        [self updateQuestionFromDict:updateDict];
+
     } else if ([modelType isEqualToString:kServerModelTypeAnswer]) {
-        [Answer updateOrCreateFromDict:updateDict];
+    
     } else {
         [NSException raise:@"** Invalid State **" format:@"Model type not recognised"];
-    }
-    
-    [realm commitWriteTransaction];
+    }  
 }
 
-+(void)updateQuestionFromDict:(NSDictionary*)dict
-{
-    NSNumber *remoteId = [dict objectForKey:@"id"];
-    NSDictionary *user = [dict objectForKey:@"user"];
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"remoteId == %@", remoteId];
-    RLMResults<Question *> *results = [Question objectsWithPredicate:predicate];
-    
-    Question *question;
-    
-    if (results.count == 0) {
-        question = [[Question alloc]init];
-        question.remoteId = remoteId;
-    } else {
-        question = [results firstObject];
-    }
-    
-    question.title = [dict objectForKey:@"title"];
-    question.userName = [user objectForKey:@"name"];
-    
-    
++(void)p {
+//    NSNumber *remoteId  = [dict objectForKey:@"id"];
+//    AnswerModel *answer = [AnswerModel MR_findFirstByAttribute:@"remoteId" withValue:remoteId];
+//    
+//    if (!answer) {
+//        answer = [AnswerModel MR_createEntity];
+//        answer.remoteId = remoteId;
+//    }
+//    
+//    answer.title = [dict objectForKey:@"title"];
+//    
+//    return answer;
 }
 
 @end

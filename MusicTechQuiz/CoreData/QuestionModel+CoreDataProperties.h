@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSDate *updated;
 @property (nullable, nonatomic, retain) NSNumber *remoteId;
 @property (nullable, nonatomic, retain) NSString *userName;
-@property (nullable, nonatomic, retain) UNKNOWN_TYPEtitle;
+@property (nullable, nonatomic, retain) NSString *title;
 @property (nullable, nonatomic, retain) NSSet<AnswerModel *> *answers;
 
 @end

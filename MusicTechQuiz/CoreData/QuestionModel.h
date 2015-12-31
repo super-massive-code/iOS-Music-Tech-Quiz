@@ -14,9 +14,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface QuestionModel : NSManagedObject
-
--(void)updateOrCreateFromDict:(NSDictionary*)dict;
-
 @end
 
 NS_ASSUME_NONNULL_END

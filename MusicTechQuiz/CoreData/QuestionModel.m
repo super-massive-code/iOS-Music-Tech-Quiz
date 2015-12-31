@@ -10,10 +10,4 @@
 #import "AnswerModel.h"
 
 @implementation QuestionModel
-
--(void)updateOrCreateFromDict:(NSDictionary*)dict
-{
-    
-}
-
 @end
