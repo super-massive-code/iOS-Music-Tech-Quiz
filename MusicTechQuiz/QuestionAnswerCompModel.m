@@ -6,9 +6,9 @@
 //  Copyright © 2015 Carl Taylor. All rights reserved.
 //
 
-#import "QuestionModel.h"
+#import "QuestionAnswerCompModel.h"
 
-@interface QuestionModel ()
+@interface QuestionAnswerCompModel ()
 
 @property (nonatomic, readwrite) NSNumber *remoteDatabaseId;
 
@@ -19,7 +19,7 @@
 
 @end
 
-@implementation QuestionModel
+@implementation QuestionAnswerCompModel
 
 -(instancetype)initWithQuestion:(NSString*)question
                         answers:(NSArray*)answers

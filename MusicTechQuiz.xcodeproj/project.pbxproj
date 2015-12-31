@@ -10,13 +10,20 @@
 		C32BFAE81C33E9440033D82C /* PendingUpdateParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C32BFAE71C33E9440033D82C /* PendingUpdateParser.m */; };
 		C32BFAEB1C33F3330033D82C /* PendingUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = C32BFAEA1C33F3330033D82C /* PendingUpdate.m */; };
 		C32BFAEE1C33F9100033D82C /* QuestionAnswerUpdateParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C32BFAED1C33F9100033D82C /* QuestionAnswerUpdateParser.m */; };
+		C32BFAF21C35312C0033D82C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C32BFAF01C35312C0033D82C /* Model.xcdatamodeld */; };
+		C32BFB121C35372B0033D82C /* PendingUpdateModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C32BFB071C35372B0033D82C /* PendingUpdateModel+CoreDataProperties.m */; };
+		C32BFB131C35372B0033D82C /* PendingUpdateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C32BFB091C35372B0033D82C /* PendingUpdateModel.m */; };
+		C32BFB141C35372B0033D82C /* QuestionModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C32BFB0B1C35372B0033D82C /* QuestionModel+CoreDataProperties.m */; };
+		C32BFB151C35372B0033D82C /* QuestionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C32BFB0D1C35372B0033D82C /* QuestionModel.m */; };
+		C32BFB161C35372B0033D82C /* AnswerModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C32BFB0F1C35372B0033D82C /* AnswerModel+CoreDataProperties.m */; };
+		C32BFB171C35372B0033D82C /* AnswerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C32BFB111C35372B0033D82C /* AnswerModel.m */; };
 		C367B8E61BDCDF9F00CE442C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C367B8E51BDCDF9F00CE442C /* main.m */; };
 		C367B8E91BDCDF9F00CE442C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C367B8E81BDCDF9F00CE442C /* AppDelegate.m */; };
 		C367B8EC1BDCDF9F00CE442C /* QuestionAnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C367B8EB1BDCDF9F00CE442C /* QuestionAnswerViewController.m */; };
 		C367B8EF1BDCDF9F00CE442C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C367B8ED1BDCDF9F00CE442C /* Main.storyboard */; };
 		C367B8F11BDCDF9F00CE442C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C367B8F01BDCDF9F00CE442C /* Assets.xcassets */; };
 		C367B8F41BDCDF9F00CE442C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C367B8F21BDCDF9F00CE442C /* LaunchScreen.storyboard */; };
-		C367B8FD1BDCE29A00CE442C /* QuestionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C367B8FC1BDCE29A00CE442C /* QuestionModel.m */; };
+		C367B8FD1BDCE29A00CE442C /* QuestionAnswerCompModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C367B8FC1BDCE29A00CE442C /* QuestionAnswerCompModel.m */; };
 		C367B9001BDCF0D200CE442C /* QuestionController.m in Sources */ = {isa = PBXBuildFile; fileRef = C367B8FF1BDCF0D200CE442C /* QuestionController.m */; };
 		C367B9061BDCF94000CE442C /* wrong.wav in Resources */ = {isa = PBXBuildFile; fileRef = C367B9041BDCF94000CE442C /* wrong.wav */; };
 		C367B9071BDCF94000CE442C /* correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = C367B9051BDCF94000CE442C /* correct.wav */; };
@@ -40,6 +47,19 @@
 		C32BFAEA1C33F3330033D82C /* PendingUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PendingUpdate.m; sourceTree = "<group>"; };
 		C32BFAEC1C33F9100033D82C /* QuestionAnswerUpdateParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionAnswerUpdateParser.h; sourceTree = "<group>"; };
 		C32BFAED1C33F9100033D82C /* QuestionAnswerUpdateParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionAnswerUpdateParser.m; sourceTree = "<group>"; };
+		C32BFAF11C35312C0033D82C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		C32BFB061C35372B0033D82C /* PendingUpdateModel+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PendingUpdateModel+CoreDataProperties.h"; path = "CoreData/PendingUpdateModel+CoreDataProperties.h"; sourceTree = "<group>"; };
+		C32BFB071C35372B0033D82C /* PendingUpdateModel+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "PendingUpdateModel+CoreDataProperties.m"; path = "CoreData/PendingUpdateModel+CoreDataProperties.m"; sourceTree = "<group>"; };
+		C32BFB081C35372B0033D82C /* PendingUpdateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PendingUpdateModel.h; path = CoreData/PendingUpdateModel.h; sourceTree = "<group>"; };
+		C32BFB091C35372B0033D82C /* PendingUpdateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PendingUpdateModel.m; path = CoreData/PendingUpdateModel.m; sourceTree = "<group>"; };
+		C32BFB0A1C35372B0033D82C /* QuestionModel+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "QuestionModel+CoreDataProperties.h"; path = "CoreData/QuestionModel+CoreDataProperties.h"; sourceTree = "<group>"; };
+		C32BFB0B1C35372B0033D82C /* QuestionModel+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "QuestionModel+CoreDataProperties.m"; path = "CoreData/QuestionModel+CoreDataProperties.m"; sourceTree = "<group>"; };
+		C32BFB0C1C35372B0033D82C /* QuestionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuestionModel.h; path = CoreData/QuestionModel.h; sourceTree = "<group>"; };
+		C32BFB0D1C35372B0033D82C /* QuestionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuestionModel.m; path = CoreData/QuestionModel.m; sourceTree = "<group>"; };
+		C32BFB0E1C35372B0033D82C /* AnswerModel+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AnswerModel+CoreDataProperties.h"; path = "CoreData/AnswerModel+CoreDataProperties.h"; sourceTree = "<group>"; };
+		C32BFB0F1C35372B0033D82C /* AnswerModel+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AnswerModel+CoreDataProperties.m"; path = "CoreData/AnswerModel+CoreDataProperties.m"; sourceTree = "<group>"; };
+		C32BFB101C35372B0033D82C /* AnswerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnswerModel.h; path = CoreData/AnswerModel.h; sourceTree = "<group>"; };
+		C32BFB111C35372B0033D82C /* AnswerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnswerModel.m; path = CoreData/AnswerModel.m; sourceTree = "<group>"; };
 		C367B8E11BDCDF9F00CE442C /* MusicTechQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicTechQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C367B8E51BDCDF9F00CE442C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C367B8E71BDCDF9F00CE442C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -50,8 +70,8 @@
 		C367B8F01BDCDF9F00CE442C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C367B8F31BDCDF9F00CE442C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C367B8F51BDCDF9F00CE442C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C367B8FB1BDCE29A00CE442C /* QuestionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionModel.h; sourceTree = "<group>"; };
-		C367B8FC1BDCE29A00CE442C /* QuestionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionModel.m; sourceTree = "<group>"; };
+		C367B8FB1BDCE29A00CE442C /* QuestionAnswerCompModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionAnswerCompModel.h; sourceTree = "<group>"; };
+		C367B8FC1BDCE29A00CE442C /* QuestionAnswerCompModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionAnswerCompModel.m; sourceTree = "<group>"; };
 		C367B8FE1BDCF0D200CE442C /* QuestionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionController.h; sourceTree = "<group>"; };
 		C367B8FF1BDCF0D200CE442C /* QuestionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionController.m; sourceTree = "<group>"; };
 		C367B9041BDCF94000CE442C /* wrong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wrong.wav; sourceTree = "<group>"; };
@@ -103,6 +123,25 @@
 			name = RespnoseParsers;
 			sourceTree = "<group>";
 		};
+		C32BFAF31C3536EB0033D82C /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				C32BFB061C35372B0033D82C /* PendingUpdateModel+CoreDataProperties.h */,
+				C32BFB071C35372B0033D82C /* PendingUpdateModel+CoreDataProperties.m */,
+				C32BFB081C35372B0033D82C /* PendingUpdateModel.h */,
+				C32BFB091C35372B0033D82C /* PendingUpdateModel.m */,
+				C32BFB0A1C35372B0033D82C /* QuestionModel+CoreDataProperties.h */,
+				C32BFB0B1C35372B0033D82C /* QuestionModel+CoreDataProperties.m */,
+				C32BFB0C1C35372B0033D82C /* QuestionModel.h */,
+				C32BFB0D1C35372B0033D82C /* QuestionModel.m */,
+				C32BFB0E1C35372B0033D82C /* AnswerModel+CoreDataProperties.h */,
+				C32BFB0F1C35372B0033D82C /* AnswerModel+CoreDataProperties.m */,
+				C32BFB101C35372B0033D82C /* AnswerModel.h */,
+				C32BFB111C35372B0033D82C /* AnswerModel.m */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
 		C367B8D81BDCDF9F00CE442C = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +163,7 @@
 		C367B8E31BDCDF9F00CE442C /* MusicTechQuiz */ = {
 			isa = PBXGroup;
 			children = (
+				C32BFAF31C3536EB0033D82C /* CoreData */,
 				C3D48FE41C2AF0E0004C39CF /* QuestionData */,
 				C3D48FE01C2AEA6C004C39CF /* ServerComms */,
 				C367B8E71BDCDF9F00CE442C /* AppDelegate.h */,
@@ -167,8 +207,8 @@
 			children = (
 				C3D48FEC1C2AF8F7004C39CF /* RealmModels */,
 				C3D48FE51C2AF51A004C39CF /* Updates */,
-				C367B8FB1BDCE29A00CE442C /* QuestionModel.h */,
-				C367B8FC1BDCE29A00CE442C /* QuestionModel.m */,
+				C367B8FB1BDCE29A00CE442C /* QuestionAnswerCompModel.h */,
+				C367B8FC1BDCE29A00CE442C /* QuestionAnswerCompModel.m */,
 				C367B8FE1BDCF0D200CE442C /* QuestionController.h */,
 				C367B8FF1BDCF0D200CE442C /* QuestionController.m */,
 			);
@@ -195,6 +235,7 @@
 				C3D48FF31C2AFD7F004C39CF /* RealmModels.h */,
 				C3D48FF41C2AFD7F004C39CF /* RealmModels.m */,
 				C32BFAE91C33F3330033D82C /* PendingUpdate.h */,
+				C32BFAF01C35312C0033D82C /* Model.xcdatamodeld */,
 				C32BFAEA1C33F3330033D82C /* PendingUpdate.m */,
 			);
 			name = RealmModels;
@@ -334,15 +375,22 @@
 			files = (
 				C32BFAEB1C33F3330033D82C /* PendingUpdate.m in Sources */,
 				C32BFAEE1C33F9100033D82C /* QuestionAnswerUpdateParser.m in Sources */,
+				C32BFB161C35372B0033D82C /* AnswerModel+CoreDataProperties.m in Sources */,
+				C32BFB131C35372B0033D82C /* PendingUpdateModel.m in Sources */,
 				C3D490051C2B0D3D004C39CF /* ServerConstants.m in Sources */,
+				C32BFB171C35372B0033D82C /* AnswerModel.m in Sources */,
 				C367B8EC1BDCDF9F00CE442C /* QuestionAnswerViewController.m in Sources */,
+				C32BFB121C35372B0033D82C /* PendingUpdateModel+CoreDataProperties.m in Sources */,
 				C3D48FFB1C2B0837004C39CF /* UpdateUrlBuilder.m in Sources */,
 				C3D48FE31C2AEABB004C39CF /* ServerResponse.m in Sources */,
 				C367B9001BDCF0D200CE442C /* QuestionController.m in Sources */,
 				C32BFAE81C33E9440033D82C /* PendingUpdateParser.m in Sources */,
-				C367B8FD1BDCE29A00CE442C /* QuestionModel.m in Sources */,
+				C32BFB141C35372B0033D82C /* QuestionModel+CoreDataProperties.m in Sources */,
+				C367B8FD1BDCE29A00CE442C /* QuestionAnswerCompModel.m in Sources */,
 				C3D48FF81C2B031A004C39CF /* UpdateFetcher.m in Sources */,
 				C367B8E91BDCDF9F00CE442C /* AppDelegate.m in Sources */,
+				C32BFAF21C35312C0033D82C /* Model.xcdatamodeld in Sources */,
+				C32BFB151C35372B0033D82C /* QuestionModel.m in Sources */,
 				C3D48FF51C2AFD7F004C39CF /* RealmModels.m in Sources */,
 				C367B90D1BDD040600CE442C /* ServerComms.m in Sources */,
 				C367B90A1BDD036E00CE442C /* UpdateManager.m in Sources */,
@@ -502,6 +550,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C32BFAF01C35312C0033D82C /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C32BFAF11C35312C0033D82C /* Model.xcdatamodel */,
+			);
+			currentVersion = C32BFAF11C35312C0033D82C /* Model.xcdatamodel */;
+			name = Model.xcdatamodeld;
+			path = CoreData/Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C367B8D91BDCDF9F00CE442C /* Project object */;
 }

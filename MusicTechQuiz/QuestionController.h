@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@class QuestionModel;
+@class QuestionAnswerCompModel;
 
 @interface QuestionController : NSObject
 
--(QuestionModel*)loadNextQuestion;
+-(QuestionAnswerCompModel*)loadNextQuestion;
 
 @end

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface QuestionModel : NSObject
+@interface QuestionAnswerCompModel : NSObject
 
 @property (nonatomic, readonly) NSNumber *remoteDatabaseId;
 

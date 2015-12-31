@@ -7,7 +7,7 @@
 //
 
 #import "QuestionAnswerViewController.h"
-#import "QuestionModel.h"
+#import "QuestionAnswerCompModel.h"
 #import "QuestionController.h"
 
 @import AVFoundation;
@@ -17,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
 
-@property (strong, nonatomic) QuestionModel *currentModel;
+@property (strong, nonatomic) QuestionAnswerCompModel *currentModel;
 @property (strong, nonatomic) QuestionController *questionController;
 
 @property (strong, nonatomic) AVAudioPlayer *correctAudioPlayer;
@@ -107,7 +107,7 @@ NSInteger INCORRECT_SCORE_VALUE = -10;
 
 -(void)loadNextQuestion
 {
-    QuestionModel *nextModel = [self.questionController loadNextQuestion];
+    QuestionAnswerCompModel *nextModel = [self.questionController loadNextQuestion];
     
     if (nextModel) {
         self.currentModel = nextModel;
