@@ -1,1 +1,1 @@
-pod 'Realm', '~> 0.97.0'
+pod 'MagicalRecord', '2.3.0'
