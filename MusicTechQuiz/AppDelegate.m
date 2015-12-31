@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "UpdateManager.h"
+#import "AppSetUp.h"
 
 @interface AppDelegate ()
 
@@ -18,13 +19,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    [AppSetUp setUpMagicalRecord];
+    
+    
     //todo: maybe configure app colours etc from server?
     
     // Override point for customization after application launch.
     
     UpdateManager *updateManager = [[UpdateManager alloc]init];
 //        [updateManager checkForUpdatesOnServer];
-    [updateManager checkForUpdatesOnClient];
+//    [updateManager checkForUpdatesOnClient];
     
     return YES;
 }

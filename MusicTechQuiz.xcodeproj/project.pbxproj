@@ -16,6 +16,7 @@
 		C32BFB151C35372B0033D82C /* QuestionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C32BFB0D1C35372B0033D82C /* QuestionModel.m */; };
 		C32BFB161C35372B0033D82C /* AnswerModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C32BFB0F1C35372B0033D82C /* AnswerModel+CoreDataProperties.m */; };
 		C32BFB171C35372B0033D82C /* AnswerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C32BFB111C35372B0033D82C /* AnswerModel.m */; };
+		C32BFB1A1C3539940033D82C /* AppSetUp.m in Sources */ = {isa = PBXBuildFile; fileRef = C32BFB191C3539940033D82C /* AppSetUp.m */; };
 		C367B8E61BDCDF9F00CE442C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C367B8E51BDCDF9F00CE442C /* main.m */; };
 		C367B8E91BDCDF9F00CE442C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C367B8E81BDCDF9F00CE442C /* AppDelegate.m */; };
 		C367B8EC1BDCDF9F00CE442C /* QuestionAnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C367B8EB1BDCDF9F00CE442C /* QuestionAnswerViewController.m */; };
@@ -56,6 +57,8 @@
 		C32BFB0F1C35372B0033D82C /* AnswerModel+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AnswerModel+CoreDataProperties.m"; path = "CoreData/AnswerModel+CoreDataProperties.m"; sourceTree = "<group>"; };
 		C32BFB101C35372B0033D82C /* AnswerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnswerModel.h; path = CoreData/AnswerModel.h; sourceTree = "<group>"; };
 		C32BFB111C35372B0033D82C /* AnswerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnswerModel.m; path = CoreData/AnswerModel.m; sourceTree = "<group>"; };
+		C32BFB181C3539940033D82C /* AppSetUp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSetUp.h; sourceTree = "<group>"; };
+		C32BFB191C3539940033D82C /* AppSetUp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppSetUp.m; sourceTree = "<group>"; };
 		C367B8E11BDCDF9F00CE442C /* MusicTechQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicTechQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C367B8E51BDCDF9F00CE442C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C367B8E71BDCDF9F00CE442C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -158,6 +161,8 @@
 		C367B8E31BDCDF9F00CE442C /* MusicTechQuiz */ = {
 			isa = PBXGroup;
 			children = (
+				C32BFB181C3539940033D82C /* AppSetUp.h */,
+				C32BFB191C3539940033D82C /* AppSetUp.m */,
 				C32BFAF31C3536EB0033D82C /* CoreData */,
 				C3D48FE41C2AF0E0004C39CF /* QuestionData */,
 				C3D48FE01C2AEA6C004C39CF /* ServerComms */,
@@ -364,6 +369,7 @@
 				C32BFB121C35372B0033D82C /* PendingUpdateModel+CoreDataProperties.m in Sources */,
 				C3D48FFB1C2B0837004C39CF /* UpdateUrlBuilder.m in Sources */,
 				C3D48FE31C2AEABB004C39CF /* ServerResponse.m in Sources */,
+				C32BFB1A1C3539940033D82C /* AppSetUp.m in Sources */,
 				C367B9001BDCF0D200CE442C /* QuestionController.m in Sources */,
 				C32BFAE81C33E9440033D82C /* PendingUpdateParser.m in Sources */,
 				C32BFB141C35372B0033D82C /* QuestionModel+CoreDataProperties.m in Sources */,
