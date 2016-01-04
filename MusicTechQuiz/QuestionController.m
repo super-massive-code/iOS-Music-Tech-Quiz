@@ -8,6 +8,9 @@
 
 #import "QuestionController.h"
 #import "QuestionAnswerCompModel.h"
+#import "QuestionModel.h"
+#import "AnswerModel.h"
+#import <MagicalRecord/MagicalRecord.h>
 
 @interface QuestionController ()
 
@@ -35,18 +38,38 @@
 
 -(NSMutableArray*)loadQuestionFromStore
 {
-    NSString *question = @"Name the Roland Acid Synth";
-    NSArray *answers = @[@"TB 303", @"Jupiter 8", @"909"];
+    NSMutableArray *compositeModelsArray = [[NSMutableArray alloc]init];
     
-    QuestionAnswerCompModel *model = [[QuestionAnswerCompModel alloc]initWithQuestion:question answers:answers correctAnswer:@"TB 303"];
+    NSArray *questions = [QuestionModel MR_findAll];
+    for (QuestionModel *question in questions) {
+        QuestionAnswerCompModel *compModel = [self createCompositeModelFromQuestion:question];
+        if (compModel) {
+            [compositeModelsArray addObject:compModel];
+        }
+    }
     
-    NSMutableArray *array = [[NSMutableArray alloc]init];
-    [array addObject:model];
+    return compositeModelsArray;
+}
+
+-(QuestionAnswerCompModel*)createCompositeModelFromQuestion:(QuestionModel*)question
+{
+    NSString *correctAnswer;
     
-    // load from plist
-    // randomise
+    NSMutableArray *answers = [[NSMutableArray alloc]init];
+    for (AnswerModel *answer in question.answers) {
+        [answers addObject:answer.title];
+        if (answer.isCorrectAnswer.boolValue) {
+            correctAnswer = answer.title;
+        }
+    }
     
-    return array;
+    if (correctAnswer) {
+        // Protect against server validation going wrong
+        QuestionAnswerCompModel *model = [[QuestionAnswerCompModel alloc]initWithQuestion:question.title answers:answers correctAnswer:correctAnswer];
+        return model;
+    } else {
+        return nil;
+    }
 }
 
 @end

@@ -20,6 +20,6 @@
 
 -(instancetype)initWithQuestion:(NSString*)question
                         answers:(NSArray*)answers
-                  correctAnswer:(NSString*)correctAnswer
+                  correctAnswer:(NSString*)correctAnswer;
 
 @end
