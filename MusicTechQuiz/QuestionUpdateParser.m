@@ -9,36 +9,35 @@
 #import "QuestionUpdateParser.h"
 #import "ServerConstants.h"
 #import "QuestionModel.h"
-#import "AnswerModel.h"
 #import <MagicalRecord/MagicalRecord.h>
 
 @implementation QuestionUpdateParser
 
 +(void)parseUpdateResponse:(NSDictionary *)updateDict
 {
-    NSString *modelType = [updateDict objectForKey:@"model_type"];
-    
-    if ([modelType isEqualToString:kServerModelTypeQuestion]) {
-
-    } else if ([modelType isEqualToString:kServerModelTypeAnswer]) {
-    
-    } else {
-        [NSException raise:@"** Invalid State **" format:@"Model type not recognised"];
-    }  
+    [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
+        [self createOrUpdateQuestionObjectWithDataDict:updateDict inMoc:localContext];
+        [localContext save:nil];        
+    }];
 }
 
-+(void)p {
-//    NSNumber *remoteId  = [dict objectForKey:@"id"];
-//    AnswerModel *answer = [AnswerModel MR_findFirstByAttribute:@"remoteId" withValue:remoteId];
-//    
-//    if (!answer) {
-//        answer = [AnswerModel MR_createEntity];
-//        answer.remoteId = remoteId;
-//    }
-//    
-//    answer.title = [dict objectForKey:@"title"];
-//    
-//    return answer;
++(void)createOrUpdateQuestionObjectWithDataDict:(NSDictionary*)questionDataDict inMoc:(NSManagedObjectContext*)moc
+{
+    NSNumber *remoteId = [questionDataDict objectForKey:@"id"];
+    NSDictionary *userDataDict = [questionDataDict valueForKey:@"user"];
+    
+    QuestionModel *question = [QuestionModel MR_findFirstByAttribute:@"remoteId" withValue:remoteId inContext:moc];
+    
+    if (question) {
+         question.updated = [NSDate date];
+    } else {
+        question = [QuestionModel MR_createEntityInContext:moc];
+        question.created  = [NSDate date];
+        question.remoteId = remoteId;
+    }
+    
+    question.title = [questionDataDict valueForKey:@"title"];     
+    question.userName = [userDataDict valueForKey:@"name"];
 }
 
 @end

@@ -9,7 +9,7 @@
 #import "UpdateFetcher.h"
 #import "ServerComms.h"
 #import "ServerResponse.h"
-#import "QuestionAnswerUpdateParser.h"
+#import "QuestionUpdateParser.h"
 
 @implementation UpdateFetcher
 

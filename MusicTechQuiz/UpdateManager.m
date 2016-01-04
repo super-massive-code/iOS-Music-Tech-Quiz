@@ -15,7 +15,7 @@
 #import "UpdateFetcher.h"
 #import <MagicalRecord/MagicalRecord.h>
 #import "PendingUpdateModel.h"
-#import "QuestionAnswerUpdateParser.h"
+#import "QuestionUpdateParser.h"
 
 @implementation UpdateManager
 
@@ -48,7 +48,7 @@
     
     if (questionUpdates.count > 0) {
         UpdateFetcher *updateFetcher = [[UpdateFetcher alloc]init];
-        [updateFetcher fetchUrls:questionUpdates usingParser:[QuestionAnswerUpdateParser class] complete:^{
+        [updateFetcher fetchUrls:questionUpdates usingParser:[QuestionUpdateParser class] complete:^{
             
         }];    
     }

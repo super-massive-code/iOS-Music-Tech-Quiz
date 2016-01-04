@@ -10,4 +10,6 @@
 
 @interface AnswerUpdateParser : NSObject
 
++(void)parseUpdateResponse:(NSDictionary *)updateDict;
+
 @end

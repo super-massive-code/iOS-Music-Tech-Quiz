@@ -7,7 +7,24 @@
 //
 
 #import "AnswerUpdateParser.h"
+#import "AnswerModel.h"
+#import <MagicalRecord/MagicalRecord.h>
 
 @implementation AnswerUpdateParser
+
++(void)parseUpdateResponse:(NSDictionary *)updateDict
+{
+//        NSNumber *remoteId  = [dict objectForKey:@"id"];
+//        AnswerModel *answer = [AnswerModel MR_findFirstByAttribute:@"remoteId" withValue:remoteId];
+//    
+//        if (!answer) {
+//            answer = [AnswerModel MR_createEntity];
+//            answer.remoteId = remoteId;
+//        }
+//    
+//        answer.title = [dict objectForKey:@"title"];
+    
+    
+}
 
 @end
