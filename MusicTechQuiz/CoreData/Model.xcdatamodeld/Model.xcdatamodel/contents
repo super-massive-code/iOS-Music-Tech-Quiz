@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="14F1509" minimumToolsVersion="Xcode 7.0">
     <entity name="AnswerModel" representedClassName="AnswerModel" syncable="YES">
-        <attribute name="created" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="isCorrectAnswer" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="remoteId" optional="YES" attributeType="Integer 64" syncable="YES"/>
-        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="updated" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="created" attributeType="Date" syncable="YES"/>
+        <attribute name="isCorrectAnswer" attributeType="Boolean" syncable="YES"/>
+        <attribute name="remoteId" attributeType="Integer 64" syncable="YES"/>
+        <attribute name="title" attributeType="String" syncable="YES"/>
+        <attribute name="updated" attributeType="Date" syncable="YES"/>
         <relationship name="question" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="QuestionModel" inverseName="answers" inverseEntity="QuestionModel" syncable="YES"/>
     </entity>
     <entity name="PendingUpdateModel" representedClassName="PendingUpdateModel" syncable="YES">
@@ -22,8 +22,8 @@
         <relationship name="answers" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="AnswerModel" inverseName="question" inverseEntity="AnswerModel" syncable="YES"/>
     </entity>
     <elements>
+        <element name="AnswerModel" positionX="270" positionY="-45" width="128" height="133"/>
         <element name="PendingUpdateModel" positionX="-83" positionY="-36" width="128" height="88"/>
         <element name="QuestionModel" positionX="90" positionY="-36" width="128" height="133"/>
-        <element name="AnswerModel" positionX="270" positionY="-45" width="128" height="133"/>
     </elements>
 </model>
