@@ -44,12 +44,17 @@
     // Note: we need to make sure questionUpdates are proccessed before answerUpdates so we can connect the relationships -
     // when we get the response
     
+    UpdateFetcher *updateFetcher = [[UpdateFetcher alloc]init];
+    
     if (pendingQuestionUpdates.count > 0) {
-        UpdateFetcher *updateFetcher = [[UpdateFetcher alloc]init];
         [updateFetcher fetchUrls:pendingQuestionUpdates usingParser:[QuestionUpdateParser class] complete:^{
             [updateFetcher fetchUrls:pendingAnswerUpdates usingParser:[AnswerUpdateParser class] complete:^{
                 callBack();
             }];
+        }];
+    } else if (pendingAnswerUpdates.count > 0) {
+        [updateFetcher fetchUrls:pendingAnswerUpdates usingParser:[AnswerUpdateParser class] complete:^{
+            callBack();
         }];
     }
 }
