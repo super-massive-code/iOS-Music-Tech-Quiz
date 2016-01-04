@@ -13,11 +13,12 @@
 
 @implementation QuestionUpdateParser
 
-+(void)parseUpdateResponse:(NSDictionary *)updateDict
++(void)parseUpdateResponse:(NSDictionary *)updateDict inContext:(NSManagedObjectContext*)moc
 {
     [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
-        [self createOrUpdateQuestionObjectWithDataDict:updateDict inMoc:localContext];
-        [localContext save:nil];        
+        [self createOrUpdateQuestionObjectWithDataDict:updateDict inMoc:moc];
+        [localContext save:nil];
+        [localContext MR_saveToPersistentStoreAndWait];      
     }];
 }
 
@@ -29,14 +30,14 @@
     QuestionModel *question = [QuestionModel MR_findFirstByAttribute:@"remoteId" withValue:remoteId inContext:moc];
     
     if (question) {
-         question.updated = [NSDate date];
+        question.updated = [NSDate date];
     } else {
         question = [QuestionModel MR_createEntityInContext:moc];
         question.created  = [NSDate date];
         question.remoteId = remoteId;
     }
     
-    question.title = [questionDataDict valueForKey:@"title"];     
+    question.title = [questionDataDict valueForKey:@"title"];
     question.userName = [userDataDict valueForKey:@"name"];
 }
 

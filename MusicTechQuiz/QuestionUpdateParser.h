@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+@class NSManagedObjectContext;
+
 @interface QuestionUpdateParser : NSObject
 
-+(void)parseUpdateResponse:(NSDictionary *)updateDict;
++(void)parseUpdateResponse:(NSDictionary *)updateDict inContext:(NSManagedObjectContext*)moc;
 
 @end

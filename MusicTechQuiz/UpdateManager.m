@@ -40,15 +40,15 @@
 {
     NSString *baseUrl = [ServerComms getCurrentBaseUrl];
     
-    NSMutableArray *questionUpdates = [self generateUpdateUrlsForModelType:kServerModelTypeQuestion withBaseUrl:baseUrl];
-    NSMutableArray *answerUpdates   = [self generateUpdateUrlsForModelType:kServerModelTypeAnswer withBaseUrl:baseUrl];
+    NSMutableArray *pendingQuestionUpdates = [self generateUpdateUrlsForModelType:kServerModelTypeQuestion withBaseUrl:baseUrl];
+    NSMutableArray *pendingAnswerUpdates   = [self generateUpdateUrlsForModelType:kServerModelTypeAnswer withBaseUrl:baseUrl];
     
     // Note: we need to make sure questionUpdates are proccessed before answerUpdates so we can connect the relationships -
     // when we get the response
     
-    if (questionUpdates.count > 0) {
+    if (pendingQuestionUpdates.count > 0) {
         UpdateFetcher *updateFetcher = [[UpdateFetcher alloc]init];
-        [updateFetcher fetchUrls:questionUpdates usingParser:[QuestionUpdateParser class] complete:^{
+        [updateFetcher fetchUrls:pendingQuestionUpdates usingParser:[QuestionUpdateParser class] complete:^{
             
         }];    
     }
