@@ -25,8 +25,7 @@
     NSString *lastUpdateTimeInEpoch = @"12345"; //Fixme: this is ignored on server at the moment
     NSString *updateUrl = [NSString stringWithFormat:@"%@%@%@", [ServerComms getCurrentBaseUrl], kServerEndPointUpdatesSince, lastUpdateTimeInEpoch];
     NSMutableArray *updateUrlArray = [[NSMutableArray alloc]init];
-    [updateUrlArray addObject:updateUrl];
-    
+    [updateUrlArray addObject:updateUrl];    
     
     UpdateFetcher *updateFetcher = [[UpdateFetcher alloc]init];
     [updateFetcher fetchUrls:updateUrlArray usingParser:[PendingUpdateParser class] complete:^{

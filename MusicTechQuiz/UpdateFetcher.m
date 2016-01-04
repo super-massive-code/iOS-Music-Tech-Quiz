@@ -18,7 +18,7 @@
 {
     __block NSManagedObjectContext *defaultContext = [NSManagedObjectContext MR_defaultContext];
     
-    [self fetchUpdateFromServer:updateUrls parser:parser context:defaultContext complete:^{
+    [self fetchUpdateFromServer:updateUrls parser:parser context:defaultContext complete:^{       
         [defaultContext MR_saveToPersistentStoreAndWait];
         complete();
     }];

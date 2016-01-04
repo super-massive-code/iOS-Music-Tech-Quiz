@@ -17,6 +17,7 @@
     NSString *dbStore = [NSString stringWithFormat:@"%@.sqlite", bundleID];
     
     [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:dbStore];
+    [MagicalRecord setLoggingLevel:MagicalRecordLoggingLevelVerbose];
 }
 
 @end

@@ -13,6 +13,6 @@
 @interface PendingUpdateParser : NSObject
 
 +(void)parseUpdateResponse:(NSDictionary *)updateDict inContext:(NSManagedObjectContext*)moc;
-+(void)deleteUpdateObjectForRemoteId:(NSNumber*)remoteId;
++(void)deleteUpdateObjectForRemoteId:(NSNumber*)remoteId andModelType:(NSString*)modelType inMoc:(NSManagedObjectContext*)moc;
 
 @end
