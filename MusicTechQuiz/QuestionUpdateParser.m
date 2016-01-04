@@ -6,13 +6,13 @@
 //  Copyright © 2015 Carl Taylor. All rights reserved.
 //
 
-#import "QuestionAnswerUpdateParser.h"
+#import "QuestionUpdateParser.h"
 #import "ServerConstants.h"
 #import "QuestionModel.h"
 #import "AnswerModel.h"
 #import <MagicalRecord/MagicalRecord.h>
 
-@implementation QuestionAnswerUpdateParser
+@implementation QuestionUpdateParser
 
 +(void)parseUpdateResponse:(NSDictionary *)updateDict
 {

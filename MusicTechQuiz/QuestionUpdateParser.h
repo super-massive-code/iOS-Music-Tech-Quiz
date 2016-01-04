@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface QuestionAnswerUpdateParser : NSObject
+@interface QuestionUpdateParser : NSObject
 
 +(void)parseUpdateResponse:(NSDictionary *)updateDict;
 
