@@ -112,7 +112,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C32BFAEF1C340B9D0033D82C /* UpdateParsers */ = {
+		C32BFAEF1C340B9D0033D82C /* Parsers */ = {
 			isa = PBXGroup;
 			children = (
 				C32BFAE61C33E9440033D82C /* PendingUpdateParser.h */,
@@ -122,7 +122,7 @@
 				C3A030651C3AA01700CEF820 /* AnswerUpdateParser.h */,
 				C3A030661C3AA01700CEF820 /* AnswerUpdateParser.m */,
 			);
-			name = UpdateParsers;
+			name = Parsers;
 			sourceTree = "<group>";
 		};
 		C32BFAF31C3536EB0033D82C /* CoreData */ = {
@@ -166,15 +166,14 @@
 		C367B8E31BDCDF9F00CE442C /* MusicTechQuiz */ = {
 			isa = PBXGroup;
 			children = (
+				C367B8E71BDCDF9F00CE442C /* AppDelegate.h */,
+				C367B8E81BDCDF9F00CE442C /* AppDelegate.m */,
 				C32BFB181C3539940033D82C /* AppSetUp.h */,
 				C32BFB191C3539940033D82C /* AppSetUp.m */,
+				C368730E1C3AE5D000027ECF /* ViewControllers */,
 				C32BFAF31C3536EB0033D82C /* CoreData */,
 				C3D48FE41C2AF0E0004C39CF /* QuestionData */,
 				C3D48FE01C2AEA6C004C39CF /* ServerComms */,
-				C367B8E71BDCDF9F00CE442C /* AppDelegate.h */,
-				C367B8E81BDCDF9F00CE442C /* AppDelegate.m */,
-				C367B8EA1BDCDF9F00CE442C /* QuestionAnswerViewController.h */,
-				C367B8EB1BDCDF9F00CE442C /* QuestionAnswerViewController.m */,
 				C367B8ED1BDCDF9F00CE442C /* Main.storyboard */,
 				C367B8F01BDCDF9F00CE442C /* Assets.xcassets */,
 				C367B9041BDCF94000CE442C /* wrong.wav */,
@@ -194,6 +193,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		C368730E1C3AE5D000027ECF /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C367B8EA1BDCDF9F00CE442C /* QuestionAnswerViewController.h */,
+				C367B8EB1BDCDF9F00CE442C /* QuestionAnswerViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		C3D48FE01C2AEA6C004C39CF /* ServerComms */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,7 +218,7 @@
 		C3D48FE41C2AF0E0004C39CF /* QuestionData */ = {
 			isa = PBXGroup;
 			children = (
-				C3D48FE51C2AF51A004C39CF /* UpdatingData */,
+				C3D48FE51C2AF51A004C39CF /* Updating */,
 				C367B8FB1BDCE29A00CE442C /* QuestionAnswerCompModel.h */,
 				C367B8FC1BDCE29A00CE442C /* QuestionAnswerCompModel.m */,
 				C367B8FE1BDCF0D200CE442C /* QuestionController.h */,
@@ -219,10 +227,10 @@
 			name = QuestionData;
 			sourceTree = "<group>";
 		};
-		C3D48FE51C2AF51A004C39CF /* UpdatingData */ = {
+		C3D48FE51C2AF51A004C39CF /* Updating */ = {
 			isa = PBXGroup;
 			children = (
-				C32BFAEF1C340B9D0033D82C /* UpdateParsers */,
+				C32BFAEF1C340B9D0033D82C /* Parsers */,
 				C367B9081BDD036E00CE442C /* UpdateController.h */,
 				C367B9091BDD036E00CE442C /* UpdateController.m */,
 				C3D48FF61C2B031A004C39CF /* UpdateFetcher.h */,
@@ -230,7 +238,7 @@
 				C3D48FF91C2B0837004C39CF /* UpdateUrlBuilder.h */,
 				C3D48FFA1C2B0837004C39CF /* UpdateUrlBuilder.m */,
 			);
-			name = UpdatingData;
+			name = Updating;
 			sourceTree = "<group>";
 		};
 		E79408F62F46A045FB742CEA /* Pods */ = {
