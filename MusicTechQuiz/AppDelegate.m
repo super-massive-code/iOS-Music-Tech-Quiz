@@ -12,6 +12,8 @@
 
 @interface AppDelegate ()
 
+@property (nonatomic, strong) UpdateManager *updateManager;
+
 @end
 
 @implementation AppDelegate
@@ -26,9 +28,9 @@
     
     // Override point for customization after application launch.
     
-    UpdateManager *updateManager = [[UpdateManager alloc]init];
-        [updateManager checkForNewUpdatesOnServer:^{
-                [updateManager checkForPendingUpdatesOnClient];
+    self.updateManager = [[UpdateManager alloc]init];
+        [self.updateManager checkForNewUpdatesOnServer:^{
+                [self.updateManager checkForPendingUpdatesOnClient];
         }];
     
     return YES;

@@ -17,14 +17,15 @@
 {
     NSArray *questionUpdates = [updateDict objectForKey:kServerModelTypeQuestion];
     NSArray *answerUpdates   = [updateDict objectForKey:kServerModelTypeAnswer];
-
-//        for (NSNumber *remoteObjId in answerUpdates) {
-//            [self createUpdateObjectForRemoteId:remoteObjId andModelType:kServerModelTypeAnswer inMoc:moc];
-//        }
     
-        for (NSNumber *remoteObjId in questionUpdates) {
-            [self createUpdateObjectForRemoteId:remoteObjId andModelType:kServerModelTypeQuestion inMoc:moc];
-        }
+    for (NSNumber *remoteObjId in questionUpdates) {
+        [self createUpdateObjectForRemoteId:remoteObjId andModelType:kServerModelTypeQuestion inMoc:moc];
+    }
+    
+    for (NSNumber *remoteObjId in answerUpdates) {
+        [self createUpdateObjectForRemoteId:remoteObjId andModelType:kServerModelTypeAnswer inMoc:moc];
+    }
+    
 }
 
 +(void)createUpdateObjectForRemoteId:(NSNumber*)remoteId andModelType:(NSString*)modelType inMoc:(NSManagedObjectContext*)moc
@@ -37,7 +38,7 @@
             // We dont want to be deleting the wrong object
             return;
         } else {
-              [update MR_deleteEntityInContext:moc];
+            [update MR_deleteEntityInContext:moc];
         }
     }
     

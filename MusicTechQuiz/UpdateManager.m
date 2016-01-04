@@ -16,6 +16,7 @@
 #import <MagicalRecord/MagicalRecord.h>
 #import "PendingUpdateModel.h"
 #import "QuestionUpdateParser.h"
+#import "AnswerUpdateParser.h"
 
 @implementation UpdateManager
 
@@ -25,7 +26,7 @@
     NSString *lastUpdateTimeInEpoch = @"12345"; //Fixme: this is ignored on server at the moment
     NSString *updateUrl = [NSString stringWithFormat:@"%@%@%@", [ServerComms getCurrentBaseUrl], kServerEndPointUpdatesSince, lastUpdateTimeInEpoch];
     NSMutableArray *updateUrlArray = [[NSMutableArray alloc]init];
-    [updateUrlArray addObject:updateUrl];    
+    [updateUrlArray addObject:updateUrl];
     
     UpdateFetcher *updateFetcher = [[UpdateFetcher alloc]init];
     [updateFetcher fetchUrls:updateUrlArray usingParser:[PendingUpdateParser class] complete:^{
@@ -46,20 +47,22 @@
     if (pendingQuestionUpdates.count > 0) {
         UpdateFetcher *updateFetcher = [[UpdateFetcher alloc]init];
         [updateFetcher fetchUrls:pendingQuestionUpdates usingParser:[QuestionUpdateParser class] complete:^{
-            
-        }];    
+            [updateFetcher fetchUrls:pendingAnswerUpdates usingParser:[AnswerUpdateParser class] complete:^{
+                
+            }];
+        }];
     }
 }
 
 -(NSMutableArray*)generateUpdateUrlsForModelType:(NSString*)modelType withBaseUrl:(NSString*)baseUrl
 {
-     NSArray *modelUpdates = [PendingUpdateModel  MR_findByAttribute:@"modelType" withValue:modelType];
-     NSMutableArray *updateUrls = [[NSMutableArray alloc]init];
+    NSArray *modelUpdates = [PendingUpdateModel  MR_findByAttribute:@"modelType" withValue:modelType];
+    NSMutableArray *updateUrls = [[NSMutableArray alloc]init];
     
     for (PendingUpdate *update in modelUpdates) {
         NSString *updateUrl = [UpdateUrlBuilder buildUrlFromModel:update andBaseUrl:baseUrl];
         [updateUrls addObject:updateUrl];
-    }    
+    }
     return updateUrls;
 }
 
