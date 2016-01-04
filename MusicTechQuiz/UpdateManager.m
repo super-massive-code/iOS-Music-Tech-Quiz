@@ -15,6 +15,7 @@
 #import "UpdateFetcher.h"
 #import <MagicalRecord/MagicalRecord.h>
 #import "PendingUpdateModel.h"
+#import "QuestionAnswerUpdateParser.h"
 
 @implementation UpdateManager
 
@@ -37,28 +38,32 @@
 
 -(void)checkForPendingUpdatesOnClient
 {
-    NSMutableArray *updateUrls = [[NSMutableArray alloc]init];
     NSString *baseUrl = [ServerComms getCurrentBaseUrl];
     
-    NSArray *questionUpdates = [PendingUpdateModel  MR_findByAttribute:@"modelType" withValue:kServerModelTypeQuestion];
-    NSArray *answerUpdates   = [PendingUpdateModel  MR_findByAttribute:@"modelType" withValue:kServerModelTypeAnswer];
+    NSMutableArray *questionUpdates = [self generateUpdateUrlsForModelType:kServerModelTypeQuestion withBaseUrl:baseUrl];
+    NSMutableArray *answerUpdates   = [self generateUpdateUrlsForModelType:kServerModelTypeAnswer withBaseUrl:baseUrl];
     
-    //Note: we need to make sure questionUpdates are proccessed before answer updates so we can connect the relationships -
-    // when we get the response. So add them to the updateUrls array in this order
-    for (PendingUpdate *update in questionUpdates) {
-        NSString *updateUrl = [UpdateUrlBuilder buildUrlFromModel:update andBaseUrl:baseUrl];
-        [updateUrls addObject:updateUrl];
-    }
+    // Note: we need to make sure questionUpdates are proccessed before answerUpdates so we can connect the relationships -
+    // when we get the response
     
-    for (PendingUpdate *update in answerUpdates) {
-        NSString *updateUrl = [UpdateUrlBuilder buildUrlFromModel:update andBaseUrl:baseUrl];
-        [updateUrls addObject:updateUrl];
-    }
-    
-    if (updateUrls.count > 0) {
+    if (questionUpdates.count > 0) {
         UpdateFetcher *updateFetcher = [[UpdateFetcher alloc]init];
-        [updateFetcher fetchUrls:updateUrls];
-    }  
+        [updateFetcher fetchUrls:questionUpdates usingParser:[QuestionAnswerUpdateParser class] complete:^{
+            
+        }];    
+    }
+}
+
+-(NSMutableArray*)generateUpdateUrlsForModelType:(NSString*)modelType withBaseUrl:(NSString*)baseUrl
+{
+     NSArray *modelUpdates = [PendingUpdateModel  MR_findByAttribute:@"modelType" withValue:modelType];
+     NSMutableArray *updateUrls = [[NSMutableArray alloc]init];
+    
+    for (PendingUpdate *update in modelUpdates) {
+        NSString *updateUrl = [UpdateUrlBuilder buildUrlFromModel:update andBaseUrl:baseUrl];
+        [updateUrls addObject:updateUrl];
+    }    
+    return updateUrls;
 }
 
 @end

@@ -10,6 +10,6 @@
 
 @interface UpdateFetcher : NSObject
 
--(void)fetchUrls:(NSMutableArray*)updateUrls;
+-(void)fetchUrls:(NSMutableArray*)updateUrls usingParser:(id)parser complete:(void(^)(void))complete;
 
 @end
