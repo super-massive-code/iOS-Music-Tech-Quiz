@@ -21,6 +21,5 @@
 -(instancetype)initWithQuestion:(NSString*)question
                         answers:(NSArray*)answers
                   correctAnswer:(NSString*)correctAnswer
-               remoteDatabaseId:(NSNumber*)remoteDatabaseId;
 
 @end

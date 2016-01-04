@@ -10,8 +10,6 @@
 
 @interface QuestionAnswerCompModel ()
 
-@property (nonatomic, readwrite) NSNumber *remoteDatabaseId;
-
 @property (nonatomic, copy, readwrite) NSArray *answers;
 
 @property (nonatomic, copy, readwrite) NSString *question;
@@ -24,14 +22,12 @@
 -(instancetype)initWithQuestion:(NSString*)question
                         answers:(NSArray*)answers
                   correctAnswer:(NSString*)correctAnswer
-               remoteDatabaseId:(NSNumber*)remoteDatabaseId
 {
     self = [super init];
     if (self) {
         self.answers = answers;
         self.question = question;
         self.correctAnswer = correctAnswer;
-        self.remoteDatabaseId = remoteDatabaseId;
     }
     
     return self;

@@ -38,7 +38,7 @@
     NSString *question = @"Name the Roland Acid Synth";
     NSArray *answers = @[@"TB 303", @"Jupiter 8", @"909"];
     
-    QuestionAnswerCompModel *model = [[QuestionAnswerCompModel alloc]initWithQuestion:question answers:answers correctAnswer:@"TB 303" remoteDatabaseId:@91];
+    QuestionAnswerCompModel *model = [[QuestionAnswerCompModel alloc]initWithQuestion:question answers:answers correctAnswer:@"TB 303"];
     
     NSMutableArray *array = [[NSMutableArray alloc]init];
     [array addObject:model];
