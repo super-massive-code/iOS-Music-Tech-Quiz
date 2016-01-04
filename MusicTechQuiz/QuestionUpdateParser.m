@@ -10,16 +10,13 @@
 #import "ServerConstants.h"
 #import "QuestionModel.h"
 #import <MagicalRecord/MagicalRecord.h>
+#import "PendingUpdateParser.h"
 
 @implementation QuestionUpdateParser
 
 +(void)parseUpdateResponse:(NSDictionary *)updateDict inContext:(NSManagedObjectContext*)moc
 {
-    [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
-        [self createOrUpdateQuestionObjectWithDataDict:updateDict inMoc:moc];
-        [localContext save:nil];
-        [localContext MR_saveToPersistentStoreAndWait];      
-    }];
+   [self createOrUpdateQuestionObjectWithDataDict:updateDict inMoc:moc];
 }
 
 +(void)createOrUpdateQuestionObjectWithDataDict:(NSDictionary*)questionDataDict inMoc:(NSManagedObjectContext*)moc
@@ -39,6 +36,13 @@
     
     question.title = [questionDataDict valueForKey:@"title"];
     question.userName = [userDataDict valueForKey:@"name"];
+    
+    NSError *saveError;
+    [moc save:&saveError];
+    
+    if (!saveError) {
+        [PendingUpdateParser deleteUpdateObjectForRemoteId:remoteId];    
+    }
 }
 
 @end

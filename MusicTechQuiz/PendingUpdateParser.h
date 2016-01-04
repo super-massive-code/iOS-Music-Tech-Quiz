@@ -8,8 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+@class NSManagedObjectContext;
+
 @interface PendingUpdateParser : NSObject
 
-+(void)parseUpdateResponse:(NSDictionary *)updateDict;
++(void)parseUpdateResponse:(NSDictionary *)updateDict inContext:(NSManagedObjectContext*)moc;
++(void)deleteUpdateObjectForRemoteId:(NSNumber*)remoteId;
 
 @end

@@ -13,31 +13,41 @@
 
 @implementation PendingUpdateParser
 
-+(void)parseUpdateResponse:(NSDictionary *)updateDict
++(void)parseUpdateResponse:(NSDictionary *)updateDict inContext:(NSManagedObjectContext*)moc
 {
     NSArray *answerUpdates   = [updateDict objectForKey:kServerModelTypeAnswer];
     NSArray *questionUpdates = [updateDict objectForKey:kServerModelTypeQuestion];
-    
-    [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
-        
+
         for (NSNumber *remoteObjId in answerUpdates) {
-            [self createUpdateObjectForRemoteId:remoteObjId andModelType:kServerModelTypeAnswer];
+            [self createUpdateObjectForRemoteId:remoteObjId andModelType:kServerModelTypeAnswer inMoc:moc];
         }
-        
+    
         for (NSNumber *remoteObjId in questionUpdates) {
-            [self createUpdateObjectForRemoteId:remoteObjId andModelType:kServerModelTypeQuestion];
+            [self createUpdateObjectForRemoteId:remoteObjId andModelType:kServerModelTypeQuestion inMoc:moc];
         }
-        [localContext save:nil];
-    }];
 }
 
-+(void)createUpdateObjectForRemoteId:(NSNumber*)remoteId andModelType:(NSString*)modelType
++(void)createUpdateObjectForRemoteId:(NSNumber*)remoteId andModelType:(NSString*)modelType inMoc:(NSManagedObjectContext*)moc
 {
-    PendingUpdateModel *newUpdate = [PendingUpdateModel MR_createEntity];
+    PendingUpdateModel *update = [PendingUpdateModel MR_findFirstByAttribute:@"remoteId" withValue:remoteId];
     
-    newUpdate.created   = [NSDate date];
-    newUpdate.modelType = modelType;
-    newUpdate.remoteId  = remoteId;
+    if (update) {
+        [update MR_deleteEntity];
+        update = [PendingUpdateModel MR_createEntityInContext:moc];
+    }
+    
+    update.created   = [NSDate date];
+    update.modelType = modelType;
+    update.remoteId  = remoteId;
+    
+    NSError *saveError;
+    [moc save:&saveError];
+}
+
++(void)deleteUpdateObjectForRemoteId:(NSNumber*)remoteId
+{
+    PendingUpdateModel *update = [PendingUpdateModel MR_findFirstByAttribute:@"remoteId" withValue:remoteId];
+//    [update MR_deleteEntity];
 }
 
 @end
