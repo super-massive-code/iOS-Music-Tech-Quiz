@@ -16,22 +16,17 @@
 
 +(void)parseUpdateResponse:(NSDictionary *)updateDict inContext:(NSManagedObjectContext*)moc
 {
-   BOOL success = [self createOrUpdateQuestionObjectWithDataDict:updateDict inMoc:moc];
-    
-    if (success) {
-        NSNumber *remoteId = [updateDict objectForKey:@"id"];
+    NSNumber *remoteId = [updateDict objectForKey:@"id"];
+    if (remoteId) {
+        [self createOrUpdateQuestionObjectWithDataDict:updateDict forRemoteId:remoteId inMoc:moc];
         [PendingUpdateParser deleteUpdateObjectForRemoteId:remoteId andModelType:kServerModelTypeQuestion inMoc:moc];
+    } else {
+        // TODO: log with bug tracker
     }
 }
 
-+(BOOL)createOrUpdateQuestionObjectWithDataDict:(NSDictionary*)questionDataDict inMoc:(NSManagedObjectContext*)moc
++(void)createOrUpdateQuestionObjectWithDataDict:(NSDictionary*)questionDataDict forRemoteId:(NSNumber*)remoteId inMoc:(NSManagedObjectContext*)moc
 {
-    NSNumber *remoteId = [questionDataDict objectForKey:@"id"];
-    if (remoteId == nil) {
-        //todo: log this error with bug tracking
-        return NO;
-    }
-    
     NSDictionary *userDataDict = [questionDataDict valueForKey:@"user"];
     
     QuestionModel *question = [QuestionModel MR_findFirstByAttribute:@"remoteId" withValue:remoteId inContext:moc];
@@ -46,8 +41,6 @@
     
     question.title = [questionDataDict valueForKey:@"title"];
     question.userName = [userDataDict valueForKey:@"name"];
-    
-    return YES;
 }
 
 @end
