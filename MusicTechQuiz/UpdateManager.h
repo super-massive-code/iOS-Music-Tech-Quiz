@@ -12,6 +12,6 @@
 @interface UpdateManager : NSObject
 
 -(void)checkForNewUpdatesOnServer:(void(^)(void))callBack;
--(void)checkForPendingUpdatesOnClient;
+-(void)checkForPendingUpdatesOnClient:(void(^)(void))callBack;
 
 @end

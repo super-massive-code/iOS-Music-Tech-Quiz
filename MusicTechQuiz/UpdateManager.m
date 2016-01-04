@@ -34,7 +34,7 @@
     }];
 }
 
--(void)checkForPendingUpdatesOnClient
+-(void)checkForPendingUpdatesOnClient:(void(^)(void))callBack
 {
     NSString *baseUrl = [ServerComms getCurrentBaseUrl];
     
@@ -48,7 +48,7 @@
         UpdateFetcher *updateFetcher = [[UpdateFetcher alloc]init];
         [updateFetcher fetchUrls:pendingQuestionUpdates usingParser:[QuestionUpdateParser class] complete:^{
             [updateFetcher fetchUrls:pendingAnswerUpdates usingParser:[AnswerUpdateParser class] complete:^{
-                
+                callBack();
             }];
         }];
     }
