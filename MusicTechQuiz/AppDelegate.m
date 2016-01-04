@@ -30,7 +30,9 @@
     
     self.updateManager = [[UpdateManager alloc]init];
         [self.updateManager checkForNewUpdatesOnServer:^{
-                [self.updateManager checkForPendingUpdatesOnClient];
+            [self.updateManager checkForPendingUpdatesOnClient:^{
+                
+            }];
         }];
     
     return YES;

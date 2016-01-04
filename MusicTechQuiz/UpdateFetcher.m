@@ -16,7 +16,7 @@
 
 -(void)fetchUrls:(NSMutableArray*)updateUrls usingParser:(id)parser complete:(void(^)(void))complete
 {
-    __block NSManagedObjectContext *defaultContext = [NSManagedObjectContext MR_defaultContext];
+    NSManagedObjectContext *defaultContext = [NSManagedObjectContext MR_defaultContext];
     
     [self fetchUpdateFromServer:updateUrls parser:parser context:defaultContext complete:^{       
         [defaultContext MR_saveToPersistentStoreAndWait];
