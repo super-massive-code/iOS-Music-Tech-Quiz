@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface UpdateManager : NSObject
+@interface UpdateController : NSObject
 
 -(void)checkForNewUpdatesOnServer:(void(^)(void))callBack;
 -(void)checkForPendingUpdatesOnClient:(void(^)(void))callBack;

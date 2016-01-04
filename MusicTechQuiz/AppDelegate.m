@@ -7,12 +7,12 @@
 //
 
 #import "AppDelegate.h"
-#import "UpdateManager.h"
+#import "UpdateController.h"
 #import "AppSetUp.h"
 
 @interface AppDelegate ()
 
-@property (nonatomic, strong) UpdateManager *updateManager;
+@property (nonatomic, strong) UpdateController *updateManager;
 
 @end
 
@@ -28,7 +28,7 @@
     
     // Override point for customization after application launch.
     
-    self.updateManager = [[UpdateManager alloc]init];
+    self.updateManager = [[UpdateController alloc]init];
         [self.updateManager checkForNewUpdatesOnServer:^{
             [self.updateManager checkForPendingUpdatesOnClient:^{
                 

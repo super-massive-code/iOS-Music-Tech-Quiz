@@ -6,7 +6,7 @@
 //  Copyright © 2015 Carl Taylor. All rights reserved.
 //
 
-#import "UpdateManager.h"
+#import "UpdateController.h"
 #import "ServerComms.h"
 #import "ServerConstants.h"
 #import "PendingUpdateParser.h"
@@ -18,7 +18,7 @@
 #import "QuestionUpdateParser.h"
 #import "AnswerUpdateParser.h"
 
-@implementation UpdateManager
+@implementation UpdateController
 
 -(void)checkForNewUpdatesOnServer:(void(^)(void))callBack
 {
