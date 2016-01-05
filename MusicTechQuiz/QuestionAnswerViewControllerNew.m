@@ -175,6 +175,14 @@
     }];
 }
 
+-(void)animateToNextQuestion
+{
+    __weak QuestionAnswerViewControllerNew *weakSelf = (QuestionAnswerViewControllerNew*)self;
+    [weakSelf animateQuestionChangeOverToAlpha:0 WithCallBack:^{
+        [weakSelf.gameEngine loadNextQuestion];
+    }];
+}
+
 -(void)animateQuestionChangeOverToAlpha:(int)alpha WithCallBack:(void(^)(void))callBack
 {
     [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
@@ -212,11 +220,8 @@
         }
     }
     
-    __weak QuestionAnswerViewControllerNew *weakSelf = (QuestionAnswerViewControllerNew*)self;
     [self animateAnswerButton:userAnswerButton asCorrectAnswer:answerCorrect correctAnswer:correctAnswer callBack:^{
-        [weakSelf animateQuestionChangeOverToAlpha:0 WithCallBack:^{
-            [weakSelf.gameEngine loadNextQuestion];
-        }];
+        [self animateToNextQuestion];
     }];
 }
 
@@ -233,7 +238,7 @@
 
 -(void)gameEngineDelegateTimerDidRunOut
 {
-    NSLog(@"Time ran out");
+    [self animateToNextQuestion];
 }
 
 @end

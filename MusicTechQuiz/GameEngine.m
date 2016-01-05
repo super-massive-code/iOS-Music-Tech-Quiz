@@ -106,7 +106,7 @@ NSInteger QUESTION_TIME_LIMT = 10;
 }
 
 -(void)gameEnded
-{    
+{
     [self.delegate gameEngineDelegateDidEndWithTotalScore:[NSNumber numberWithInteger:self.userScore]];
 }
 
@@ -123,16 +123,23 @@ NSInteger QUESTION_TIME_LIMT = 10;
 
 -(void)stopTimer
 {
-   [self.timer invalidate];
+    [self.timer invalidate];
 }
 
 -(void)updateTime
 {
     self.currentTime++;
     if (self.currentTime >= QUESTION_TIME_LIMT) {
-        [self stopTimer];
-        [self.delegate gameEngineDelegateTimerDidRunOut];
+        [self timeRanOut];
     }
+}
+
+-(void)timeRanOut
+{
+    [self stopTimer];
+    [self.delegate gameEngineDelegateTimerDidRunOut];
+    
+    // play time out sound FX
 }
 
 @end
