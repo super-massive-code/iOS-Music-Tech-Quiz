@@ -31,6 +31,8 @@
 		C36873111C3BC0B600027ECF /* QuestionAnswerViewControllerNew.m in Sources */ = {isa = PBXBuildFile; fileRef = C36873101C3BC0B600027ECF /* QuestionAnswerViewControllerNew.m */; };
 		C36873141C3BC4F100027ECF /* GameEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = C36873131C3BC4F100027ECF /* GameEngine.m */; };
 		C36873191C3BD4D600027ECF /* UIColor+RgbDivided.m in Sources */ = {isa = PBXBuildFile; fileRef = C36873181C3BD4D600027ECF /* UIColor+RgbDivided.m */; };
+		C368731C1C3BF2D900027ECF /* GameOverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C368731B1C3BF2D900027ECF /* GameOverViewController.m */; };
+		C368731F1C3BF72000027ECF /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C368731E1C3BF72000027ECF /* HomeViewController.m */; };
 		C3A030671C3AA01700CEF820 /* AnswerUpdateParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A030661C3AA01700CEF820 /* AnswerUpdateParser.m */; };
 		C3D48FE31C2AEABB004C39CF /* ServerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D48FE21C2AEABB004C39CF /* ServerResponse.m */; };
 		C3D48FF81C2B031A004C39CF /* UpdateFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D48FF71C2B031A004C39CF /* UpdateFetcher.m */; };
@@ -86,6 +88,10 @@
 		C36873131C3BC4F100027ECF /* GameEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameEngine.m; path = MusicTechQuiz/GameEngine.m; sourceTree = "<group>"; };
 		C36873171C3BD4D600027ECF /* UIColor+RgbDivided.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RgbDivided.h"; sourceTree = "<group>"; };
 		C36873181C3BD4D600027ECF /* UIColor+RgbDivided.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RgbDivided.m"; sourceTree = "<group>"; };
+		C368731A1C3BF2D900027ECF /* GameOverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverViewController.h; sourceTree = "<group>"; };
+		C368731B1C3BF2D900027ECF /* GameOverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverViewController.m; sourceTree = "<group>"; };
+		C368731D1C3BF72000027ECF /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		C368731E1C3BF72000027ECF /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		C3A030651C3AA01700CEF820 /* AnswerUpdateParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerUpdateParser.h; sourceTree = "<group>"; };
 		C3A030661C3AA01700CEF820 /* AnswerUpdateParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerUpdateParser.m; sourceTree = "<group>"; };
 		C3D48FE11C2AEABB004C39CF /* ServerResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerResponse.h; sourceTree = "<group>"; };
@@ -203,8 +209,12 @@
 		C368730E1C3AE5D000027ECF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C368731D1C3BF72000027ECF /* HomeViewController.h */,
+				C368731E1C3BF72000027ECF /* HomeViewController.m */,
 				C368730F1C3BC0B600027ECF /* QuestionAnswerViewControllerNew.h */,
 				C36873101C3BC0B600027ECF /* QuestionAnswerViewControllerNew.m */,
+				C368731A1C3BF2D900027ECF /* GameOverViewController.h */,
+				C368731B1C3BF2D900027ECF /* GameOverViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -418,12 +428,14 @@
 				C3D48FF81C2B031A004C39CF /* UpdateFetcher.m in Sources */,
 				C367B8E91BDCDF9F00CE442C /* AppDelegate.m in Sources */,
 				C32BFAF21C35312C0033D82C /* Model.xcdatamodeld in Sources */,
+				C368731C1C3BF2D900027ECF /* GameOverViewController.m in Sources */,
 				C32BFB151C35372B0033D82C /* QuestionModel.m in Sources */,
 				C367B90D1BDD040600CE442C /* ServerComms.m in Sources */,
 				C3A030671C3AA01700CEF820 /* AnswerUpdateParser.m in Sources */,
 				C367B90A1BDD036E00CE442C /* UpdateController.m in Sources */,
 				C367B8E61BDCDF9F00CE442C /* main.m in Sources */,
 				C36873141C3BC4F100027ECF /* GameEngine.m in Sources */,
+				C368731F1C3BF72000027ECF /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
