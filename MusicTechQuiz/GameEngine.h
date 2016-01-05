@@ -15,6 +15,7 @@
 -(void)gameEngineDelegateDidConfirmAnswerIsCorrect:(BOOL)answerCorrect forUserAnswer:(NSString*)userAnswer withCorrectAnswer:(NSString*)correctAnswer;
 -(void)gameEngineDelegateDidLoadNextQuestion:(QuestionAnswerCompModel*)model;
 -(void)gameEngineDelegateDidEndWithTotalScore:(NSNumber*)totalScore;
+-(void)gameEngineDelegateTimerDidRunOut;
 @end
 
 @interface GameEngine : NSObject

@@ -19,14 +19,14 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
 
-@property (nonatomic, strong) GameEngine *gameEngine;
-
 @property (weak, nonatomic) IBOutlet UIButton *answerButtonOne;
 @property (weak, nonatomic) IBOutlet UIButton *answerButtonTwo;
 @property (weak, nonatomic) IBOutlet UIButton *answerButtonThree;
 @property (weak, nonatomic) IBOutlet UIButton *answerButtonFour;
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *answerButtons;
+
+@property (nonatomic, strong) GameEngine *gameEngine;
 
 @end
 
@@ -200,7 +200,7 @@
 }
 
 #pragma mark -
-#pragma mark GameEngineDelegates
+#pragma mark GameEngineDelegate
 
 -(void)gameEngineDelegateDidConfirmAnswerIsCorrect:(BOOL)answerCorrect forUserAnswer:(NSString *)userAnswer withCorrectAnswer:(NSString *)correctAnswer
 {
@@ -229,6 +229,11 @@
 -(void)gameEngineDelegateDidEndWithTotalScore:(NSNumber*)totalScore
 {
     [self performSegueWithIdentifier:@"segGameOver" sender:totalScore];
+}
+
+-(void)gameEngineDelegateTimerDidRunOut
+{
+    NSLog(@"Time ran out");
 }
 
 @end

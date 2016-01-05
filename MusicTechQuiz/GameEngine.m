@@ -20,12 +20,17 @@
 @property (strong, nonatomic) AVAudioPlayer *correctAudioPlayer;
 @property (strong, nonatomic) AVAudioPlayer *wrongAudioPlayer;
 
+@property (strong, nonatomic) NSTimer *timer;
+
 @property NSInteger userScore;
+@property NSInteger currentTime;
 
 @end
 
-NSInteger CORRECT_SCORE_VALUE = 10; // Maybe configure on server?
+// Maybe configure these on server?
+NSInteger CORRECT_SCORE_VALUE = 10;
 NSInteger INCORRECT_SCORE_VALUE = -10;
+NSInteger QUESTION_TIME_LIMT = 10;
 
 @implementation GameEngine
 
@@ -58,7 +63,9 @@ NSInteger INCORRECT_SCORE_VALUE = -10;
 #pragma mark GamePlay
 
 -(void)answerSelected:(NSString*)selectedAnswer
-{    
+{
+    [self stopTimer];
+    
     if ([selectedAnswer isEqualToString:self.currentModel.correctAnswer]) {
         [self notifyUserAnswerWasCorrect:YES userAnswer:selectedAnswer correctAnswer:self.currentModel.correctAnswer];
         [self updateUserScore:CORRECT_SCORE_VALUE];
@@ -75,6 +82,7 @@ NSInteger INCORRECT_SCORE_VALUE = -10;
     if (nextModel) {
         self.currentModel = nextModel;
         [self.delegate gameEngineDelegateDidLoadNextQuestion:nextModel];
+        [self restartTimer];
     } else {
         [self gameEnded];
     }
@@ -100,6 +108,31 @@ NSInteger INCORRECT_SCORE_VALUE = -10;
 -(void)gameEnded
 {    
     [self.delegate gameEngineDelegateDidEndWithTotalScore:[NSNumber numberWithInteger:self.userScore]];
+}
+
+#pragma mark -
+#pragma mark Timer
+
+-(void)restartTimer
+{
+    [self stopTimer];
+    self.currentTime = 0;
+    self.timer = nil;
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
+}
+
+-(void)stopTimer
+{
+   [self.timer invalidate];
+}
+
+-(void)updateTime
+{
+    self.currentTime++;
+    if (self.currentTime >= QUESTION_TIME_LIMT) {
+        [self stopTimer];
+        [self.delegate gameEngineDelegateTimerDidRunOut];
+    }
 }
 
 @end
