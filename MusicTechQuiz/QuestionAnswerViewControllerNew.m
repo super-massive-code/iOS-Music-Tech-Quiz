@@ -10,6 +10,7 @@
 #import "GameEngine.h"
 #import "QuestionAnswerCompModel.h"
 #import "UIColor+RgbDivided.h"
+#import "GameOverViewController.h"
 
 @interface QuestionAnswerViewControllerNew () <GameEngineDelegate>
 
@@ -47,6 +48,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(NSNumber*)userScore
+{
+    GameOverViewController *vc = segue.destinationViewController;
+    vc.userScore = userScore;
+}
+
 #pragma mark -
 #pragma mark ViewControllerDataSource
 
@@ -67,6 +74,8 @@
 
 -(void)setUpUi
 {
+    self.navigationController.navigationBar.hidden = YES;
+    
     NSString *fontName = @"Helvetica-Bold";
     UIFont *questionFont = [UIFont fontWithName:fontName size:30];
     UIFont *answerFont = [UIFont fontWithName:fontName size:25];
@@ -127,9 +136,9 @@
     [self updateUiWithModel:model];
 }
 
--(void)gameEngineDelegateDidEndWithTotalScore:(NSInteger)totalScore
+-(void)gameEngineDelegateDidEndWithTotalScore:(NSNumber*)totalScore
 {
-    
+    [self performSegueWithIdentifier:@"segGameOver" sender:totalScore];
 }
 
 @end

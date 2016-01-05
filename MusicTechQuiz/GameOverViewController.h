@@ -10,4 +10,6 @@
 
 @interface GameOverViewController : UIViewController
 
+@property (nonatomic, strong) NSNumber *userScore;
+
 @end

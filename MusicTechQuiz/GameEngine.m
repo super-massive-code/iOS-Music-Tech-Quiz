@@ -108,11 +108,8 @@ NSInteger INCORRECT_SCORE_VALUE = -10;
 }
 
 -(void)gameEnded
-{
-    // get total score
-    // check if can add to high score table (server and local?)
-    // go back to home screen / high score table
+{    
+    [self.delegate gameEngineDelegateDidEndWithTotalScore:[NSNumber numberWithInteger:self.userScore]];
 }
-
 
 @end

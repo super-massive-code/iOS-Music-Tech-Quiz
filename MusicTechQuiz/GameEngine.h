@@ -14,7 +14,7 @@
 @required
 -(void)gameEngineDelegateDidConfirmAnswerIsCorrect:(BOOL)answerCorrect;
 -(void)gameEngineDelegateDidLoadNextQuestion:(QuestionAnswerCompModel*)model;
--(void)gameEngineDelegateDidEndWithTotalScore:(NSInteger)totalScore;
+-(void)gameEngineDelegateDidEndWithTotalScore:(NSNumber*)totalScore;
 @end
 
 @interface GameEngine : NSObject
