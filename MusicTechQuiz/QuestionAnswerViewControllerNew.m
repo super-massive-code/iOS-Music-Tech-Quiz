@@ -15,7 +15,6 @@
 
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UIView *footerView;
-@property (weak, nonatomic) IBOutlet UIView *buttonsView;
 
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
 
@@ -88,8 +87,7 @@
     
     self.headerView.backgroundColor = headerFooterBackgroundColour;
     self.footerView.backgroundColor = headerFooterBackgroundColour;
-    self.buttonsView.backgroundColor = [UIColor clearColor];
-    
+      
     self.questionLabel.textColor = textColour;
     self.questionLabel.font = questionFont;
 }
