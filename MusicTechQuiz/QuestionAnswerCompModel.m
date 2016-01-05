@@ -35,7 +35,7 @@
 
 -(NSString*)description
 {
-    NSString *desc = [NSString stringWithFormat:@"Question: %@\nAnswers: %@\nCorrect Answer: %@\nRemote Database Id: %@", self.question, self.answers, self.correctAnswer, self.remoteDatabaseId];
+    NSString *desc = [NSString stringWithFormat:@"Question: %@\nAnswers: %@\nCorrect Answer: %@", self.question, self.answers, self.correctAnswer];
     return desc;
 }
 

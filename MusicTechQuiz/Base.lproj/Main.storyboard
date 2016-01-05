@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Dja-KN-F8T">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -85,6 +85,83 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="565" y="445"/>
+        </scene>
+        <!--Question Answer View Controller New-->
+        <scene sceneID="vrx-HE-MmV">
+            <objects>
+                <viewController id="Dja-KN-F8T" customClass="QuestionAnswerViewControllerNew" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OS2-qh-30c"/>
+                        <viewControllerLayoutGuide type="bottom" id="wpW-ms-ucD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XsG-CJ-pf3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DKV-CF-KnO">
+                                <rect key="frame" x="20" y="20" width="560" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="Dr4-cY-wOm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2eB-6y-cad">
+                                <rect key="frame" x="20" y="200" width="560" height="30"/>
+                                <state key="normal" title="Button 1"/>
+                                <connections>
+                                    <action selector="AnswerButtonPressed:" destination="Dja-KN-F8T" eventType="touchUpInside" id="wL6-Xp-nvs"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jmg-kh-CeU">
+                                <rect key="frame" x="20" y="262" width="560" height="30"/>
+                                <state key="normal" title="Button 2"/>
+                                <connections>
+                                    <action selector="AnswerButtonPressed:" destination="Dja-KN-F8T" eventType="touchUpInside" id="cIV-EQ-rBH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdp-JD-TxZ">
+                                <rect key="frame" x="20" y="401" width="560" height="30"/>
+                                <state key="normal" title="Button 4"/>
+                                <connections>
+                                    <action selector="AnswerButtonPressed:" destination="Dja-KN-F8T" eventType="touchUpInside" id="0Gd-aW-rKk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jiJ-2L-JbJ">
+                                <rect key="frame" x="20" y="329" width="560" height="30"/>
+                                <state key="normal" title="Button 3"/>
+                                <connections>
+                                    <action selector="AnswerButtonPressed:" destination="Dja-KN-F8T" eventType="touchUpInside" id="cuA-jA-M7R"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DKV-CF-KnO" firstAttribute="top" secondItem="OS2-qh-30c" secondAttribute="bottom" id="9HN-07-JB9"/>
+                            <constraint firstItem="jmg-kh-CeU" firstAttribute="trailing" secondItem="jiJ-2L-JbJ" secondAttribute="trailing" id="E6H-s0-enX"/>
+                            <constraint firstItem="fdp-JD-TxZ" firstAttribute="leading" secondItem="jiJ-2L-JbJ" secondAttribute="leading" id="JYB-Mc-9YS"/>
+                            <constraint firstItem="jmg-kh-CeU" firstAttribute="top" secondItem="2eB-6y-cad" secondAttribute="bottom" constant="32" id="MPM-ta-CEh"/>
+                            <constraint firstItem="jiJ-2L-JbJ" firstAttribute="top" secondItem="jmg-kh-CeU" secondAttribute="bottom" constant="37" id="QFE-b7-5vn"/>
+                            <constraint firstItem="fdp-JD-TxZ" firstAttribute="trailing" secondItem="jiJ-2L-JbJ" secondAttribute="trailing" id="S2C-Ua-Kxr"/>
+                            <constraint firstItem="DKV-CF-KnO" firstAttribute="leading" secondItem="2eB-6y-cad" secondAttribute="leading" id="Sca-U7-83z"/>
+                            <constraint firstItem="fdp-JD-TxZ" firstAttribute="top" secondItem="jiJ-2L-JbJ" secondAttribute="bottom" constant="42" id="VXf-Mc-EPj"/>
+                            <constraint firstItem="jmg-kh-CeU" firstAttribute="leading" secondItem="XsG-CJ-pf3" secondAttribute="leadingMargin" id="Vmx-2p-7Vp"/>
+                            <constraint firstItem="wpW-ms-ucD" firstAttribute="top" secondItem="fdp-JD-TxZ" secondAttribute="bottom" constant="169" id="VsJ-Ti-Zrd"/>
+                            <constraint firstItem="jmg-kh-CeU" firstAttribute="leading" secondItem="jiJ-2L-JbJ" secondAttribute="leading" id="YPd-mY-S2n"/>
+                            <constraint firstItem="2eB-6y-cad" firstAttribute="trailing" secondItem="XsG-CJ-pf3" secondAttribute="trailingMargin" id="cKy-bm-7hV"/>
+                            <constraint firstItem="2eB-6y-cad" firstAttribute="leading" secondItem="jmg-kh-CeU" secondAttribute="leading" id="lsJ-H5-0Gf"/>
+                            <constraint firstItem="2eB-6y-cad" firstAttribute="trailing" secondItem="jmg-kh-CeU" secondAttribute="trailing" id="uDu-DY-4yJ"/>
+                            <constraint firstItem="2eB-6y-cad" firstAttribute="trailing" secondItem="DKV-CF-KnO" secondAttribute="trailing" id="zYo-Wk-YIL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="questionLabel" destination="DKV-CF-KnO" id="EJy-1b-Xzf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="On2-Zd-PJq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1329" y="445"/>
         </scene>
     </scenes>
 </document>

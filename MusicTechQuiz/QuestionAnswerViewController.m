@@ -27,8 +27,8 @@
 
 @end
 
-NSInteger CORRECT_SCORE_VALUE = 10; // Maybe configure on server?
-NSInteger INCORRECT_SCORE_VALUE = -10;
+//NSInteger CORRECT_SCORE_VALUE = 10; // Maybe configure on server?
+//NSInteger INCORRECT_SCORE_VALUE = -10;
 
 @implementation QuestionAnswerViewController
 
@@ -93,10 +93,10 @@ NSInteger INCORRECT_SCORE_VALUE = -10;
     
     if ([selectedAnswer isEqualToString:correctAnswer]) {
         [self notifyUserAnswerWasCorrect:YES];
-        [self updateUserScore:CORRECT_SCORE_VALUE];
+//        [self updateUserScore:CORRECT_SCORE_VALUE];
     } else {
         [self notifyUserAnswerWasCorrect:NO];
-        [self updateUserScore:INCORRECT_SCORE_VALUE];
+//        [self updateUserScore:INCORRECT_SCORE_VALUE];
     }
     
     [self loadNextQuestion];
