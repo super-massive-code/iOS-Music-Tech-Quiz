@@ -24,13 +24,15 @@
     
     for (NSNumber *remoteObjId in answerUpdates) {
         [self createUpdateObjectForRemoteId:remoteObjId andModelType:kServerModelTypeAnswer inMoc:moc];
-    }
-    
+    }    
 }
 
 +(void)createUpdateObjectForRemoteId:(NSNumber*)remoteId andModelType:(NSString*)modelType inMoc:(NSManagedObjectContext*)moc
 {
-    PendingUpdateModel *update = [PendingUpdateModel MR_findFirstByAttribute:@"remoteId" withValue:remoteId inContext:moc];
+    NSLog(@"RmoteID: %@ -- ModelType: %@", remoteId, modelType);
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"remoteId == %@ AND modelType ==[c] %@", remoteId, modelType];
+    PendingUpdateModel *update = [PendingUpdateModel MR_findFirstWithPredicate:predicate inContext:moc];
     
     if (update) {
         BOOL thisIsTheCorrectModelType = [update.modelType isEqualToString:modelType];
@@ -38,6 +40,7 @@
             // We dont want to be deleting the wrong object
             return;
         } else {
+            NSLog(@"Deleting remoteId %@ -- modelType %@", remoteId, modelType);
             [update MR_deleteEntityInContext:moc];
         }
     }
