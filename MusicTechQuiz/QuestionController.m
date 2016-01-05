@@ -64,7 +64,7 @@
     }
     
     if (correctAnswer) {
-        // Protect against server validation going wrong
+        // Protect against server validation going wrong on needing minimum of 1 correct answer
         QuestionAnswerCompModel *model = [[QuestionAnswerCompModel alloc]initWithQuestion:question.title answers:answers correctAnswer:correctAnswer];
         return model;
     } else {
