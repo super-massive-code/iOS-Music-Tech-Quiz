@@ -13,6 +13,10 @@
 
 @interface QuestionAnswerViewControllerNew () <GameEngineDelegate>
 
+@property (weak, nonatomic) IBOutlet UIView *headerView;
+@property (weak, nonatomic) IBOutlet UIView *footerView;
+@property (weak, nonatomic) IBOutlet UIView *buttonsView;
+
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
 
 @property (nonatomic, strong) GameEngine *gameEngine;
@@ -21,6 +25,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *answerButtonTwo;
 @property (weak, nonatomic) IBOutlet UIButton *answerButtonThree;
 @property (weak, nonatomic) IBOutlet UIButton *answerButtonFour;
+
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *answerButtons;
 
 @end
 
@@ -43,6 +49,14 @@
 }
 
 #pragma mark -
+#pragma mark ViewControllerDataSource
+
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
+
+#pragma mark -
 #pragma mark SetUp
 
 -(void)setUpGameEngine
@@ -54,8 +68,30 @@
 
 -(void)setUpUi
 {
-    UIColor *backGroundColour = [UIColor dividedColorWithRed:149 green:165 blue:166 alpha:1];
-    self.view.backgroundColor = backGroundColour;
+    NSString *fontName = @"Helvetica-Bold";
+    UIFont *questionFont = [UIFont fontWithName:fontName size:30];
+    UIFont *answerFont = [UIFont fontWithName:fontName size:25];
+    
+    UIColor *backgroundColour = [UIColor dividedColorWithRed:51 green:111 blue:151 alpha:1];
+    UIColor *headerFooterBackgroundColour = [UIColor dividedColorWithRed:85 green:176 blue:241 alpha:1];
+    UIColor *textColour = [UIColor whiteColor];
+    
+    self.view.backgroundColor = backgroundColour;
+    
+    for (UIButton *button in self.answerButtons) {
+        button.layer.borderColor = textColour.CGColor;
+        button.layer.borderWidth = 2.0f;
+        button.layer.cornerRadius = 10.0f;
+        [button setTitleColor:textColour forState:UIControlStateNormal];
+        [button.titleLabel setFont:answerFont];
+    }
+    
+    self.headerView.backgroundColor = headerFooterBackgroundColour;
+    self.footerView.backgroundColor = headerFooterBackgroundColour;
+    self.buttonsView.backgroundColor = [UIColor clearColor];
+    
+    self.questionLabel.textColor = textColour;
+    self.questionLabel.font = questionFont;
 }
 
 #pragma mark -
