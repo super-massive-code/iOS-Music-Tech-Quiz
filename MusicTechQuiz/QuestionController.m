@@ -32,7 +32,8 @@
         [self.allQuestions removeObjectAtIndex:0];
         return model;
     } else {
-        return nil;
+        self.allQuestions = nil;
+      return [self loadNextQuestion];
     }
 }
 

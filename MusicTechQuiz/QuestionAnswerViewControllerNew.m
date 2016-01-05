@@ -175,12 +175,28 @@
     }];
 }
 
--(void)resetStateOfButtons
+-(void)animateQuestionChangeOverToAlpha:(int)alpha WithCallBack:(void(^)(void))callBack
+{
+    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        for (UIButton *button in self.answerButtons) {
+            button.alpha = alpha;
+        }
+        self.questionLabel.alpha = alpha;
+    } completion:^(BOOL finished) {
+        [self resetStateOfButtonsAndQuestion];
+        if (callBack) {
+            callBack();
+        }
+    }];
+}
+
+-(void)resetStateOfButtonsAndQuestion
 {
     for (UIButton *button in self.answerButtons) {
         button.backgroundColor = [UIColor clearColor];
         button.alpha = 1;
     }
+    self.questionLabel.alpha = 1;
 }
 
 #pragma mark -
@@ -198,14 +214,16 @@
     
     __weak QuestionAnswerViewControllerNew *weakSelf = (QuestionAnswerViewControllerNew*)self;
     [self animateAnswerButton:userAnswerButton asCorrectAnswer:answerCorrect correctAnswer:correctAnswer callBack:^{
-        [weakSelf resetStateOfButtons];
-        [weakSelf.gameEngine loadNextQuestion];
+        [weakSelf animateQuestionChangeOverToAlpha:0 WithCallBack:^{
+            [weakSelf.gameEngine loadNextQuestion];
+        }];
     }];
 }
 
 -(void)gameEngineDelegateDidLoadNextQuestion:(QuestionAnswerCompModel *)model
 {
     [self updateUiWithModel:model];
+    [self animateQuestionChangeOverToAlpha:1 WithCallBack:nil];
 }
 
 -(void)gameEngineDelegateDidEndWithTotalScore:(NSNumber*)totalScore
