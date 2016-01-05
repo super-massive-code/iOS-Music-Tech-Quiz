@@ -7,12 +7,12 @@
 //
 
 #import "QuestionAnswerViewControllerNew.h"
-#import "GameEngine.h"
+#import "GameController.h"
 #import "QuestionAnswerCompModel.h"
 #import "UIColor+RgbDivided.h"
 #import "GameOverViewController.h"
 
-@interface QuestionAnswerViewControllerNew () <GameEngineDelegate>
+@interface QuestionAnswerViewControllerNew () <GameControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UIView *footerView;
@@ -26,7 +26,7 @@
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *answerButtons;
 
-@property (nonatomic, strong) GameEngine *gameEngine;
+@property (nonatomic, strong) GameController *gameController;
 
 @end
 
@@ -67,9 +67,9 @@
 
 -(void)setUpGameEngine
 {
-    self.gameEngine = [[GameEngine alloc]init];
-    self.gameEngine.delegate = self;
-    [self.gameEngine loadNextQuestion];
+    self.gameController = [[GameController alloc]init];
+    self.gameController.delegate = self;
+    [self.gameController loadNextQuestion];
 }
 
 -(void)setUpUi
@@ -106,7 +106,7 @@
 
 - (IBAction)AnswerButtonPressed:(UIButton *)button
 {
-    [self.gameEngine answerSelected:button.titleLabel.text];
+    [self.gameController answerSelected:button.titleLabel.text];
 }
 
 #pragma mark -
@@ -179,7 +179,7 @@
 {
     __weak QuestionAnswerViewControllerNew *weakSelf = (QuestionAnswerViewControllerNew*)self;
     [weakSelf animateQuestionChangeOverToAlpha:0 WithCallBack:^{
-        [weakSelf.gameEngine loadNextQuestion];
+        [weakSelf.gameController loadNextQuestion];
     }];
 }
 
@@ -208,9 +208,9 @@
 }
 
 #pragma mark -
-#pragma mark GameEngineDelegate
+#pragma mark GameControllerDelegate
 
--(void)gameEngineDelegateDidConfirmAnswerIsCorrect:(BOOL)answerCorrect forUserAnswer:(NSString *)userAnswer withCorrectAnswer:(NSString *)correctAnswer
+-(void)gameControllerDelegateDidConfirmAnswerIsCorrect:(BOOL)answerCorrect forUserAnswer:(NSString *)userAnswer withCorrectAnswer:(NSString *)correctAnswer
 {
     UIButton *userAnswerButton;
     for (UIButton *button in self.answerButtons) {
@@ -225,18 +225,18 @@
     }];
 }
 
--(void)gameEngineDelegateDidLoadNextQuestion:(QuestionAnswerCompModel *)model
+-(void)gameControllerDelegateDidLoadNextQuestion:(QuestionAnswerCompModel *)model
 {
     [self updateUiWithModel:model];
     [self animateQuestionChangeOverToAlpha:1 WithCallBack:nil];
 }
 
--(void)gameEngineDelegateDidEndWithTotalScore:(NSNumber*)totalScore
+-(void)gameControllerDelegateDidEndWithTotalScore:(NSNumber*)totalScore
 {
     [self performSegueWithIdentifier:@"segGameOver" sender:totalScore];
 }
 
--(void)gameEngineDelegateTimerDidRunOut
+-(void)gameControllerDelegateTimerDidRunOut
 {
     [self animateToNextQuestion];
 }

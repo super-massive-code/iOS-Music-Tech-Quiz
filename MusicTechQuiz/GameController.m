@@ -6,13 +6,13 @@
 //  Copyright © 2016 Carl Taylor. All rights reserved.
 //
 
-#import "GameEngine.h"
+#import "GameController.h"
 #import "QuestionAnswerCompModel.h"
 #import "QuestionController.h"
 
 @import AVFoundation;
 
-@interface GameEngine ()
+@interface GameController ()
 
 @property (strong, nonatomic) QuestionAnswerCompModel *currentModel;
 @property (strong, nonatomic) QuestionController *questionController;
@@ -32,7 +32,7 @@ NSInteger CORRECT_SCORE_VALUE = 10;
 NSInteger INCORRECT_SCORE_VALUE = -10;
 NSInteger QUESTION_TIME_LIMT = 10;
 
-@implementation GameEngine
+@implementation GameController
 
 #pragma mark -
 #pragma mark SetUp
@@ -81,7 +81,7 @@ NSInteger QUESTION_TIME_LIMT = 10;
     
     if (nextModel) {
         self.currentModel = nextModel;
-        [self.delegate gameEngineDelegateDidLoadNextQuestion:nextModel];
+        [self.delegate gameControllerDelegateDidLoadNextQuestion:nextModel];
         [self restartTimer];
     } else {
         [self gameEnded];
@@ -96,7 +96,7 @@ NSInteger QUESTION_TIME_LIMT = 10;
         [self.wrongAudioPlayer play];
     }
     
-    [self.delegate gameEngineDelegateDidConfirmAnswerIsCorrect:answerCorrect forUserAnswer:userAnswer withCorrectAnswer:correctAnswer];
+    [self.delegate gameControllerDelegateDidConfirmAnswerIsCorrect:answerCorrect forUserAnswer:userAnswer withCorrectAnswer:correctAnswer];
 }
 
 -(void)updateUserScore:(NSInteger)newPoints
@@ -107,7 +107,7 @@ NSInteger QUESTION_TIME_LIMT = 10;
 
 -(void)gameEnded
 {
-    [self.delegate gameEngineDelegateDidEndWithTotalScore:[NSNumber numberWithInteger:self.userScore]];
+    [self.delegate gameControllerDelegateDidEndWithTotalScore:[NSNumber numberWithInteger:self.userScore]];
 }
 
 #pragma mark -
@@ -137,7 +137,7 @@ NSInteger QUESTION_TIME_LIMT = 10;
 -(void)timeRanOut
 {
     [self stopTimer];
-    [self.delegate gameEngineDelegateTimerDidRunOut];
+    [self.delegate gameControllerDelegateTimerDidRunOut];
     
     // play time out sound FX
 }
