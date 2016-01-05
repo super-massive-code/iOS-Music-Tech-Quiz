@@ -69,7 +69,7 @@
 {
     self.gameEngine = [[GameEngine alloc]init];
     self.gameEngine.delegate = self;
-    [self.gameEngine startGame];
+    [self.gameEngine loadNextQuestion];
 }
 
 -(void)setUpUi
@@ -123,6 +123,24 @@
     self.questionLabel.text = model.question;
 }
 
+-(void)animateButton:(UIButton*)button asCorrectAnswer:(BOOL)isCorrectAnswer correctAnswer:(NSString*)correctAnswer callBack:(void(^)(void))callBack
+{
+    UIColor *buttonColour;
+    
+    if (isCorrectAnswer) {
+        buttonColour = [UIColor greenColor];
+    } else {
+        buttonColour = [UIColor redColor];
+    }    
+    
+    [UIView animateWithDuration:1.0 animations:^{
+        button.backgroundColor = buttonColour;
+    } completion:^(BOOL finished) {
+        button.backgroundColor = [UIColor clearColor];
+        callBack();
+    }];
+}
+
 #pragma mark -
 #pragma mark GameEngineDelegates
 
@@ -136,12 +154,10 @@
         }
     }
     
-    
-    if (answerCorrect) {
-
-    } else {
-        
-    }
+    __weak QuestionAnswerViewControllerNew *weakSelf = (QuestionAnswerViewControllerNew*)self;
+    [self animateButton:userAnswerButton asCorrectAnswer:answerCorrect correctAnswer:correctAnswer callBack:^{
+        [weakSelf.gameEngine loadNextQuestion];
+    }];
 }
 
 -(void)gameEngineDelegateDidLoadNextQuestion:(QuestionAnswerCompModel *)model

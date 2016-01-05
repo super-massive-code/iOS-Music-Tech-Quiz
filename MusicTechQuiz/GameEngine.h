@@ -19,7 +19,7 @@
 
 @interface GameEngine : NSObject
 
--(void)startGame;
+-(void)loadNextQuestion;
 -(void)answerSelected:(NSString*)answer;
 
 @property (nonatomic, weak) id<GameEngineDelegate>delegate;

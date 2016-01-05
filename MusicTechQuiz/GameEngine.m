@@ -57,11 +57,6 @@ NSInteger INCORRECT_SCORE_VALUE = -10;
 #pragma mark -
 #pragma mark GamePlay
 
--(void)startGame
-{
-    [self loadNextQuestion];
-}
-
 -(void)answerSelected:(NSString*)selectedAnswer
 {    
     if ([selectedAnswer isEqualToString:self.currentModel.correctAnswer]) {
@@ -71,8 +66,6 @@ NSInteger INCORRECT_SCORE_VALUE = -10;
         [self notifyUserAnswerWasCorrect:NO userAnswer:selectedAnswer correctAnswer:self.currentModel.correctAnswer];
         [self updateUserScore:INCORRECT_SCORE_VALUE];
     }
-    
-    [self loadNextQuestion];
 }
 
 -(void)loadNextQuestion
