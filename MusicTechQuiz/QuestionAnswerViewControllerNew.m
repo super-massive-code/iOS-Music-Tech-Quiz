@@ -96,7 +96,7 @@
     
     self.headerView.backgroundColor = headerFooterBackgroundColour;
     self.footerView.backgroundColor = headerFooterBackgroundColour;
-      
+    
     self.questionLabel.textColor = textColour;
     self.questionLabel.font = questionFont;
 }
@@ -123,22 +123,64 @@
     self.questionLabel.text = model.question;
 }
 
--(void)animateButton:(UIButton*)button asCorrectAnswer:(BOOL)isCorrectAnswer correctAnswer:(NSString*)correctAnswer callBack:(void(^)(void))callBack
+-(void)animateAnswerButton:(UIButton*)button asCorrectAnswer:(BOOL)isCorrectAnswer correctAnswer:(NSString*)correctAnswer callBack:(void(^)(void))callBack
 {
-    UIColor *buttonColour;
+    UIColor *selectedButtonColour;
+    UIColor *correctAnswerColour = [UIColor dividedColorWithRed:46 green:204 blue:113 alpha:1];
+    UIColor *wrongAnswerColour = [UIColor dividedColorWithRed:231 green:76 blue:60 alpha:1];
     
     if (isCorrectAnswer) {
-        buttonColour = [UIColor greenColor];
+        selectedButtonColour = correctAnswerColour;
     } else {
-        buttonColour = [UIColor redColor];
-    }    
+        selectedButtonColour = wrongAnswerColour;
+    }
     
-    [UIView animateWithDuration:1.0 animations:^{
-        button.backgroundColor = buttonColour;
+    [UIView animateWithDuration:0.75 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        button.backgroundColor = selectedButtonColour;
     } completion:^(BOOL finished) {
-        button.backgroundColor = [UIColor clearColor];
-        callBack();
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            if (isCorrectAnswer) {
+                callBack();
+            } else {
+                [self animateCorrectAnswer:correctAnswer toColour:correctAnswerColour WithCallBack:^{
+                    callBack();
+                }];
+            }
+        });
     }];
+}
+
+-(void)animateCorrectAnswer:(NSString*)correctAnswer toColour:(UIColor*)correctAnswerColour WithCallBack:(void(^)(void))callBack
+{
+    UIButton *correctAnswerButton;
+    NSMutableArray *wrongAnswerButtons = [[NSMutableArray alloc]init];
+    
+    for (UIButton *button in self.answerButtons) {
+        if ([button.titleLabel.text isEqualToString:correctAnswer]) {
+            correctAnswerButton = button;
+        } else {
+            [wrongAnswerButtons addObject:button];
+        }
+    }
+    
+    [UIView animateWithDuration:1.0 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        correctAnswerButton.backgroundColor = correctAnswerColour;
+        for (UIButton *button in wrongAnswerButtons) {
+            button.alpha = 0;
+        }
+    } completion:^(BOOL finished) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            callBack();
+        });
+    }];
+}
+
+-(void)resetStateOfButtons
+{
+    for (UIButton *button in self.answerButtons) {
+        button.backgroundColor = [UIColor clearColor];
+        button.alpha = 1;
+    }
 }
 
 #pragma mark -
@@ -155,7 +197,8 @@
     }
     
     __weak QuestionAnswerViewControllerNew *weakSelf = (QuestionAnswerViewControllerNew*)self;
-    [self animateButton:userAnswerButton asCorrectAnswer:answerCorrect correctAnswer:correctAnswer callBack:^{
+    [self animateAnswerButton:userAnswerButton asCorrectAnswer:answerCorrect correctAnswer:correctAnswer callBack:^{
+        [weakSelf resetStateOfButtons];
         [weakSelf.gameEngine loadNextQuestion];
     }];
 }
