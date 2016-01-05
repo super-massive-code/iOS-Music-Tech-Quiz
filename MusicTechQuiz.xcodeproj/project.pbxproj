@@ -30,6 +30,7 @@
 		C367B90D1BDD040600CE442C /* ServerComms.m in Sources */ = {isa = PBXBuildFile; fileRef = C367B90C1BDD040600CE442C /* ServerComms.m */; };
 		C36873111C3BC0B600027ECF /* QuestionAnswerViewControllerNew.m in Sources */ = {isa = PBXBuildFile; fileRef = C36873101C3BC0B600027ECF /* QuestionAnswerViewControllerNew.m */; };
 		C36873141C3BC4F100027ECF /* GameEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = C36873131C3BC4F100027ECF /* GameEngine.m */; };
+		C36873191C3BD4D600027ECF /* UIColor+RgbDivided.m in Sources */ = {isa = PBXBuildFile; fileRef = C36873181C3BD4D600027ECF /* UIColor+RgbDivided.m */; };
 		C3A030671C3AA01700CEF820 /* AnswerUpdateParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A030661C3AA01700CEF820 /* AnswerUpdateParser.m */; };
 		C3D48FE31C2AEABB004C39CF /* ServerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D48FE21C2AEABB004C39CF /* ServerResponse.m */; };
 		C3D48FF81C2B031A004C39CF /* UpdateFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D48FF71C2B031A004C39CF /* UpdateFetcher.m */; };
@@ -83,6 +84,8 @@
 		C36873101C3BC0B600027ECF /* QuestionAnswerViewControllerNew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionAnswerViewControllerNew.m; sourceTree = "<group>"; };
 		C36873121C3BC4F100027ECF /* GameEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameEngine.h; path = MusicTechQuiz/GameEngine.h; sourceTree = "<group>"; };
 		C36873131C3BC4F100027ECF /* GameEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameEngine.m; path = MusicTechQuiz/GameEngine.m; sourceTree = "<group>"; };
+		C36873171C3BD4D600027ECF /* UIColor+RgbDivided.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RgbDivided.h"; sourceTree = "<group>"; };
+		C36873181C3BD4D600027ECF /* UIColor+RgbDivided.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RgbDivided.m"; sourceTree = "<group>"; };
 		C3A030651C3AA01700CEF820 /* AnswerUpdateParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerUpdateParser.h; sourceTree = "<group>"; };
 		C3A030661C3AA01700CEF820 /* AnswerUpdateParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerUpdateParser.m; sourceTree = "<group>"; };
 		C3D48FE11C2AEABB004C39CF /* ServerResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerResponse.h; sourceTree = "<group>"; };
@@ -169,6 +172,7 @@
 		C367B8E31BDCDF9F00CE442C /* MusicTechQuiz */ = {
 			isa = PBXGroup;
 			children = (
+				C36873161C3BD4A100027ECF /* Helpers */,
 				C367B8E71BDCDF9F00CE442C /* AppDelegate.h */,
 				C367B8E81BDCDF9F00CE442C /* AppDelegate.m */,
 				C32BFB181C3539940033D82C /* AppSetUp.h */,
@@ -217,6 +221,15 @@
 			);
 			name = GameEngine;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		C36873161C3BD4A100027ECF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C36873171C3BD4D600027ECF /* UIColor+RgbDivided.h */,
+				C36873181C3BD4D600027ECF /* UIColor+RgbDivided.m */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		C3D48FE01C2AEA6C004C39CF /* ServerComms */ = {
@@ -398,6 +411,7 @@
 				C3D48FE31C2AEABB004C39CF /* ServerResponse.m in Sources */,
 				C32BFB1A1C3539940033D82C /* AppSetUp.m in Sources */,
 				C367B9001BDCF0D200CE442C /* QuestionController.m in Sources */,
+				C36873191C3BD4D600027ECF /* UIColor+RgbDivided.m in Sources */,
 				C32BFAE81C33E9440033D82C /* PendingUpdateParser.m in Sources */,
 				C32BFB141C35372B0033D82C /* QuestionModel+CoreDataProperties.m in Sources */,
 				C367B8FD1BDCE29A00CE442C /* QuestionAnswerCompModel.m in Sources */,

@@ -27,13 +27,13 @@
     //todo: maybe configure app colours etc from server?
     
     // Override point for customization after application launch.
-    
-    self.updateManager = [[UpdateController alloc]init];
-        [self.updateManager checkForNewUpdatesOnServer:^{
-            [self.updateManager checkForPendingUpdatesOnClient:^{
-                
-            }];
-        }];
+//    
+//    self.updateManager = [[UpdateController alloc]init];
+//        [self.updateManager checkForNewUpdatesOnServer:^{
+//            [self.updateManager checkForPendingUpdatesOnClient:^{
+//                
+//            }];
+//        }];
     
     return YES;
 }

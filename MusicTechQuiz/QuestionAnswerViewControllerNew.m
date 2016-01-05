@@ -9,6 +9,7 @@
 #import "QuestionAnswerViewControllerNew.h"
 #import "GameEngine.h"
 #import "QuestionAnswerCompModel.h"
+#import "UIColor+RgbDivided.h"
 
 @interface QuestionAnswerViewControllerNew () <GameEngineDelegate>
 
@@ -31,6 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setUpUi];
     [self setUpGameEngine];
 }
 
@@ -48,6 +50,12 @@
     self.gameEngine = [[GameEngine alloc]init];
     self.gameEngine.delegate = self;
     [self.gameEngine startGame];
+}
+
+-(void)setUpUi
+{
+    UIColor *backGroundColour = [UIColor dividedColorWithRed:149 green:165 blue:166 alpha:1];
+    self.view.backgroundColor = backGroundColour;
 }
 
 #pragma mark -
