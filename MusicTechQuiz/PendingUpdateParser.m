@@ -24,29 +24,14 @@
     
     for (NSNumber *remoteObjId in answerUpdates) {
         [self createUpdateObjectForRemoteId:remoteObjId andModelType:kServerModelTypeAnswer inMoc:moc];
-    }    
+    }
 }
 
 +(void)createUpdateObjectForRemoteId:(NSNumber*)remoteId andModelType:(NSString*)modelType inMoc:(NSManagedObjectContext*)moc
 {
-    NSLog(@"RmoteID: %@ -- ModelType: %@", remoteId, modelType);
+    [self deleteUpdateObjectForRemoteId:remoteId andModelType:modelType inMoc:moc];
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"remoteId == %@ AND modelType ==[c] %@", remoteId, modelType];
-    PendingUpdateModel *update = [PendingUpdateModel MR_findFirstWithPredicate:predicate inContext:moc];
-    
-    if (update) {
-        BOOL thisIsTheCorrectModelType = [update.modelType isEqualToString:modelType];
-        if (!thisIsTheCorrectModelType) {
-            // We dont want to be deleting the wrong object
-            return;
-        } else {
-            NSLog(@"Deleting remoteId %@ -- modelType %@", remoteId, modelType);
-            [update MR_deleteEntityInContext:moc];
-        }
-    }
-    
-    update = [PendingUpdateModel MR_createEntityInContext:moc];
-    
+    PendingUpdateModel *update = [PendingUpdateModel MR_createEntityInContext:moc];
     update.created   = [NSDate date];
     update.modelType = modelType;
     update.remoteId  = remoteId;
@@ -54,12 +39,9 @@
 
 +(void)deleteUpdateObjectForRemoteId:(NSNumber*)remoteId andModelType:(NSString*)modelType inMoc:(NSManagedObjectContext*)moc
 {
-    NSArray *updates = [PendingUpdateModel MR_findByAttribute:@"remoteId" withValue:remoteId inContext:moc];
-    for (PendingUpdateModel *model in updates) {
-        if ([model.modelType isEqualToString:modelType]) {
-            [model MR_deleteEntityInContext:moc];
-        }
-    }
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"remoteId == %@ AND modelType ==[c] %@", remoteId, modelType];
+    PendingUpdateModel *update = [PendingUpdateModel MR_findFirstWithPredicate:predicate inContext:moc];
+    [update MR_deleteEntityInContext:moc];
 }
 
 @end

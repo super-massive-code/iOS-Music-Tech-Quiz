@@ -21,7 +21,7 @@
 @implementation UpdateController
 
 -(void)checkForNewUpdatesOnServer:(void(^)(void))callBack
-{
+{    
     // NSDate last update time
     NSString *lastUpdateTimeInEpoch = @"12345"; //Fixme: this is ignored on server at the moment
     NSString *updateUrl = [NSString stringWithFormat:@"%@%@%@", [ServerComms getCurrentBaseUrl], kServerEndPointUpdatesSince, lastUpdateTimeInEpoch];
