@@ -106,7 +106,7 @@
 
 - (IBAction)AnswerButtonPressed:(UIButton *)button
 {
-    [self.gameEngine answerNumberSelected:button.tag];
+    [self.gameEngine answerSelected:button.titleLabel.text];
 }
 
 #pragma mark -
@@ -126,9 +126,22 @@
 #pragma mark -
 #pragma mark GameEngineDelegates
 
--(void)gameEngineDelegateDidConfirmAnswerIsCorrect:(BOOL)answerCorrect
+-(void)gameEngineDelegateDidConfirmAnswerIsCorrect:(BOOL)answerCorrect forUserAnswer:(NSString *)userAnswer withCorrectAnswer:(NSString *)correctAnswer
 {
+    UIButton *userAnswerButton;
+    for (UIButton *button in self.answerButtons) {
+        if ([button.titleLabel.text isEqualToString:userAnswer]) {
+            userAnswerButton = button;
+            break;
+        }
+    }
     
+    
+    if (answerCorrect) {
+
+    } else {
+        
+    }
 }
 
 -(void)gameEngineDelegateDidLoadNextQuestion:(QuestionAnswerCompModel *)model

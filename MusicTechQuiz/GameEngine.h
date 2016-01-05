@@ -12,7 +12,7 @@
 
 @protocol GameEngineDelegate <NSObject>
 @required
--(void)gameEngineDelegateDidConfirmAnswerIsCorrect:(BOOL)answerCorrect;
+-(void)gameEngineDelegateDidConfirmAnswerIsCorrect:(BOOL)answerCorrect forUserAnswer:(NSString*)userAnswer withCorrectAnswer:(NSString*)correctAnswer;
 -(void)gameEngineDelegateDidLoadNextQuestion:(QuestionAnswerCompModel*)model;
 -(void)gameEngineDelegateDidEndWithTotalScore:(NSNumber*)totalScore;
 @end
@@ -20,7 +20,7 @@
 @interface GameEngine : NSObject
 
 -(void)startGame;
--(void)answerNumberSelected:(NSInteger)answerNumber;
+-(void)answerSelected:(NSString*)answer;
 
 @property (nonatomic, weak) id<GameEngineDelegate>delegate;
 

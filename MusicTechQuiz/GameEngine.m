@@ -62,16 +62,13 @@ NSInteger INCORRECT_SCORE_VALUE = -10;
     [self loadNextQuestion];
 }
 
--(void)answerNumberSelected:(NSInteger)answerNumber
-{
-    NSString *selectedAnswer = [self.currentModel.answers objectAtIndex:answerNumber - 1];
-    NSString *correctAnswer  = self.currentModel.correctAnswer;
-    
-    if ([selectedAnswer isEqualToString:correctAnswer]) {
-        [self notifyUserAnswerWasCorrect:YES];
+-(void)answerSelected:(NSString*)selectedAnswer
+{    
+    if ([selectedAnswer isEqualToString:self.currentModel.correctAnswer]) {
+        [self notifyUserAnswerWasCorrect:YES userAnswer:selectedAnswer correctAnswer:self.currentModel.correctAnswer];
         [self updateUserScore:CORRECT_SCORE_VALUE];
     } else {
-        [self notifyUserAnswerWasCorrect:NO];
+        [self notifyUserAnswerWasCorrect:NO userAnswer:selectedAnswer correctAnswer:self.currentModel.correctAnswer];
         [self updateUserScore:INCORRECT_SCORE_VALUE];
     }
     
@@ -90,7 +87,7 @@ NSInteger INCORRECT_SCORE_VALUE = -10;
     }
 }
 
--(void)notifyUserAnswerWasCorrect:(BOOL)answerCorrect
+-(void)notifyUserAnswerWasCorrect:(BOOL)answerCorrect userAnswer:(NSString*)userAnswer correctAnswer:(NSString*)correctAnswer
 {
     if (answerCorrect) {
         [self.correctAudioPlayer play];
@@ -98,7 +95,7 @@ NSInteger INCORRECT_SCORE_VALUE = -10;
         [self.wrongAudioPlayer play];
     }
     
-    [self.delegate gameEngineDelegateDidConfirmAnswerIsCorrect:answerCorrect];
+    [self.delegate gameEngineDelegateDidConfirmAnswerIsCorrect:answerCorrect forUserAnswer:userAnswer withCorrectAnswer:correctAnswer];
 }
 
 -(void)updateUserScore:(NSInteger)newPoints
