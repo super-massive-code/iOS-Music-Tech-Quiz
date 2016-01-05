@@ -19,7 +19,6 @@
 		C32BFB1A1C3539940033D82C /* AppSetUp.m in Sources */ = {isa = PBXBuildFile; fileRef = C32BFB191C3539940033D82C /* AppSetUp.m */; };
 		C367B8E61BDCDF9F00CE442C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C367B8E51BDCDF9F00CE442C /* main.m */; };
 		C367B8E91BDCDF9F00CE442C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C367B8E81BDCDF9F00CE442C /* AppDelegate.m */; };
-		C367B8EC1BDCDF9F00CE442C /* QuestionAnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C367B8EB1BDCDF9F00CE442C /* QuestionAnswerViewController.m */; };
 		C367B8EF1BDCDF9F00CE442C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C367B8ED1BDCDF9F00CE442C /* Main.storyboard */; };
 		C367B8F11BDCDF9F00CE442C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C367B8F01BDCDF9F00CE442C /* Assets.xcassets */; };
 		C367B8F41BDCDF9F00CE442C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C367B8F21BDCDF9F00CE442C /* LaunchScreen.storyboard */; };
@@ -66,8 +65,6 @@
 		C367B8E51BDCDF9F00CE442C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C367B8E71BDCDF9F00CE442C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C367B8E81BDCDF9F00CE442C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C367B8EA1BDCDF9F00CE442C /* QuestionAnswerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuestionAnswerViewController.h; sourceTree = "<group>"; };
-		C367B8EB1BDCDF9F00CE442C /* QuestionAnswerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuestionAnswerViewController.m; sourceTree = "<group>"; };
 		C367B8EE1BDCDF9F00CE442C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C367B8F01BDCDF9F00CE442C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C367B8F31BDCDF9F00CE442C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -202,8 +199,6 @@
 		C368730E1C3AE5D000027ECF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				C367B8EA1BDCDF9F00CE442C /* QuestionAnswerViewController.h */,
-				C367B8EB1BDCDF9F00CE442C /* QuestionAnswerViewController.m */,
 				C368730F1C3BC0B600027ECF /* QuestionAnswerViewControllerNew.h */,
 				C36873101C3BC0B600027ECF /* QuestionAnswerViewControllerNew.m */,
 			);
@@ -398,7 +393,6 @@
 				C32BFB131C35372B0033D82C /* PendingUpdateModel.m in Sources */,
 				C3D490051C2B0D3D004C39CF /* ServerConstants.m in Sources */,
 				C32BFB171C35372B0033D82C /* AnswerModel.m in Sources */,
-				C367B8EC1BDCDF9F00CE442C /* QuestionAnswerViewController.m in Sources */,
 				C32BFB121C35372B0033D82C /* PendingUpdateModel+CoreDataProperties.m in Sources */,
 				C3D48FFB1C2B0837004C39CF /* UpdateUrlBuilder.m in Sources */,
 				C3D48FE31C2AEABB004C39CF /* ServerResponse.m in Sources */,
