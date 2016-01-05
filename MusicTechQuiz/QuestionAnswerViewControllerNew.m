@@ -8,12 +8,18 @@
 
 #import "QuestionAnswerViewControllerNew.h"
 #import "GameEngine.h"
+#import "QuestionAnswerCompModel.h"
 
 @interface QuestionAnswerViewControllerNew () <GameEngineDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
 
 @property (nonatomic, strong) GameEngine *gameEngine;
+
+@property (weak, nonatomic) IBOutlet UIButton *answerButtonOne;
+@property (weak, nonatomic) IBOutlet UIButton *answerButtonTwo;
+@property (weak, nonatomic) IBOutlet UIButton *answerButtonThree;
+@property (weak, nonatomic) IBOutlet UIButton *answerButtonFour;
 
 @end
 
@@ -53,6 +59,20 @@
 }
 
 #pragma mark -
+#pragma mark UiUpdates
+
+-(void)updateUiWithModel:(QuestionAnswerCompModel*)model
+{
+    NSArray *answers = model.answers;
+    [self.answerButtonOne setTitle:[answers objectAtIndex:0] forState:UIControlStateNormal];
+    [self.answerButtonTwo setTitle:[answers objectAtIndex:1] forState:UIControlStateNormal];
+    [self.answerButtonThree setTitle:[answers objectAtIndex:2] forState:UIControlStateNormal];
+    [self.answerButtonFour setTitle:[answers objectAtIndex:3] forState:UIControlStateNormal];
+    
+    self.questionLabel.text = model.question;
+}
+
+#pragma mark -
 #pragma mark GameEngineDelegates
 
 -(void)gameEngineDelegateDidConfirmAnswerIsCorrect:(BOOL)answerCorrect
@@ -62,7 +82,7 @@
 
 -(void)gameEngineDelegateDidLoadNextQuestion:(QuestionAnswerCompModel *)model
 {
-    
+    [self updateUiWithModel:model];
 }
 
 -(void)gameEngineDelegateDidEndWithTotalScore:(NSInteger)totalScore

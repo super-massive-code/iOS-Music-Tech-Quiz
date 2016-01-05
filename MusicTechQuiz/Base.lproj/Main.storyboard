@@ -121,18 +121,18 @@
                                     <action selector="AnswerButtonPressed:" destination="Dja-KN-F8T" eventType="touchUpInside" id="cIV-EQ-rBH"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdp-JD-TxZ">
-                                <rect key="frame" x="20" y="401" width="560" height="30"/>
-                                <state key="normal" title="Button 4"/>
-                                <connections>
-                                    <action selector="AnswerButtonPressed:" destination="Dja-KN-F8T" eventType="touchUpInside" id="0Gd-aW-rKk"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jiJ-2L-JbJ">
                                 <rect key="frame" x="20" y="329" width="560" height="30"/>
                                 <state key="normal" title="Button 3"/>
                                 <connections>
                                     <action selector="AnswerButtonPressed:" destination="Dja-KN-F8T" eventType="touchUpInside" id="cuA-jA-M7R"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdp-JD-TxZ">
+                                <rect key="frame" x="20" y="401" width="560" height="30"/>
+                                <state key="normal" title="Button 4"/>
+                                <connections>
+                                    <action selector="AnswerButtonPressed:" destination="Dja-KN-F8T" eventType="touchUpInside" id="0Gd-aW-rKk"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -156,6 +156,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="answerButtonFour" destination="fdp-JD-TxZ" id="0LI-uH-WZF"/>
+                        <outlet property="answerButtonOne" destination="2eB-6y-cad" id="Toi-Qe-64V"/>
+                        <outlet property="answerButtonThree" destination="jiJ-2L-JbJ" id="aE8-XL-vgC"/>
+                        <outlet property="answerButtonTwo" destination="jmg-kh-CeU" id="IaE-lb-yce"/>
                         <outlet property="questionLabel" destination="DKV-CF-KnO" id="EJy-1b-Xzf"/>
                     </connections>
                 </viewController>

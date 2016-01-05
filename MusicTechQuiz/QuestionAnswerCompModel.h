@@ -10,8 +10,6 @@
 
 @interface QuestionAnswerCompModel : NSObject
 
-@property (nonatomic, readonly) NSNumber *remoteDatabaseId;
-
 @property (nonatomic, copy, readonly) NSArray *answers;
 
 @property (nonatomic, copy, readonly) NSString *question;
