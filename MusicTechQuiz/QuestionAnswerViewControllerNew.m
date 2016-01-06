@@ -14,6 +14,8 @@
 
 @interface QuestionAnswerViewControllerNew () <GameControllerDelegate>
 
+@property (weak, nonatomic) IBOutlet UIProgressView *timeLeftProgressView;
+
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UIView *footerView;
 
@@ -271,6 +273,12 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self animateToNextQuestion];
     });
+}
+
+-(void)gameControllerDelegateTimeUpdate:(float)timeLeft
+{
+    NSLog(@"Time Left: %f", timeLeft);
+    self.timeLeftProgressView.progress = timeLeft;
 }
 
 @end

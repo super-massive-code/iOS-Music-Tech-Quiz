@@ -24,14 +24,14 @@
 @property (strong, nonatomic) NSTimer *timer;
 
 @property NSInteger userScore;
-@property NSInteger currentTime;
+@property float timeLeft;
 
 @end
 
 // Maybe configure these on server?
 NSInteger CORRECT_SCORE_VALUE = 10;
 NSInteger INCORRECT_SCORE_VALUE = -10;
-NSInteger SECONDS_TO_ANSWER_QUESION = 10;
+NSInteger SECONDS_TO_ANSWER_QUESION = 1.0;
 
 @implementation GameController
 
@@ -121,10 +121,10 @@ NSInteger SECONDS_TO_ANSWER_QUESION = 10;
 -(void)restartTimer
 {
     [self stopTimer];
-    self.currentTime = SECONDS_TO_ANSWER_QUESION;
+    self.timeLeft = SECONDS_TO_ANSWER_QUESION;
     [self updateTimeLeftOnDelegate];
     self.timer = nil;
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
 }
 
 -(void)stopTimer
@@ -134,9 +134,9 @@ NSInteger SECONDS_TO_ANSWER_QUESION = 10;
 
 -(void)updateTime
 {
-    self.currentTime--;
+    self.timeLeft -= 0.01;
     [self updateTimeLeftOnDelegate];
-    if (self.currentTime == 0) {
+    if (self.timeLeft <= 0.0) {
         [self timeRanOut];
     }
 }
@@ -151,7 +151,7 @@ NSInteger SECONDS_TO_ANSWER_QUESION = 10;
 -(void)updateTimeLeftOnDelegate
 {
     if ([self.delegate respondsToSelector:@selector(gameControllerDelegateTimeUpdate:)]) {
-        [self.delegate gameControllerDelegateTimeUpdate:self.currentTime];
+        [self.delegate gameControllerDelegateTimeUpdate:self.timeLeft];
     }
 }
 
