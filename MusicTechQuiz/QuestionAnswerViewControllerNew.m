@@ -207,11 +207,20 @@
     self.questionLabel.alpha = 1;
 }
 
+-(void)buttonsEnabled:(BOOL)enabled
+{
+    for (UIButton *button in self.answerButtons) {
+        button.enabled = enabled;
+    }
+}
+
 #pragma mark -
 #pragma mark GameControllerDelegate
 
 -(void)gameControllerDelegateDidConfirmAnswerIsCorrect:(BOOL)answerCorrect forUserAnswer:(NSString *)userAnswer withCorrectAnswer:(NSString *)correctAnswer
 {
+    [self buttonsEnabled:NO];
+    
     UIButton *userAnswerButton;
     for (UIButton *button in self.answerButtons) {
         if ([button.titleLabel.text isEqualToString:userAnswer]) {
@@ -227,6 +236,7 @@
 
 -(void)gameControllerDelegateDidLoadNextQuestion:(QuestionAnswerCompModel *)model
 {
+    [self buttonsEnabled:YES];
     [self updateUiWithModel:model];
     [self animateQuestionChangeOverToAlpha:1 WithCallBack:nil];
 }
@@ -238,6 +248,7 @@
 
 -(void)gameControllerDelegateTimerDidRunOut
 {
+    [self buttonsEnabled:NO];
     [self animateToNextQuestion];
 }
 
