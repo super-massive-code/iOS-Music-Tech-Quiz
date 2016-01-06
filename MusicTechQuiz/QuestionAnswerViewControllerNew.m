@@ -127,7 +127,7 @@
 {
     UIColor *selectedButtonColour;
     UIColor *correctAnswerColour = [UIColor dividedColorWithRed:46 green:204 blue:113 alpha:1];
-    UIColor *wrongAnswerColour = [UIColor dividedColorWithRed:231 green:76 blue:60 alpha:1];
+    UIColor *wrongAnswerColour   = [UIColor dividedColorWithRed:231 green:76 blue:60 alpha:1];
     
     if (isCorrectAnswer) {
         selectedButtonColour = correctAnswerColour;
@@ -186,16 +186,32 @@
 
 -(void)animateQuestionChangeOverToAlpha:(int)alpha WithCallBack:(void(^)(void))callBack
 {
-    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        for (UIButton *button in self.answerButtons) {
-            button.alpha = alpha;
-        }
+    NSUInteger animationOption;
+    if (alpha == 0) {
+        animationOption = UIViewAnimationOptionCurveEaseOut;
+    } else {
+        animationOption = UIViewAnimationOptionCurveEaseIn;
+    }
+    
+    [UIView animateWithDuration:0.2 delay:0 options:animationOption animations:^{
         self.questionLabel.alpha = alpha;
     } completion:^(BOOL finished) {
         if (callBack) {
             callBack();
         }
     }];
+    
+    [self animationButton:self.answerButtonOne   toAlpha:alpha withDelay:0.0 andAnimationOption:animationOption];
+    [self animationButton:self.answerButtonTwo   toAlpha:alpha withDelay:0.1 andAnimationOption:animationOption];
+    [self animationButton:self.answerButtonThree toAlpha:alpha withDelay:0.2 andAnimationOption:animationOption];
+    [self animationButton:self.answerButtonFour  toAlpha:alpha withDelay:0.3 andAnimationOption:animationOption];
+}
+
+-(void)animationButton:(UIButton*)button toAlpha:(int)alpha withDelay:(float)delay andAnimationOption:(NSInteger)animationOption
+{
+    [UIView animateWithDuration:0.5 delay:delay options:animationOption animations:^{
+        button.alpha = alpha;
+    } completion:nil];
 }
 
 -(void)clearTextForQuestionAndAnswers
@@ -236,7 +252,8 @@
 }
 
 -(void)gameControllerDelegateDidLoadNextQuestion:(QuestionAnswerCompModel *)model
-{    
+{
+    
     [self buttonsEnabled:YES];
     [self animateQuestionChangeOverToAlpha:1 WithCallBack:^{
         [self updateUiWithModel:model];
