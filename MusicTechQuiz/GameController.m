@@ -31,7 +31,7 @@
 // Maybe configure these on server?
 NSInteger CORRECT_SCORE_VALUE = 10;
 NSInteger INCORRECT_SCORE_VALUE = -10;
-NSInteger QUESTION_TIME_LIMT = 10;
+NSInteger SECONDS_TO_ANSWER_QUESION = 10;
 
 @implementation GameController
 
@@ -121,7 +121,8 @@ NSInteger QUESTION_TIME_LIMT = 10;
 -(void)restartTimer
 {
     [self stopTimer];
-    self.currentTime = 0;
+    self.currentTime = SECONDS_TO_ANSWER_QUESION;
+    [self updateTimeLeftOnDelegate];
     self.timer = nil;
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
 }
@@ -133,8 +134,9 @@ NSInteger QUESTION_TIME_LIMT = 10;
 
 -(void)updateTime
 {
-    self.currentTime++;
-    if (self.currentTime >= QUESTION_TIME_LIMT) {
+    self.currentTime--;
+    [self updateTimeLeftOnDelegate];
+    if (self.currentTime == 0) {
         [self timeRanOut];
     }
 }
@@ -144,6 +146,13 @@ NSInteger QUESTION_TIME_LIMT = 10;
     [self.timeOutAudioPlayer play];
     [self stopTimer];
     [self.delegate gameControllerDelegateTimerDidRunOut];
+}
+
+-(void)updateTimeLeftOnDelegate
+{
+    if ([self.delegate respondsToSelector:@selector(gameControllerDelegateTimeUpdate:)]) {
+        [self.delegate gameControllerDelegateTimeUpdate:self.currentTime];
+    }
 }
 
 @end

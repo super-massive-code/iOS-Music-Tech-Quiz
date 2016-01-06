@@ -16,6 +16,8 @@
 -(void)gameControllerDelegateDidLoadNextQuestion:(QuestionAnswerCompModel*)model;
 -(void)gameControllerDelegateDidEndWithTotalScore:(NSNumber*)totalScore;
 -(void)gameControllerDelegateTimerDidRunOut;
+@optional
+-(void)gameControllerDelegateTimeUpdate:(NSInteger)timeLeft;
 @end
 
 @interface GameController : NSObject
