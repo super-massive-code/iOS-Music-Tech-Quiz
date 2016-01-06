@@ -179,6 +179,7 @@
 {
     __weak QuestionAnswerViewControllerNew *weakSelf = (QuestionAnswerViewControllerNew*)self;
     [weakSelf animateQuestionChangeOverToAlpha:0 WithCallBack:^{
+        [self clearTextForQuestionAndAnswers];
         [weakSelf.gameController loadNextQuestion];
     }];
 }
@@ -191,20 +192,20 @@
         }
         self.questionLabel.alpha = alpha;
     } completion:^(BOOL finished) {
-        [self resetStateOfButtonsAndQuestion];
         if (callBack) {
             callBack();
         }
     }];
 }
 
--(void)resetStateOfButtonsAndQuestion
+-(void)clearTextForQuestionAndAnswers
 {
     for (UIButton *button in self.answerButtons) {
+        [button setTitle:@"" forState:UIControlStateNormal];
         button.backgroundColor = [UIColor clearColor];
-        button.alpha = 1;
     }
-    self.questionLabel.alpha = 1;
+    
+    self.questionLabel.text = @"";
 }
 
 -(void)buttonsEnabled:(BOOL)enabled
@@ -235,10 +236,11 @@
 }
 
 -(void)gameControllerDelegateDidLoadNextQuestion:(QuestionAnswerCompModel *)model
-{
+{    
     [self buttonsEnabled:YES];
-    [self updateUiWithModel:model];
-    [self animateQuestionChangeOverToAlpha:1 WithCallBack:nil];
+    [self animateQuestionChangeOverToAlpha:1 WithCallBack:^{
+        [self updateUiWithModel:model];
+    }];
 }
 
 -(void)gameControllerDelegateDidEndWithTotalScore:(NSNumber*)totalScore
@@ -249,7 +251,9 @@
 -(void)gameControllerDelegateTimerDidRunOut
 {
     [self buttonsEnabled:NO];
-    [self animateToNextQuestion];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self animateToNextQuestion];
+    });
 }
 
 @end
