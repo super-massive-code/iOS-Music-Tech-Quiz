@@ -82,7 +82,7 @@
     NSString *fontName = @"Helvetica-Bold";
     UIFont *questionFont = [UIFont fontWithName:fontName size:30];
     UIFont *answerFont = [UIFont fontWithName:fontName size:25];
-    UIFont *pointsFont = [UIFont fontWithName:fontName size:20];
+    UIFont *pointsFont = [UIFont fontWithName:fontName size:18];
     
     UIColor *backgroundColour = [UIColor dividedColorWithRed:51 green:111 blue:151 alpha:1];
     UIColor *headerFooterBackgroundColour = [UIColor dividedColorWithRed:85 green:176 blue:241 alpha:1];
@@ -104,7 +104,7 @@
     self.questionLabel.textColor = textColour;
     self.questionLabel.font = questionFont;
     
-    self.pointsLabel.textColor = backgroundColour;
+    self.pointsLabel.textColor = textColour;
     self.pointsLabel.font = pointsFont;
 
     CGAffineTransform progressViewTransform = CGAffineTransformMakeScale(1.0f, 4.0f);
@@ -246,7 +246,7 @@
 #pragma mark GameControllerDelegate
 
 -(void)gameControllerDelegateDidConfirmAnswerIsCorrect:(BOOL)answerCorrect forUserAnswer:(NSString *)userAnswer withCorrectAnswer:(NSString *)correctAnswer
-{  
+{
     [self buttonsEnabled:NO];
     
     UIButton *userAnswerButton;
@@ -290,7 +290,7 @@
 
 -(void)gameControllerDelegateDidUpdatePoints:(NSInteger)points
 {
-    self.pointsLabel.text = [NSString stringWithFormat:@"Score: %li", (long)points];
+    self.pointsLabel.text = [NSString stringWithFormat:@"Score:%li", (long)points];
 }
 
 @end
