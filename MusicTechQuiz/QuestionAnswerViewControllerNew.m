@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIView *footerView;
 
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *pointsLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *answerButtonOne;
 @property (weak, nonatomic) IBOutlet UIButton *answerButtonTwo;
@@ -81,6 +82,7 @@
     NSString *fontName = @"Helvetica-Bold";
     UIFont *questionFont = [UIFont fontWithName:fontName size:30];
     UIFont *answerFont = [UIFont fontWithName:fontName size:25];
+    UIFont *pointsFont = [UIFont fontWithName:fontName size:20];
     
     UIColor *backgroundColour = [UIColor dividedColorWithRed:51 green:111 blue:151 alpha:1];
     UIColor *headerFooterBackgroundColour = [UIColor dividedColorWithRed:85 green:176 blue:241 alpha:1];
@@ -101,6 +103,9 @@
     
     self.questionLabel.textColor = textColour;
     self.questionLabel.font = questionFont;
+    
+    self.pointsLabel.textColor = backgroundColour;
+    self.pointsLabel.font = pointsFont;
 
     CGAffineTransform progressViewTransform = CGAffineTransformMakeScale(1.0f, 4.0f);
     self.timeLeftProgressView.transform = progressViewTransform;
@@ -278,9 +283,14 @@
     });
 }
 
--(void)gameControllerDelegateTimeUpdate:(float)timeLeft
+-(void)gameControllerDelegateDidUpdateTime:(float)timeLeft
 {
     self.timeLeftProgressView.progress = timeLeft;
+}
+
+-(void)gameControllerDelegateDidUpdatePoints:(NSInteger)points
+{
+    self.pointsLabel.text = [NSString stringWithFormat:@"Score: %li", (long)points];
 }
 
 @end

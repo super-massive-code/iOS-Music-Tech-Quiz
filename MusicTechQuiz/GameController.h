@@ -17,7 +17,8 @@
 -(void)gameControllerDelegateDidEndWithTotalScore:(NSNumber*)totalScore;
 -(void)gameControllerDelegateTimerDidRunOut;
 @optional
--(void)gameControllerDelegateTimeUpdate:(float)timeLeft;
+-(void)gameControllerDelegateDidUpdateTime:(float)timeLeft;
+-(void)gameControllerDelegateDidUpdatePoints:(NSInteger)points;
 @end
 
 @interface GameController : NSObject

@@ -106,8 +106,11 @@ NSInteger SECONDS_TO_ANSWER_QUESION = 1.0;
 
 -(void)updateUserScore:(NSInteger)newPoints
 {
-    self.userScore += newPoints;
     // Extra Points *x for answering quick?
+    self.userScore += newPoints;
+    if ([self.delegate respondsToSelector:@selector(gameControllerDelegateDidUpdatePoints:)]) {
+        [self.delegate gameControllerDelegateDidUpdatePoints:self.userScore];
+    }
 }
 
 -(void)gameEnded
@@ -150,8 +153,8 @@ NSInteger SECONDS_TO_ANSWER_QUESION = 1.0;
 
 -(void)updateTimeLeftOnDelegate
 {
-    if ([self.delegate respondsToSelector:@selector(gameControllerDelegateTimeUpdate:)]) {
-        [self.delegate gameControllerDelegateTimeUpdate:self.timeLeft];
+    if ([self.delegate respondsToSelector:@selector(gameControllerDelegateDidUpdateTime:)]) {
+        [self.delegate gameControllerDelegateDidUpdateTime:self.timeLeft];
     }
 }
 
