@@ -19,6 +19,7 @@
 
 @property (strong, nonatomic) AVAudioPlayer *correctAudioPlayer;
 @property (strong, nonatomic) AVAudioPlayer *wrongAudioPlayer;
+@property (strong, nonatomic) AVAudioPlayer *timeOutAudioPlayer;
 
 @property (strong, nonatomic) NSTimer *timer;
 
@@ -52,11 +53,15 @@ NSInteger QUESTION_TIME_LIMT = 10;
     
     NSString *filePathCorrect = [[NSBundle mainBundle]pathForResource:@"correct" ofType:@"wav"];
     NSString *filePathWrong   = [[NSBundle mainBundle]pathForResource:@"wrong" ofType:@"wav"];
+    NSString *filePathTimeOut = [[NSBundle mainBundle]pathForResource:@"time_out" ofType:@"wav"];
     
     self.correctAudioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:[NSURL URLWithString:filePathCorrect] error:NULL];
     self.wrongAudioPlayer   = [[AVAudioPlayer alloc]initWithContentsOfURL:[NSURL URLWithString:filePathWrong] error:NULL];
+    self.timeOutAudioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:[NSURL URLWithString:filePathTimeOut] error:NULL];
+    
     [self.correctAudioPlayer prepareToPlay];
     [self.wrongAudioPlayer prepareToPlay];
+    [self.timeOutAudioPlayer prepareToPlay];
 }
 
 #pragma mark -
@@ -136,10 +141,9 @@ NSInteger QUESTION_TIME_LIMT = 10;
 
 -(void)timeRanOut
 {
+    [self.timeOutAudioPlayer play];
     [self stopTimer];
     [self.delegate gameControllerDelegateTimerDidRunOut];
-    
-    // play time out sound FX
 }
 
 @end

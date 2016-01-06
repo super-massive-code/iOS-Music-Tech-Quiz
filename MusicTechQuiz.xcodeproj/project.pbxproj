@@ -33,6 +33,7 @@
 		C36873191C3BD4D600027ECF /* UIColor+RgbDivided.m in Sources */ = {isa = PBXBuildFile; fileRef = C36873181C3BD4D600027ECF /* UIColor+RgbDivided.m */; };
 		C368731C1C3BF2D900027ECF /* GameOverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C368731B1C3BF2D900027ECF /* GameOverViewController.m */; };
 		C368731F1C3BF72000027ECF /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C368731E1C3BF72000027ECF /* HomeViewController.m */; };
+		C36873281C3D0ECD00027ECF /* time_out.wav in Resources */ = {isa = PBXBuildFile; fileRef = C36873271C3D0ECD00027ECF /* time_out.wav */; };
 		C3A030671C3AA01700CEF820 /* AnswerUpdateParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A030661C3AA01700CEF820 /* AnswerUpdateParser.m */; };
 		C3D48FE31C2AEABB004C39CF /* ServerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D48FE21C2AEABB004C39CF /* ServerResponse.m */; };
 		C3D48FF81C2B031A004C39CF /* UpdateFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D48FF71C2B031A004C39CF /* UpdateFetcher.m */; };
@@ -92,6 +93,7 @@
 		C368731B1C3BF2D900027ECF /* GameOverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverViewController.m; sourceTree = "<group>"; };
 		C368731D1C3BF72000027ECF /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		C368731E1C3BF72000027ECF /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		C36873271C3D0ECD00027ECF /* time_out.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = time_out.wav; path = ../../../../../../../Desktop/time_out.wav; sourceTree = "<group>"; };
 		C3A030651C3AA01700CEF820 /* AnswerUpdateParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerUpdateParser.h; sourceTree = "<group>"; };
 		C3A030661C3AA01700CEF820 /* AnswerUpdateParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerUpdateParser.m; sourceTree = "<group>"; };
 		C3D48FE11C2AEABB004C39CF /* ServerResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerResponse.h; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 		C367B8E31BDCDF9F00CE442C /* MusicTechQuiz */ = {
 			isa = PBXGroup;
 			children = (
+				C36873261C3D0EBF00027ECF /* Sounds */,
 				C36873161C3BD4A100027ECF /* Helpers */,
 				C367B8E71BDCDF9F00CE442C /* AppDelegate.h */,
 				C367B8E81BDCDF9F00CE442C /* AppDelegate.m */,
@@ -189,8 +192,6 @@
 				C3D48FE41C2AF0E0004C39CF /* ServerUpdates */,
 				C367B8ED1BDCDF9F00CE442C /* Main.storyboard */,
 				C367B8F01BDCDF9F00CE442C /* Assets.xcassets */,
-				C367B9041BDCF94000CE442C /* wrong.wav */,
-				C367B9051BDCF94000CE442C /* correct.wav */,
 				C367B8F21BDCDF9F00CE442C /* LaunchScreen.storyboard */,
 				C367B8F51BDCDF9F00CE442C /* Info.plist */,
 				C367B8E41BDCDF9F00CE442C /* Supporting Files */,
@@ -240,6 +241,16 @@
 				C36873181C3BD4D600027ECF /* UIColor+RgbDivided.m */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		C36873261C3D0EBF00027ECF /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				C36873271C3D0ECD00027ECF /* time_out.wav */,
+				C367B9041BDCF94000CE442C /* wrong.wav */,
+				C367B9051BDCF94000CE442C /* correct.wav */,
+			);
+			name = Sounds;
 			sourceTree = "<group>";
 		};
 		C3D48FE01C2AEA6C004C39CF /* ServerComms */ = {
@@ -347,6 +358,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C36873281C3D0ECD00027ECF /* time_out.wav in Resources */,
 				C367B8F41BDCDF9F00CE442C /* LaunchScreen.storyboard in Resources */,
 				C367B8F11BDCDF9F00CE442C /* Assets.xcassets in Resources */,
 				C367B9061BDCF94000CE442C /* wrong.wav in Resources */,
