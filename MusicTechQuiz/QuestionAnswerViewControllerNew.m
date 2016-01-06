@@ -42,7 +42,7 @@
 {
     [super viewDidLoad];
     [self setUpUi];
-    [self setUpGameEngine];
+    [self setUpGameController];
 }
 
 - (void)didReceiveMemoryWarning
@@ -60,7 +60,7 @@
 #pragma mark -
 #pragma mark SetUp
 
--(void)setUpGameEngine
+-(void)setUpGameController
 {
     self.gameController = [[GameController alloc]init];
     self.gameController.delegate = self;
