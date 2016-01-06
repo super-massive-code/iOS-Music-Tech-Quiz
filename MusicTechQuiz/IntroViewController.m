@@ -66,16 +66,18 @@ NSString * const segueQuestionAnswerVC = @"segueQuestionAnswerVC";
     UIView *circles = [self createCircles];
     [self.view insertSubview:circles atIndex:0];
     
-    [self animateMessages:messages forDuration:individualAnimationTime WithCallBack:^{
+    [self animateMessages:messages andView:circles forDuration:individualAnimationTime WithCallBack:^{
         [self startIntroProcess];
-//        [self startGame];
+        //        [self startGame];
     }];
 }
 
+#pragma mark -
+#pragma mark Messages
+
 -(NSMutableArray*)createMessages
 {
-    NSMutableArray *messages = [[NSMutableArray alloc]init];
-    [messages addObject:@"Get\nReady!"];
+    NSMutableArray *messages = [[NSMutableArray alloc]init];   
     [messages addObject:@"3"];
     [messages addObject:@"2"];
     [messages addObject:@"1"];
@@ -84,44 +86,55 @@ NSString * const segueQuestionAnswerVC = @"segueQuestionAnswerVC";
     return messages;
 }
 
--(void)animateMessages:(NSMutableArray*)messages forDuration:(float)duration WithCallBack:(void(^)(void))callBack
+-(void)animateMessages:(NSMutableArray*)messages andView:(UIView*)circleView forDuration:(float)duration WithCallBack:(void(^)(void))callBack
 {
     NSString *messageString = [messages objectAtIndex:0];
     self.messageLabel.text = messageString;
     [messages removeObjectAtIndex:0];
     
-    CGAffineTransform transformGrow   = CGAffineTransformMakeScale(4.0f, 4.0f);
-    CGAffineTransform transformShrink = CGAffineTransformMakeScale(1.0f, 1.0f);
+    CGAffineTransform transformGrowText   = CGAffineTransformMakeScale(4.0f, 4.0f);
+    CGAffineTransform transformGrowCircle = CGAffineTransformMakeScale(1.2f, 1.2f);
+    CGAffineTransform transformShrink     = CGAffineTransformMakeScale(1.0f, 1.0f);
     
-    [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        self.messageLabel.transform = transformGrow;
-    } completion:^(BOOL finished) {
-        self.messageLabel.transform = transformShrink;
-        if (messages.count > 0) {
-            [self animateMessages:messages forDuration:duration WithCallBack:callBack];
-        } else {
-            callBack();
-        }
-    }];
+    [UIView animateWithDuration:duration
+                          delay:0
+         usingSpringWithDamping:0.5
+          initialSpringVelocity:10
+                        options:UIViewAnimationOptionCurveEaseOut animations:^{
+                            
+                            self.messageLabel.transform = transformGrowText;
+                            circleView.transform        = transformGrowCircle;
+                            
+                        } completion:^(BOOL finished) {
+                            
+                            self.messageLabel.transform = transformShrink;
+                            circleView.transform        = transformShrink;
+                            
+                            if (messages.count > 0) {
+                                [self animateMessages:messages andView:circleView forDuration:duration WithCallBack:callBack];
+                            } else {
+                                callBack();
+                            }
+                        }];
 }
 
 #pragma mark -
-#pragma mark CreateCircles
+#pragma mark Circles
 
 -(UIView*)createCircles
 {
     float diamieter = self.view.bounds.size.width / 2;
- 
+    
     UIView *circleView = [[UIView alloc]init];
     circleView.center = self.view.center;
     circleView.backgroundColor = [ColourConstants secondaryBackgroundColour];
     [self roundView:circleView toDiameter:diamieter];
-
+    
     UIView *innerCircleView = [[UIView alloc]init];
     innerCircleView.backgroundColor = [ColourConstants primaryBackgroundColour];
     [self roundView:innerCircleView toDiameter:diamieter - 20];
     innerCircleView.center = CGPointMake(circleView.bounds.size.width / 2, circleView.bounds.size.width / 2);
-
+    
     [circleView addSubview:innerCircleView];
     return circleView;
 }
