@@ -9,8 +9,8 @@
 #import "QuestionAnswerViewControllerNew.h"
 #import "GameController.h"
 #import "QuestionAnswerCompModel.h"
-#import "UIColor+RgbDivided.h"
 #import "GameOverViewController.h"
+#import "ColourConstants.h"
 
 @interface QuestionAnswerViewControllerNew () <GameControllerDelegate>
 
@@ -76,9 +76,9 @@
     UIFont *answerFont = [UIFont fontWithName:fontName size:25];
     UIFont *pointsFont = [UIFont fontWithName:fontName size:18];
     
-    UIColor *backgroundColour = [UIColor dividedColorWithRed:51 green:111 blue:151 alpha:1];
-    UIColor *headerFooterBackgroundColour = [UIColor dividedColorWithRed:85 green:176 blue:241 alpha:1];
-    UIColor *textColour = [UIColor whiteColor];
+    UIColor *backgroundColour = [ColourConstants primaryBackgroundColour];
+    UIColor *headerFooterBackgroundColour = [ColourConstants secondaryBackgroundColour];
+    UIColor *textColour = [ColourConstants primaryTextColour];
     
     self.view.backgroundColor = backgroundColour;
     
@@ -129,8 +129,8 @@
 -(void)animateAnswerButton:(UIButton*)button asCorrectAnswer:(BOOL)isCorrectAnswer correctAnswer:(NSString*)correctAnswer callBack:(void(^)(void))callBack
 {
     UIColor *selectedButtonColour;
-    UIColor *correctAnswerColour = [UIColor dividedColorWithRed:46 green:204 blue:113 alpha:1];
-    UIColor *wrongAnswerColour   = [UIColor dividedColorWithRed:231 green:76 blue:60 alpha:1];
+    UIColor *correctAnswerColour = [ColourConstants primaryGood];
+    UIColor *wrongAnswerColour   = [ColourConstants primaryBad];
     
     if (isCorrectAnswer) {
         selectedButtonColour = correctAnswerColour;
@@ -277,7 +277,7 @@
 
 -(void)gameControllerDelegateDidUpdateTime:(float)timeLeft
 {
-    self.timeLeftProgressView.progress = timeLeft;
+//    self.timeLeftProgressView.progress = timeLeft;
 }
 
 -(void)gameControllerDelegateDidUpdatePoints:(NSInteger)points

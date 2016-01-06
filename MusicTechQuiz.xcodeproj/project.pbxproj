@@ -36,6 +36,7 @@
 		C368732A1C3D503B00027ECF /* time_out.wav in Resources */ = {isa = PBXBuildFile; fileRef = C36873291C3D503B00027ECF /* time_out.wav */; };
 		C368732D1C3D52DE00027ECF /* IntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C368732C1C3D52DE00027ECF /* IntroViewController.m */; };
 		C36873301C3D538D00027ECF /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C368732F1C3D538D00027ECF /* BaseViewController.m */; };
+		C36873331C3D616A00027ECF /* ColourConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C36873321C3D616A00027ECF /* ColourConstants.m */; };
 		C3A030671C3AA01700CEF820 /* AnswerUpdateParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A030661C3AA01700CEF820 /* AnswerUpdateParser.m */; };
 		C3D48FE31C2AEABB004C39CF /* ServerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D48FE21C2AEABB004C39CF /* ServerResponse.m */; };
 		C3D48FF81C2B031A004C39CF /* UpdateFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D48FF71C2B031A004C39CF /* UpdateFetcher.m */; };
@@ -100,6 +101,8 @@
 		C368732C1C3D52DE00027ECF /* IntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroViewController.m; sourceTree = "<group>"; };
 		C368732E1C3D538D00027ECF /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		C368732F1C3D538D00027ECF /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		C36873311C3D616A00027ECF /* ColourConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColourConstants.h; sourceTree = "<group>"; };
+		C36873321C3D616A00027ECF /* ColourConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColourConstants.m; sourceTree = "<group>"; };
 		C3A030651C3AA01700CEF820 /* AnswerUpdateParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerUpdateParser.h; sourceTree = "<group>"; };
 		C3A030661C3AA01700CEF820 /* AnswerUpdateParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerUpdateParser.m; sourceTree = "<group>"; };
 		C3D48FE11C2AEABB004C39CF /* ServerResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerResponse.h; sourceTree = "<group>"; };
@@ -186,6 +189,8 @@
 		C367B8E31BDCDF9F00CE442C /* MusicTechQuiz */ = {
 			isa = PBXGroup;
 			children = (
+				C36873311C3D616A00027ECF /* ColourConstants.h */,
+				C36873321C3D616A00027ECF /* ColourConstants.m */,
 				C36873261C3D0EBF00027ECF /* Sounds */,
 				C36873161C3BD4A100027ECF /* Helpers */,
 				C367B8E71BDCDF9F00CE442C /* AppDelegate.h */,
@@ -446,6 +451,7 @@
 				C367B9001BDCF0D200CE442C /* QuestionController.m in Sources */,
 				C36873191C3BD4D600027ECF /* UIColor+RgbDivided.m in Sources */,
 				C32BFAE81C33E9440033D82C /* PendingUpdateParser.m in Sources */,
+				C36873331C3D616A00027ECF /* ColourConstants.m in Sources */,
 				C368732D1C3D52DE00027ECF /* IntroViewController.m in Sources */,
 				C32BFB141C35372B0033D82C /* QuestionModel+CoreDataProperties.m in Sources */,
 				C367B8FD1BDCE29A00CE442C /* QuestionAnswerCompModel.m in Sources */,
