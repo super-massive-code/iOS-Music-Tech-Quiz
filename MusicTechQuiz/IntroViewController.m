@@ -35,11 +35,6 @@ NSString * const segueQuestionAnswerVC = @"segueQuestionAnswerVC";
     [self startIntroProcess];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark -
 #pragma mark SetUp
 
@@ -67,17 +62,16 @@ NSString * const segueQuestionAnswerVC = @"segueQuestionAnswerVC";
     [self.view insertSubview:circles atIndex:0];
     
     [self animateMessages:messages andView:circles forDuration:individualAnimationTime WithCallBack:^{
-        [self startIntroProcess];
-        //        [self startGame];
+        self.messageLabel.text = @"";
+        [self animateView:circles toExpandOffScreenWithCallBack:^{
+            [self startGame];
+        }];
     }];
 }
 
-#pragma mark -
-#pragma mark Messages
-
 -(NSMutableArray*)createMessages
 {
-    NSMutableArray *messages = [[NSMutableArray alloc]init];   
+    NSMutableArray *messages = [[NSMutableArray alloc]init];
     [messages addObject:@"3"];
     [messages addObject:@"2"];
     [messages addObject:@"1"];
@@ -85,6 +79,9 @@ NSString * const segueQuestionAnswerVC = @"segueQuestionAnswerVC";
     
     return messages;
 }
+
+#pragma mark -
+#pragma mark Animation
 
 -(void)animateMessages:(NSMutableArray*)messages andView:(UIView*)circleView forDuration:(float)duration WithCallBack:(void(^)(void))callBack
 {
@@ -118,6 +115,17 @@ NSString * const segueQuestionAnswerVC = @"segueQuestionAnswerVC";
                         }];
 }
 
+-(void)animateView:(UIView*)view toExpandOffScreenWithCallBack:(void(^)(void))callBack
+{
+    CGAffineTransform transformGrowCircle = CGAffineTransformMakeScale(10.0f, 10.0f);
+    
+    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+        view.transform = transformGrowCircle;
+    } completion:^(BOOL finished) {
+        callBack();
+    }];
+}
+
 #pragma mark -
 #pragma mark Circles
 
@@ -127,11 +135,11 @@ NSString * const segueQuestionAnswerVC = @"segueQuestionAnswerVC";
     
     UIView *circleView = [[UIView alloc]init];
     circleView.center = self.view.center;
-    circleView.backgroundColor = [ColourConstants secondaryBackgroundColour];
+    circleView.backgroundColor = [ColourConstants primaryBackgroundColour];
     [self roundView:circleView toDiameter:diamieter];
     
     UIView *innerCircleView = [[UIView alloc]init];
-    innerCircleView.backgroundColor = [ColourConstants primaryBackgroundColour];
+    innerCircleView.backgroundColor = [ColourConstants secondaryBackgroundColour];
     [self roundView:innerCircleView toDiameter:diamieter - 20];
     innerCircleView.center = CGPointMake(circleView.bounds.size.width / 2, circleView.bounds.size.width / 2);
     
