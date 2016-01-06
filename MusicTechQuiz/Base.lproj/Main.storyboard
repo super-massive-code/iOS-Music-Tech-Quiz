@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="v7h-UR-nC3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uug-Rj-Msq">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -232,13 +232,28 @@
                     <view key="view" contentMode="scaleToFill" id="euz-oP-n5I">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NVC-Cy-f0k">
+                                <rect key="frame" x="20" y="218" width="374" height="300"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NVC-Cy-f0k" firstAttribute="centerY" secondItem="euz-oP-n5I" secondAttribute="centerY" id="2EA-HZ-yO1"/>
+                            <constraint firstItem="NVC-Cy-f0k" firstAttribute="trailing" secondItem="euz-oP-n5I" secondAttribute="trailingMargin" id="7YW-1J-4cr"/>
+                            <constraint firstItem="NVC-Cy-f0k" firstAttribute="leading" secondItem="euz-oP-n5I" secondAttribute="leadingMargin" id="9Xe-kQ-2Pm"/>
+                            <constraint firstItem="NVC-Cy-f0k" firstAttribute="top" secondItem="iUF-F4-2I8" secondAttribute="bottom" constant="218" id="TQg-uw-vMa"/>
+                        </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="messageLabel" destination="NVC-Cy-f0k" id="8CS-FU-hbk"/>
                         <segue destination="Dja-KN-F8T" kind="show" identifier="segueQuestionAnswerVC" animates="NO" id="til-Ue-pye"/>
                     </connections>
                 </viewController>
