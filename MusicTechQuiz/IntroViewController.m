@@ -24,6 +24,7 @@ NSString * const segueQuestionAnswerVC = @"segueQuestionAnswerVC";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setUpUi];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -37,6 +38,13 @@ NSString * const segueQuestionAnswerVC = @"segueQuestionAnswerVC";
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark -
+#pragma mark SetUp
+
+-(void)setUpUi
+{
+    [super setUpUi];
+}
 
 #pragma mark -
 #pragma mark Intro
@@ -45,6 +53,7 @@ NSString * const segueQuestionAnswerVC = @"segueQuestionAnswerVC";
 {
     NSMutableArray *messages = [self createMessages];
     [self animateMessages:messages WithCallBack:^{
+//        [self startIntroProcess];
         [self startGame];
     }];
 }
@@ -52,7 +61,7 @@ NSString * const segueQuestionAnswerVC = @"segueQuestionAnswerVC";
 -(NSMutableArray*)createMessages
 {
     NSMutableArray *messages = [[NSMutableArray alloc]init];
-    [messages addObject:@"Get\nReady!"];
+    [messages addObject:@"Get\nReady"];
     [messages addObject:@"3"];
     [messages addObject:@"2"];
     [messages addObject:@"1"];

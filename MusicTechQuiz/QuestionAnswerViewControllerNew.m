@@ -10,7 +10,7 @@
 #import "GameController.h"
 #import "QuestionAnswerCompModel.h"
 #import "GameOverViewController.h"
-#import "ColourConstants.h"
+#import "GlobalConstants.h"
 
 @interface QuestionAnswerViewControllerNew () <GameControllerDelegate>
 
@@ -70,11 +70,10 @@
 -(void)setUpUi
 {
     [super setUpUi];
-    
-    NSString *fontName = @"Helvetica-Bold";
-    UIFont *questionFont = [UIFont fontWithName:fontName size:30];
-    UIFont *answerFont = [UIFont fontWithName:fontName size:25];
-    UIFont *pointsFont = [UIFont fontWithName:fontName size:18];
+
+    UIFont *questionFont = [FontConstants titleFont];
+    UIFont *answerFont = [FontConstants secondaryTitleFont];
+    UIFont *pointsFont = [FontConstants regularFont];
     
     UIColor *backgroundColour = [ColourConstants primaryBackgroundColour];
     UIColor *headerFooterBackgroundColour = [ColourConstants secondaryBackgroundColour];
