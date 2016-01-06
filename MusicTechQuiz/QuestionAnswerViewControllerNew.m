@@ -101,6 +101,10 @@
     
     self.questionLabel.textColor = textColour;
     self.questionLabel.font = questionFont;
+
+    CGAffineTransform progressViewTransform = CGAffineTransformMakeScale(1.0f, 4.0f);
+    self.timeLeftProgressView.transform = progressViewTransform;
+    self.timeLeftProgressView.tintColor = backgroundColour;
 }
 
 #pragma mark -
@@ -237,7 +241,7 @@
 #pragma mark GameControllerDelegate
 
 -(void)gameControllerDelegateDidConfirmAnswerIsCorrect:(BOOL)answerCorrect forUserAnswer:(NSString *)userAnswer withCorrectAnswer:(NSString *)correctAnswer
-{
+{  
     [self buttonsEnabled:NO];
     
     UIButton *userAnswerButton;
@@ -255,7 +259,6 @@
 
 -(void)gameControllerDelegateDidLoadNextQuestion:(QuestionAnswerCompModel *)model
 {
-    
     [self buttonsEnabled:YES];
     [self animateQuestionChangeOverToAlpha:1 WithCallBack:^{
         [self updateUiWithModel:model];
@@ -277,7 +280,6 @@
 
 -(void)gameControllerDelegateTimeUpdate:(float)timeLeft
 {
-    NSLog(@"Time Left: %f", timeLeft);
     self.timeLeftProgressView.progress = timeLeft;
 }
 

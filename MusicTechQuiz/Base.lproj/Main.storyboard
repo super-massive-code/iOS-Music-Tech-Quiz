@@ -58,14 +58,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <progressView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="TOc-Id-JRM">
-                                        <rect key="frame" x="0.0" y="49" width="600" height="3"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="3"/>
                                     </progressView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="DKV-CF-KnO" firstAttribute="leading" secondItem="eCg-Ze-tI3" secondAttribute="leadingMargin" id="9Pq-5G-tdd"/>
                                     <constraint firstItem="TOc-Id-JRM" firstAttribute="leading" secondItem="eCg-Ze-tI3" secondAttribute="leading" id="AeT-J9-GRH"/>
-                                    <constraint firstItem="TOc-Id-JRM" firstAttribute="top" secondItem="eCg-Ze-tI3" secondAttribute="top" constant="49" id="Cr8-CD-bgD"/>
+                                    <constraint firstItem="TOc-Id-JRM" firstAttribute="top" secondItem="eCg-Ze-tI3" secondAttribute="top" id="Cr8-CD-bgD"/>
                                     <constraint firstItem="DKV-CF-KnO" firstAttribute="centerX" secondItem="TOc-Id-JRM" secondAttribute="centerX" id="EGD-aV-wvF"/>
                                     <constraint firstAttribute="trailing" secondItem="TOc-Id-JRM" secondAttribute="trailing" id="Td8-Gh-ovL"/>
                                     <constraint firstItem="DKV-CF-KnO" firstAttribute="bottom" secondItem="eCg-Ze-tI3" secondAttribute="bottomMargin" id="b8f-6N-nxB"/>
