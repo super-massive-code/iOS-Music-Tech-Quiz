@@ -34,6 +34,8 @@
 		C368731C1C3BF2D900027ECF /* GameOverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C368731B1C3BF2D900027ECF /* GameOverViewController.m */; };
 		C368731F1C3BF72000027ECF /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C368731E1C3BF72000027ECF /* HomeViewController.m */; };
 		C368732A1C3D503B00027ECF /* time_out.wav in Resources */ = {isa = PBXBuildFile; fileRef = C36873291C3D503B00027ECF /* time_out.wav */; };
+		C368732D1C3D52DE00027ECF /* IntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C368732C1C3D52DE00027ECF /* IntroViewController.m */; };
+		C36873301C3D538D00027ECF /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C368732F1C3D538D00027ECF /* BaseViewController.m */; };
 		C3A030671C3AA01700CEF820 /* AnswerUpdateParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A030661C3AA01700CEF820 /* AnswerUpdateParser.m */; };
 		C3D48FE31C2AEABB004C39CF /* ServerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D48FE21C2AEABB004C39CF /* ServerResponse.m */; };
 		C3D48FF81C2B031A004C39CF /* UpdateFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D48FF71C2B031A004C39CF /* UpdateFetcher.m */; };
@@ -94,6 +96,10 @@
 		C368731D1C3BF72000027ECF /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		C368731E1C3BF72000027ECF /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		C36873291C3D503B00027ECF /* time_out.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = time_out.wav; sourceTree = "<group>"; };
+		C368732B1C3D52DE00027ECF /* IntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroViewController.h; sourceTree = "<group>"; };
+		C368732C1C3D52DE00027ECF /* IntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroViewController.m; sourceTree = "<group>"; };
+		C368732E1C3D538D00027ECF /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		C368732F1C3D538D00027ECF /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		C3A030651C3AA01700CEF820 /* AnswerUpdateParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerUpdateParser.h; sourceTree = "<group>"; };
 		C3A030661C3AA01700CEF820 /* AnswerUpdateParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerUpdateParser.m; sourceTree = "<group>"; };
 		C3D48FE11C2AEABB004C39CF /* ServerResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerResponse.h; sourceTree = "<group>"; };
@@ -210,8 +216,12 @@
 		C368730E1C3AE5D000027ECF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C368732E1C3D538D00027ECF /* BaseViewController.h */,
+				C368732F1C3D538D00027ECF /* BaseViewController.m */,
 				C368731D1C3BF72000027ECF /* HomeViewController.h */,
 				C368731E1C3BF72000027ECF /* HomeViewController.m */,
+				C368732B1C3D52DE00027ECF /* IntroViewController.h */,
+				C368732C1C3D52DE00027ECF /* IntroViewController.m */,
 				C368730F1C3BC0B600027ECF /* QuestionAnswerViewControllerNew.h */,
 				C36873101C3BC0B600027ECF /* QuestionAnswerViewControllerNew.m */,
 				C368731A1C3BF2D900027ECF /* GameOverViewController.h */,
@@ -427,6 +437,7 @@
 				C32BFB161C35372B0033D82C /* AnswerModel+CoreDataProperties.m in Sources */,
 				C32BFB131C35372B0033D82C /* PendingUpdateModel.m in Sources */,
 				C3D490051C2B0D3D004C39CF /* ServerConstants.m in Sources */,
+				C36873301C3D538D00027ECF /* BaseViewController.m in Sources */,
 				C32BFB171C35372B0033D82C /* AnswerModel.m in Sources */,
 				C32BFB121C35372B0033D82C /* PendingUpdateModel+CoreDataProperties.m in Sources */,
 				C3D48FFB1C2B0837004C39CF /* UpdateUrlBuilder.m in Sources */,
@@ -435,6 +446,7 @@
 				C367B9001BDCF0D200CE442C /* QuestionController.m in Sources */,
 				C36873191C3BD4D600027ECF /* UIColor+RgbDivided.m in Sources */,
 				C32BFAE81C33E9440033D82C /* PendingUpdateParser.m in Sources */,
+				C368732D1C3D52DE00027ECF /* IntroViewController.m in Sources */,
 				C32BFB141C35372B0033D82C /* QuestionModel+CoreDataProperties.m in Sources */,
 				C367B8FD1BDCE29A00CE442C /* QuestionAnswerCompModel.m in Sources */,
 				C3D48FF81C2B031A004C39CF /* UpdateFetcher.m in Sources */,

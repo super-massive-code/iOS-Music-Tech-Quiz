@@ -147,7 +147,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="On2-Zd-PJq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2984" y="417"/>
+            <point key="canvasLocation" x="3124" y="424"/>
         </scene>
         <!--Game Over View Controller-->
         <scene sceneID="rMC-ux-u5d">
@@ -201,7 +201,7 @@
                                 <rect key="frame" x="75" y="353" width="265" height="30"/>
                                 <state key="normal" title="Start Game"/>
                                 <connections>
-                                    <segue destination="Dja-KN-F8T" kind="show" id="K6N-9M-sjr"/>
+                                    <segue destination="uug-Rj-Msq" kind="show" id="dKt-R1-aGk"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -219,7 +219,32 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m8O-ce-Gay" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2134" y="433"/>
+            <point key="canvasLocation" x="2042" y="424"/>
+        </scene>
+        <!--Intro View Controller-->
+        <scene sceneID="1u6-Mv-Uxc">
+            <objects>
+                <viewController id="uug-Rj-Msq" customClass="IntroViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iUF-F4-2I8"/>
+                        <viewControllerLayoutGuide type="bottom" id="1JC-7h-2Xm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="euz-oP-n5I">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <segue destination="Dja-KN-F8T" kind="show" identifier="segueQuestionAnswerVC" animates="NO" id="til-Ue-pye"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sms-ot-zxK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2584" y="424"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="886-4S-iKN">

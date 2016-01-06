@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface GameOverViewController : UIViewController
+@interface GameOverViewController : BaseViewController
 
 @property (nonatomic, strong) NSNumber *userScore;
 

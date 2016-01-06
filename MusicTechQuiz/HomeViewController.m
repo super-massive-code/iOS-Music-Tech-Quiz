@@ -14,6 +14,9 @@
 
 @implementation HomeViewController
 
+#pragma mark -
+#pragma mark ViewControllerLifeCycle
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -26,19 +29,11 @@
 }
 
 #pragma mark -
-#pragma mark ViewControllerDataSource
-
-- (BOOL)prefersStatusBarHidden
-{
-    return YES;
-}
-
-#pragma mark -
 #pragma mark SetUp
 
 -(void)setUpUi
 {
-    self.navigationController.navigationBar.hidden = YES;
+    [super setUpUi];
 }
 
 @end

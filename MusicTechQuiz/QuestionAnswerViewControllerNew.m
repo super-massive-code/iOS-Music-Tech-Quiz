@@ -58,14 +58,6 @@
 }
 
 #pragma mark -
-#pragma mark ViewControllerDataSource
-
-- (BOOL)prefersStatusBarHidden
-{
-    return YES;
-}
-
-#pragma mark -
 #pragma mark SetUp
 
 -(void)setUpGameEngine
@@ -77,7 +69,7 @@
 
 -(void)setUpUi
 {
-    self.navigationController.navigationBar.hidden = YES;
+    [super setUpUi];
     
     NSString *fontName = @"Helvetica-Bold";
     UIFont *questionFont = [UIFont fontWithName:fontName size:30];
