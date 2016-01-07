@@ -13,5 +13,6 @@
 @interface QuestionController : NSObject
 
 -(QuestionAnswerCompModel*)loadNextQuestion;
++(BOOL)doesHaveQuestionsInDatabase;
 
 @end

@@ -9,12 +9,14 @@
 #import "HomeViewController.h"
 #import "GlobalConstants.h"
 #import "UpdateController.h"
+#import "QuestionController.h"
 
 @interface HomeViewController ()
 
 @property (nonatomic, strong) UpdateController *updateController;
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *buttons;
+@property (weak, nonatomic) IBOutlet UIButton *startGameButton;
 
 @end
 
@@ -27,6 +29,7 @@
 {
     [super viewDidLoad];
     [self setUpUi];
+    [self checkIfCanShowStartButton];
 }
 
 #pragma mark -
@@ -52,14 +55,30 @@
 }
 
 #pragma mark -
+#pragma mark CanShowStartButton
+
+-(void)checkIfCanShowStartButton
+{
+    self.startGameButton.hidden = YES;
+    
+    if ([QuestionController doesHaveQuestionsInDatabase]) {
+        self.startGameButton.hidden = NO;
+    }
+}
+
+#pragma mark -
 #pragma mark UserActions
 
 - (IBAction)updateDataButtonPressed:(UIButton *)sender
 {
     self.updateController = [[UpdateController alloc]init];
-    [self.updateController checkForNewUpdatesOnServer:^{
-        [self.updateController checkForPendingUpdatesOnClient:^{
-            
+    
+    [super startProgressHudWithMessage:@"Checking for updates..." hudInViewCallBack:^{
+        [self.updateController checkForNewUpdatesOnServer:^{
+            [self.updateController checkForPendingUpdatesOnClient:^{
+                [super stopProgressHud];
+                [self checkIfCanShowStartButton];
+            }];
         }];
     }];
 }

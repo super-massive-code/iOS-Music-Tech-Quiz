@@ -74,4 +74,14 @@
     }
 }
 
++(BOOL)doesHaveQuestionsInDatabase
+{
+    QuestionModel *question = [QuestionModel MR_findFirst];
+    if (question) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
 @end

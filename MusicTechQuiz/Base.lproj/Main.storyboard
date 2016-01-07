@@ -212,18 +212,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJG-nb-K4j">
-                                <rect key="frame" x="75" y="353" width="265" height="30"/>
-                                <state key="normal" title="Start Game"/>
-                                <connections>
-                                    <segue destination="uug-Rj-Msq" kind="show" id="dKt-R1-aGk"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LPz-lv-Pqn">
                                 <rect key="frame" x="75" y="220" width="265" height="30"/>
                                 <state key="normal" title="Download Data"/>
                                 <connections>
                                     <action selector="updateDataButtonPressed:" destination="0aJ-S7-y4Z" eventType="touchUpInside" id="bTT-O4-wpc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJG-nb-K4j">
+                                <rect key="frame" x="75" y="353" width="265" height="30"/>
+                                <state key="normal" title="Start Game"/>
+                                <connections>
+                                    <segue destination="uug-Rj-Msq" kind="show" id="dKt-R1-aGk"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -239,6 +239,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="startGameButton" destination="dJG-nb-K4j" id="mMo-07-Ipe"/>
                         <outletCollection property="buttons" destination="dJG-nb-K4j" id="Axi-11-JT9"/>
                         <outletCollection property="buttons" destination="LPz-lv-Pqn" id="NLp-as-elf"/>
                     </connections>
