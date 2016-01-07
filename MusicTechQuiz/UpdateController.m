@@ -23,7 +23,7 @@
 -(void)checkForNewUpdatesOnServer:(void(^)(void))callBack
 {    
     // NSDate last update time
-    NSString *lastUpdateTimeInEpoch = @"12345"; //Fixme: this is ignored on server at the moment
+    NSString *lastUpdateTimeInEpoch = @"12345"; //Fixme: this is ignored on server at the moment it passes back everything each time
     NSString *updateUrl = [NSString stringWithFormat:@"%@%@%@", [ServerConstants getCurrentBaseUrl], kServerEndPointUpdatesSince, lastUpdateTimeInEpoch];
     NSMutableArray *updateUrlArray = [[NSMutableArray alloc]init];
     [updateUrlArray addObject:updateUrl];

@@ -23,7 +23,7 @@ NSString * const kServerModelTypeQuestion = @"question";
 
 +(NSString*)getCurrentBaseUrl
 {
-    return kServerBaseUrlLocal;
+    return kServerBaseUrlProduction;
 }
 
 @end
