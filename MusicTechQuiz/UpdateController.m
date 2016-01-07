@@ -24,7 +24,7 @@
 {    
     // NSDate last update time
     NSString *lastUpdateTimeInEpoch = @"12345"; //Fixme: this is ignored on server at the moment
-    NSString *updateUrl = [NSString stringWithFormat:@"%@%@%@", [ServerComms getCurrentBaseUrl], kServerEndPointUpdatesSince, lastUpdateTimeInEpoch];
+    NSString *updateUrl = [NSString stringWithFormat:@"%@%@%@", [ServerConstants getCurrentBaseUrl], kServerEndPointUpdatesSince, lastUpdateTimeInEpoch];
     NSMutableArray *updateUrlArray = [[NSMutableArray alloc]init];
     [updateUrlArray addObject:updateUrl];
     
@@ -36,7 +36,7 @@
 
 -(void)checkForPendingUpdatesOnClient:(void(^)(void))callBack
 {
-    NSString *baseUrl = [ServerComms getCurrentBaseUrl];
+    NSString *baseUrl = [ServerConstants getCurrentBaseUrl];
     
     NSMutableArray *pendingQuestionUpdates = [self generateUpdateUrlsForModelType:kServerModelTypeQuestion withBaseUrl:baseUrl];
     NSMutableArray *pendingAnswerUpdates   = [self generateUpdateUrlsForModelType:kServerModelTypeAnswer withBaseUrl:baseUrl];

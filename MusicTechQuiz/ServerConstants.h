@@ -21,4 +21,6 @@ extern NSString * const kServerEndPointAddQuestionWithAnswers;
 extern NSString * const kServerModelTypeAnswer;
 extern NSString * const kServerModelTypeQuestion;
 
++(NSString*)getCurrentBaseUrl;
+
 @end

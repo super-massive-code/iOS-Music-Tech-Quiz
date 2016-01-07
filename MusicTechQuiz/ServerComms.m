@@ -130,9 +130,4 @@
     return obj;
 }
 
-+(NSString*)getCurrentBaseUrl
-{
-    return kServerBaseUrlLocal;
-}
-
 @end

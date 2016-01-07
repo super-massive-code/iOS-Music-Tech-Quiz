@@ -21,4 +21,9 @@ NSString * const kServerEndPointAddQuestionWithAnswers  = @"add_question_with_an
 NSString * const kServerModelTypeAnswer   = @"answer";
 NSString * const kServerModelTypeQuestion = @"question";
 
++(NSString*)getCurrentBaseUrl
+{
+    return kServerBaseUrlLocal;
+}
+
 @end

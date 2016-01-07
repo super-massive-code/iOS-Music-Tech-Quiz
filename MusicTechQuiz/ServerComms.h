@@ -20,6 +20,4 @@ typedef NS_ENUM(NSUInteger, HTTP_METHOD) {
 
 -(void)getJSONfromUrl:(NSString*)urlString callCallBack:(void(^)(ServerResponse *responseObject))callBack;
 
-+(NSString*)getCurrentBaseUrl;
-
 @end
