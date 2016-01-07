@@ -53,9 +53,13 @@
     NSMutableURLRequest *urlRequest =[NSMutableURLRequest requestWithURL:nsurl];
     [urlRequest setHTTPMethod:@"GET"];
     
-    [self runRequest:urlRequest WithCallBack:^(ServerResponse *responseObject) {
-        return callBack(responseObject);
-    }];
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+        [self runRequest:urlRequest WithCallBack:^(ServerResponse *responseObject) {
+            dispatch_async(dispatch_get_main_queue(), ^(void){
+                return callBack(responseObject);
+            });
+        }];
+    });     
 }
 
 -(void)postJSON:(id)JSON toUrl:(NSString*)urlString withHttpMethod:(HTTP_METHOD)httpMethod CallBack:(void(^)(ServerResponse *responseObject))callBack
@@ -80,9 +84,13 @@
             break;
     }
     
-    [self runRequest:urlRequest WithCallBack:^(ServerResponse *responseObject) {
-        return callBack(responseObject);
-    }];
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+        [self runRequest:urlRequest WithCallBack:^(ServerResponse *responseObject) {
+            dispatch_async(dispatch_get_main_queue(), ^(void){
+                return callBack(responseObject);
+            });
+        }];
+    });
 }
 
 #pragma -
