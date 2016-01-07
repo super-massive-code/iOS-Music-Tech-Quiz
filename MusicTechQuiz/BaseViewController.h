@@ -13,7 +13,7 @@
 -(void)setUpUi;
 
 -(void)startProgressHudWithMessage:(NSString*)message hudInViewCallBack:(void(^)(void))callback;
--(void)stopProgressHud;
+-(void)stopProgressHudCallBack:(void(^)(void))callback;
 
 -(void)showAlertWithTitle:(NSString*)title andMessage:(NSString*)message;
 

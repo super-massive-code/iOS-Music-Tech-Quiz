@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+@class ServerResponse;
 
 @interface UpdateController : NSObject
 
--(void)checkForNewUpdatesOnServer:(void(^)(void))callBack;
--(void)checkForPendingUpdatesOnClient:(void(^)(void))callBack;
+-(void)checkForNewUpdatesOnServer:(void(^)(ServerResponse *response))callBack;
+-(void)checkForPendingUpdatesOnClient:(void(^)(ServerResponse *response))callBack;
 
 @end

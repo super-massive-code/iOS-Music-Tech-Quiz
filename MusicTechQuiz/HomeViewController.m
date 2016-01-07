@@ -10,6 +10,7 @@
 #import "GlobalConstants.h"
 #import "UpdateController.h"
 #import "QuestionController.h"
+#import "ServerResponse.h"
 
 @interface HomeViewController ()
 
@@ -74,13 +75,39 @@
     self.updateController = [[UpdateController alloc]init];
     
     [super startProgressHudWithMessage:@"Checking for updates..." hudInViewCallBack:^{
-        [self.updateController checkForNewUpdatesOnServer:^{
-            [self.updateController checkForPendingUpdatesOnClient:^{
-                [super stopProgressHud];
-                [self checkIfCanShowStartButton];
-            }];
+        [self.updateController checkForNewUpdatesOnServer:^(ServerResponse *errorResponse){
+            
+            // At the moment you only get a response if there has been an error
+            if (errorResponse) {
+                [super stopProgressHudCallBack:^{
+                    [self parseDownloadError:errorResponse];
+                    [self checkIfCanShowStartButton];
+                }];
+                
+            } else {
+                [self.updateController checkForPendingUpdatesOnClient:^(ServerResponse *response){
+                    [super stopProgressHudCallBack:^{
+                        [self checkIfCanShowStartButton];
+                        if (errorResponse) {
+                            [self parseDownloadError:errorResponse];
+                        }
+                    }];
+                }];
+            }
         }];
     }];
+}
+
+#pragma mark -
+#pragma mark ParseDownloadError
+
+-(void)parseDownloadError:(ServerResponse *)response
+{
+    if (!response.connectionMade) {
+        [super showAlertWithTitle:@"Sorry" andMessage:@"Could not connect to server. Please check your connection or try again later"];
+    } else {
+        [super showAlertWithTitle:@"Sorry" andMessage:@"There was a problem with our server. Please try again later"];
+    }
 }
 
 @end

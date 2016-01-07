@@ -14,17 +14,17 @@
 
 @implementation UpdateFetcher
 
--(void)fetchUrls:(NSMutableArray*)updateUrls usingParser:(id)parser complete:(void(^)(void))complete
+-(void)fetchUrls:(NSMutableArray*)updateUrls usingParser:(id)parser complete:(void(^)(ServerResponse *response))complete
 {
     NSManagedObjectContext *defaultContext = [NSManagedObjectContext MR_defaultContext];
     
-    [self fetchUpdateFromServer:updateUrls parser:parser context:defaultContext complete:^{       
+    [self fetchUpdateFromServer:updateUrls parser:parser context:defaultContext complete:^(ServerResponse *response) {
         [defaultContext MR_saveToPersistentStoreAndWait];
-        complete();
+        complete(response);
     }];
 }
 
--(void)fetchUpdateFromServer:(NSMutableArray*)updates parser:(id)parser context:(NSManagedObjectContext*)context complete:(void(^)(void))complete
+-(void)fetchUpdateFromServer:(NSMutableArray*)updates parser:(id)parser context:(NSManagedObjectContext*)context complete:(void(^)(ServerResponse* response))complete
 {
     NSString *updateUrl = [updates objectAtIndex:0];
     [updates removeObjectAtIndex:0];
@@ -34,14 +34,17 @@
         if (responseObject.connectionMade && responseObject.responseDict && !responseObject.error) {
             [parser parseUpdateResponse:responseObject.responseDict inContext:context];
         } else {
-            //todo: handle error
-            // count so many dropped connections etc before bailing etc?
+            complete(responseObject);
+            //todo: more complete error handling -
+            //count so many dropped connections etc before bailing etc?
+            //count number of failed downloads
+            //add response obj as ivar
         }
         
         if (updates.count > 0) {
             [self fetchUpdateFromServer:updates parser:parser context:context complete:complete];
         } else {
-            complete();
+            complete(nil);
         }
     }];
 }

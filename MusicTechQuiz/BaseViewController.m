@@ -63,10 +63,13 @@
     }
 }
 
--(void)stopProgressHud
+-(void)stopProgressHudCallBack:(void(^)(void))callback
 {
     // Delay so really quick network requests dont cause Hud to flash up and disappear to quickly
-    [self.progressHud hide:YES afterDelay:2.0];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    [self.progressHud hide:YES];
+        callback();
+    });
 }
 
 #pragma mark -
@@ -74,7 +77,15 @@
 
 -(void)showAlertWithTitle:(NSString*)title andMessage:(NSString*)message
 {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title
+                                                                   message:message
+                                                            preferredStyle:UIAlertControllerStyleAlert];
     
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Ok"
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:nil];
+    [alert addAction:okAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 @end

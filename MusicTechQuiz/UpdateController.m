@@ -20,7 +20,7 @@
 
 @implementation UpdateController
 
--(void)checkForNewUpdatesOnServer:(void(^)(void))callBack
+-(void)checkForNewUpdatesOnServer:(void(^)(ServerResponse *response))callBack
 {    
     // NSDate last update time
     NSString *lastUpdateTimeInEpoch = @"12345"; //Fixme: this is ignored on server at the moment it passes back everything each time
@@ -29,12 +29,12 @@
     [updateUrlArray addObject:updateUrl];
     
     UpdateFetcher *updateFetcher = [[UpdateFetcher alloc]init];
-    [updateFetcher fetchUrls:updateUrlArray usingParser:[PendingUpdateParser class] complete:^{
-        callBack();
+    [updateFetcher fetchUrls:updateUrlArray usingParser:[PendingUpdateParser class] complete:^(ServerResponse *response){
+        callBack(response);
     }];
 }
 
--(void)checkForPendingUpdatesOnClient:(void(^)(void))callBack
+-(void)checkForPendingUpdatesOnClient:(void(^)(ServerResponse *response))callBack
 {
     NSString *baseUrl = [ServerConstants getCurrentBaseUrl];
     
@@ -47,14 +47,14 @@
     UpdateFetcher *updateFetcher = [[UpdateFetcher alloc]init];
     
     if (pendingQuestionUpdates.count > 0) {
-        [updateFetcher fetchUrls:pendingQuestionUpdates usingParser:[QuestionUpdateParser class] complete:^{
-            [updateFetcher fetchUrls:pendingAnswerUpdates usingParser:[AnswerUpdateParser class] complete:^{
-                callBack();
+        [updateFetcher fetchUrls:pendingQuestionUpdates usingParser:[QuestionUpdateParser class] complete:^(ServerResponse *response){
+            [updateFetcher fetchUrls:pendingAnswerUpdates usingParser:[AnswerUpdateParser class] complete:^(ServerResponse *response){
+                callBack(response);
             }];
         }];
     } else if (pendingAnswerUpdates.count > 0) {
-        [updateFetcher fetchUrls:pendingAnswerUpdates usingParser:[AnswerUpdateParser class] complete:^{
-            callBack();
+        [updateFetcher fetchUrls:pendingAnswerUpdates usingParser:[AnswerUpdateParser class] complete:^(ServerResponse *response){
+            callBack(response);
         }];
     }
 }

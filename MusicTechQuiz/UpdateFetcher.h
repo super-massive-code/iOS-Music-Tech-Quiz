@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+@class ServerResponse;
+
 @interface UpdateFetcher : NSObject
 
--(void)fetchUrls:(NSMutableArray*)updateUrls usingParser:(id)parser complete:(void(^)(void))complete;
+-(void)fetchUrls:(NSMutableArray*)updateUrls usingParser:(id)parser complete:(void(^)(ServerResponse *response))complete;
 
 @end
