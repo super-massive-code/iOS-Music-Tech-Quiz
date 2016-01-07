@@ -11,5 +11,7 @@
 @interface BaseViewController : UIViewController
 
 -(void)setUpUi;
+-(void)startProgressHudWithMessage:(NSString*)message;
+-(void)showAlertWithTitle:(NSString*)title andMessage:(NSString*)message;
 
 @end

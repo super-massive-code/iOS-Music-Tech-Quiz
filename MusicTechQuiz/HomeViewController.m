@@ -8,8 +8,11 @@
 
 #import "HomeViewController.h"
 #import "GlobalConstants.h"
+#import "UpdateController.h"
 
 @interface HomeViewController ()
+
+@property (nonatomic, strong) UpdateController *updateController;
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *buttons;
 
@@ -46,6 +49,19 @@
         [button setTitleColor:textColour forState:UIControlStateNormal];
         [button.titleLabel setFont:buttonFont];
     }
+}
+
+#pragma mark -
+#pragma mark UserActions
+
+- (IBAction)updateDataButtonPressed:(UIButton *)sender
+{
+    self.updateController = [[UpdateController alloc]init];
+    [self.updateController checkForNewUpdatesOnServer:^{
+        [self.updateController checkForPendingUpdatesOnClient:^{
+            
+        }];
+    }];
 }
 
 @end

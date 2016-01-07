@@ -219,6 +219,13 @@
                                     <segue destination="uug-Rj-Msq" kind="show" id="dKt-R1-aGk"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LPz-lv-Pqn">
+                                <rect key="frame" x="75" y="220" width="265" height="30"/>
+                                <state key="normal" title="Download Data"/>
+                                <connections>
+                                    <action selector="updateDataButtonPressed:" destination="0aJ-S7-y4Z" eventType="touchUpInside" id="bTT-O4-wpc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -233,6 +240,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outletCollection property="buttons" destination="dJG-nb-K4j" id="Axi-11-JT9"/>
+                        <outletCollection property="buttons" destination="LPz-lv-Pqn" id="NLp-as-elf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m8O-ce-Gay" userLabel="First Responder" sceneMemberID="firstResponder"/>
