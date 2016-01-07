@@ -7,8 +7,11 @@
 //
 
 #import "HomeViewController.h"
+#import "GlobalConstants.h"
 
 @interface HomeViewController ()
+
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *buttons;
 
 @end
 
@@ -23,17 +26,26 @@
     [self setUpUi];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-}
-
 #pragma mark -
 #pragma mark SetUp
 
 -(void)setUpUi
 {
     [super setUpUi];
+    
+    UIFont *buttonFont  = [FontConstants secondaryTitleFont];
+    UIColor *textColour = [ColourConstants primaryTextColour];
+    
+    UIColor *backgroundColour = [ColourConstants primaryBackgroundColour];
+    self.view.backgroundColor = backgroundColour;
+    
+    for (UIButton *button in self.buttons) {
+        button.layer.borderColor = textColour.CGColor;
+        button.layer.borderWidth = 2.0f;
+        button.layer.cornerRadius = 10.0f;
+        [button setTitleColor:textColour forState:UIControlStateNormal];
+        [button.titleLabel setFont:buttonFont];
+    }
 }
 
 @end
