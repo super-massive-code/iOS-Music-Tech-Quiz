@@ -7,8 +7,11 @@
 //
 
 #import "BaseViewController.h"
+#import "MBProgressHUD.h"
 
 @interface BaseViewController ()
+
+@property (nonatomic, strong) MBProgressHUD *progressHud;
 
 @end
 
@@ -46,14 +49,24 @@
 #pragma mark -
 #pragma mark ProgressHUD
 
--(void)startProgressHudWithMessage:(NSString*)message
+-(void)startProgressHudWithMessage:(NSString*)message hudInViewCallBack:(void(^)(void))callback
 {
+    self.progressHud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    self.progressHud.mode = MBProgressHUDModeIndeterminate;
+    self.progressHud.labelText = message;
     
+    if (callback) {
+        // Slight delay to guarantee Hud can get into main run loop before next request
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            callback();
+        });
+    }
 }
 
 -(void)stopProgressHud
 {
-    
+    // Delay so really quick network requests dont cause Hud to flash up and disappear to quickly
+    [self.progressHud hide:YES afterDelay:2.0];
 }
 
 #pragma mark -
